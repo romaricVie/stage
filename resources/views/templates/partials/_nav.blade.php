@@ -3,9 +3,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Voodoo pratrimoine</span>
+      <a href="{{route('dashboard')}}" class="logo d-flex align-items-center">
+        <img src="{{asset('assets/img/logo.jpg')}}" alt="">
+        <span class="d-none d-lg-block">Pratrimoine</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -26,6 +26,48 @@
           </a>
         </li><!-- End Search Icon-->
       </ul>
+       
+      <ul class="d-flex align-items-center">
+
+        <!-- End Search Icon-->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="{{asset('assets/img/profil_img.png')}}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Romaric</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Romaric</h6>
+              <span>Administrateur</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <form 
+                  method="POST"
+                  action="{{route('logout')}}" 
+                  class="nav-item" 
+                 >
+             @csrf
+          
+              <a class="dropdown-item d-flex align-items-center" type="submit">
+                <button type="submit" class="btn"><i class="bi bi-box-arrow-right"></i> Deconnexion</button type="submit">
+              </a>
+           </form>
+      
+
+
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
@@ -36,7 +78,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/">
+        <a class="nav-link collapsed" href="{{route('dashboard')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -118,26 +160,9 @@
           <i class="bi bi-check2-square"></i><span>Reparations</span>
         </a>
       </li><!-- End Reparation Nav -->
-
-      <li class="nav-heading">Pages</li>
      
     <!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      
+    <!-- End Register Page Nav -->
      
 
     </ul>

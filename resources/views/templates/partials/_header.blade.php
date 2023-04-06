@@ -4,8 +4,8 @@
      <title>Gestion du patrimoine</title>
 
   <!-- Favicons -->
-     <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-     <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+     <link href="{{asset('assets/img/favicon.jpg')}}" rel="icon">
+     <link href="{{asset('assets/img/logo.jpg')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
      <link href="https://fonts.gstatic.com" rel="preconnect">
