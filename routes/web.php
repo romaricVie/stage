@@ -40,17 +40,21 @@ Route::get('/login', function () {
 
 
 /* Guest*/
+Route::get('/', function () {
+    return view('guest');
+});
+
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
-Route::get('/', [UserController::class, 'create'])->name('login.create');
+
+Route::get('/login', [UserController::class, 'create'])->name('login.create');
 Route::post('/login', [UserController::class, 'login'])->name('login');
 
 /* Auth */
 
 Route::middleware('auth')->group(function () {
-        
-        // dashboard
+                // dashboard
         Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
         Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
