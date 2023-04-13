@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Affectation;
+use App\Models\Employe;
+use App\Models\Bien;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
 
 class AffectationController extends Controller
 {
@@ -27,15 +31,50 @@ class AffectationController extends Controller
     public function create():View
     {
         //
-        return view('affectations.create');
+        $employes = Employe::all();
+        $biens = Bien::all();
+
+        return view('affectations.create',
+
+                    [
+                        "employes" => $employes,
+                        "biens" => $biens
+
+                ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+
+       $validated = $request->validate([
+                
+                        'description' => 'required',
+                        'motif_affection' => 'required',
+                        'employe_id' => 'required',
+                        'bien_id' => 'required',
+
+                    ]);
+
+   
+
+          if($validated){
+
+        $affectation = Affectation::create([
+
+                     "description" =>$validated["description"],
+                     "motif_affection" =>$validated["motif_affection"],
+                     "employe_id" =>$validated["employe_id"],
+                     "bien_id" =>$validated["bien_id"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
 
     }
 

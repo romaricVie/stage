@@ -18,10 +18,15 @@
          <div class="card-body">
             <h5 class="card-title">Enregistrer une categorie</h5>
              <!-- Categorie Form -->
-              <form  class="row g-3">
+              <form  class="row g-3"
+                  method="POST"
+                  action="{{route('categories.store')}}" 
+
+              >
+               @csrf
                 <div class="col-6">
-                    <label for="inputNanme4" class="form-label">Nom Categorie</label>
-                    <input type="text" class="form-control" id="inputNanme4" placeholder="Entrer la categorie" required>
+                    <label for="inputNanme4" class="form-label">Nom categorie</label>
+                    <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer la categorie" required>
                 </div>            
                 <div class="">
                   <button type="submit" class="btn btn-success">Enregistrer</button>

@@ -18,33 +18,39 @@
          <div class="card-body">
             <h5 class="card-title">Enregistrer une affection</h5>
              <!-- Categorie Form -->
-              <form  class="row g-3">
+              <form  
+                    class="row g-3"
+                    method="POST"
+                    action="{{route('affectations.store')}}" 
+
+                  >
+                   @csrf
                   <div class="col-6">
                       <label for="inputCategorie" class="form-label">Employé</label>
-                      <select class="form-select form-select-sm" id="inputCategorie" aria-label=".form-select-sm example">
+                      <select name="employe_id" class="form-select form-select-sm" id="inputCategorie" aria-label=".form-select-sm example">
                            <option selected>Choisir un employé</option>
-                           <option value="1">Romaric</option>
-                           <option value="2">Dadie</option>
-                           <option value="3">Franck</option>
+                           @foreach($employes as $employe)
+                             <option value="{{$employe->id}}">{{$employe->name}}</option>
+                           @endforeach
                     </select>
                   </div><!-- End Employe -->
 
                    <div class="col-6">
                       <label for="inputBien" class="form-label">Biens</label>
-                      <select class="form-select form-select-sm" id="inputBien" aria-label=".form-select-sm example">
+                      <select  name="bien_id" class="form-select form-select-sm" id="inputBien" aria-label=".form-select-sm example">
                            <option selected>Choisir un biens</option>
-                           <option value="1">PC</option>
-                           <option value="2">Imprimante</option>
-                           <option value="3">Climatisseur</option>
+                            @foreach($biens as $bien)
+                              <option value="{{$bien->id}}">{{$bien->name}}</option>
+                           @endforeach
                     </select>
                   </div><!-- End Employe -->
 
                  <div class="col-6">
                     <label for="inputNanme4" class="form-label">Motif affection</label>
-                    <input type="text" class="form-control" id="inputNanme4" placeholder="Entrer le motif" required>
+                    <input type="text" name="motif_affection" class="form-control" id="inputNanme4" placeholder="Entrer le motif" required>
                 </div> <!-- End sous categorie -->
                  <div class="col-6 form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                   <label for="floatingTextarea">Description</label>
                 </div><!--End description --> 
 

@@ -6,6 +6,7 @@ use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class CategorieController extends Controller
 {
@@ -15,7 +16,7 @@ class CategorieController extends Controller
     public function index():View
     {
         //
-       $categories = DB::table("categories")->simplePaginate(2);
+       $categories = DB::table("categories")->simplePaginate(50);
 
        return view('categories.index',
                                     [
@@ -37,9 +38,24 @@ class CategorieController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request):show
+    public function store(Request $request):RedirectResponse
     {
         //
+
+             $validated = $request->validate([
+                        'name' => 'required',
+                    ]);
+
+          if($validated){
+
+            $categorie = Categorie::create([
+                     "name" =>$validated["name"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
        
     }
 
@@ -56,7 +72,7 @@ class CategorieController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Categorie $categorie)
-    {
+    { 
         //
     }
 

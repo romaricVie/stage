@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Entite;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class EntiteController extends Controller
 {
@@ -35,9 +36,27 @@ class EntiteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+
+       // dd($request->all());
+
+             $validated = $request->validate([
+                        'name' => 'required',
+                    ]);
+
+          if($validated){
+
+            $entite = Entite::create([
+                     "name" =>$validated["name"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
+
     }
 
     /**

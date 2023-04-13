@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entrepot;
+use App\Models\Emplacement;
 use App\Models\Espace;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
 class EspaceController extends Controller
 {
     /**
@@ -13,7 +17,7 @@ class EspaceController extends Controller
     public function index()
     {
         //
-        $espaces = Espace::with('entrepot','emplacement')->simplePaginate(10);
+        $espaces = Espace::with('entrepot','emplacement')->simplePaginate(20);
          return view('entrepots.espace_index',[
 
                      'espaces' => $espaces
@@ -26,15 +30,51 @@ class EspaceController extends Controller
     public function create():View
     {
         //
-         return view('entrepots.espace_create');
+
+        $entrepots = Entrepot::all();
+        $emplacements = Emplacement::all();
+
+         return view('entrepots.espace_create',
+                        [
+
+                        "entrepots" => $entrepots,
+                        "emplacements" => $emplacements,
+
+                     ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+        // dd($request->all());
+
+          $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'description' => 'required',
+                        'entrepot_id' => 'required',
+                        'emplacement_id' => 'required',
+                    ]);
+
+   
+
+          if($validated){
+
+            $espace = Espace::create([
+
+                     "name" =>$validated["name"],
+                     "description" =>$validated["description"],
+                     "entrepot_id" =>$validated["entrepot_id"],
+                     "emplacement_id" =>$validated["emplacement_id"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
     }
 
     /**

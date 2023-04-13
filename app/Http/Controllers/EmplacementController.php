@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entrepot;
 use App\Models\Emplacement;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class EmplacementController extends Controller
 {
@@ -17,7 +19,7 @@ class EmplacementController extends Controller
         $emplacements = Emplacement::with(array('entrepot'=> function($query){
                        $query->select('id','name');
 
-        }))->simplePaginate(10);
+        }))->simplePaginate(20);
 
         return view('entrepots.emplacement_index',[
 
@@ -31,15 +33,45 @@ class EmplacementController extends Controller
     public function create():View
     {
         //
-          return view('entrepots.emplacement_create');
+         $entrepots = Entrepot::all();
+
+          return view('entrepots.emplacement_create',
+                        [
+                        
+                        "entrepots" => $entrepots
+
+                      ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+
+       $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'description' => 'required',
+                        'entrepot_id' => 'required',
+                    ]);
+
+   
+
+          if($validated){
+
+            $emplacement = Emplacement::create([
+
+                     "name" =>$validated["name"],
+                     "description" =>$validated["description"],
+                     "entrepot_id" =>$validated["entrepot_id"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
     }
 
     /**

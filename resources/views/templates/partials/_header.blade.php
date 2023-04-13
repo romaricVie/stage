@@ -4,7 +4,7 @@
      <title>Gestion du patrimoine</title>
 
   <!-- Favicons -->
-     <link href="{{asset('assets/img/favicon.jpg')}}" rel="icon">
+     <link href="{{asset('assets/img/profil_img.png')}}" rel="icon">
      <link href="{{asset('assets/img/logo.jpg')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->

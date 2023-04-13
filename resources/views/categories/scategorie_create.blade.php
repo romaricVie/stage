@@ -18,20 +18,27 @@
          <div class="card-body">
             <h5 class="card-title">Enregistrer une sous categorie</h5>
              <!-- Categorie Form -->
-              <form  class="row g-3">
+              <form  
+
+                  class="row g-3"
+                  method="POST"
+                  action="{{route('scategories.store')}}" 
+
+                >
+                  @csrf
                   <div class="col-6">
                       <label for="inputCategorie" class="form-label">Categorie</label>
-                      <select class="form-select form-select-sm" id="inputCategorie" aria-label=".form-select-sm example">
-                           <option selected>Choisir une categorie</option>
-                           <option value="1">Informatique</option>
-                           <option value="2">Electromenager</option>
-                           <option value="3">Vehicule</option>
+                      <select class="form-select form-select-sm" name="categorie_id"  id="inputCategorie" aria-label=".form-select-sm example" required>
+                           <option value="">Choisir une categorie</option>
+                           @foreach($categories as $categorie)
+                             <option value="{{$categorie->id}}">{{$categorie->name}}</option>
+                           @endforeach
                     </select>
                   </div><!-- End categorie -->
 
                  <div class="col-6">
                     <label for="inputNanme4" class="form-label">Nom sous categorie</label>
-                    <input type="text" class="form-control" id="inputNanme4" placeholder="Entrer sous categorie" required>
+                    <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer sous categorie" required>
                 </div> <!-- End sous categorie -->
 
                   <div class="">

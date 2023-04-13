@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Categorie;
+use App\Models\Scategorie;
 use App\Models\Sscategorie;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class SscategorieController extends Controller
 {
@@ -28,15 +32,52 @@ class SscategorieController extends Controller
     public function create():View
     {
         //
-         return view('categories.sscategorie_create');
+        $categories = Categorie::all();
+        $scategories = Scategorie::all();
+
+         return view('categories.sscategorie_create',
+
+                        [
+                            "categories" => $categories,
+                            "scategories" => $scategories
+
+                     ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+       
+       // dd($request->all());
+
+          $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'categorie_id' => 'required',
+                        'scategorie_id' => 'required',
+                    ]);
+
+    //   dd($request->all());
+
+          if($validated){
+
+            $sscategorie = Sscategorie::create([
+
+                     "name" =>$validated["name"],
+                     "categorie_id" =>$validated["categorie_id"],
+                     "scategorie_id" =>$validated["scategorie_id"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
+
+
+
     }
 
     /**

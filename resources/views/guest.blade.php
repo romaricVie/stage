@@ -3,7 +3,7 @@
 
 <style type="text/css">
   
-  #hero{
+  #welcome{
 
   background-image: url('assets/img/hero-bg.jpg');
   height: 24rem;
@@ -44,13 +44,13 @@
 
 <main>
 
-  <div id="hero" class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+  <div id="welcome" class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
      <section  class="d-flex align-items-center">
            <div class="container" data-aos="zoom-out" data-aos-delay="100">
             <h1 id ="msg"class="fs-1 fw-bold">Bienvenue sur le gestionnaire du <span class="patrimoine">Patrimoine</span></h1>
             <h2 id="slogan" class="text-center">Gérer le patrimoine de voodoo en un clic!</h2> 
               <div class="text-center">
-                 <button class="btn btn-primary text-center ">JE ME CONNECTE</button>
+                 <a href="{{route('login')}}"> <button class="btn btn-primary text-center">JE ME CONNECTE</button></a>
               </div>
                  
           </div>

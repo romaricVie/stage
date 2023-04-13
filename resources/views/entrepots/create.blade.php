@@ -18,11 +18,27 @@
          <div class="card-body">
             <h5 class="card-title">Enregistrer un entrepot</h5>
              <!-- Entrepot Form -->
-              <form  class="row g-3">
+              <form 
+
+                  class="row g-3"
+                  method="POST"
+                  action="{{route('entrepots.store')}}" 
+
+                  >
+                   @csrf
                 <div class="col-6">
-                    <label for="inputNanme4" class="form-label">Nom entrepot</label>
-                    <input type="text" class="form-control" id="inputNanme4" placeholder="Entrer entrepot" required>
-                </div>            
+                    <label for="inputNanme4" class="form-label">Nom entrepôt</label>
+                    <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer entrepot" required>
+                </div>
+                <div class="col-6">
+                    <label for="inputNanme5" class="form-label">Adresse géographique</label>
+                    <input type="text" name="adresse_geographique" class="form-control" id="inputNanme5" placeholder="Entrer entrepot" required>
+                </div>
+                 <div class="col-6 form-floating">
+                    <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                      <label for="floatingTextarea">description</label>
+                </div>
+
                 <div class="">
                   <button type="submit" class="btn btn-success">J'enregistre un entrepot</button>
                 </div>

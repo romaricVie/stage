@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Scategorie;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-
+use Illuminate\Http\RedirectResponse;
 
 class ScategorieController extends Controller
 {
@@ -17,7 +18,7 @@ class ScategorieController extends Controller
         //
          $scategories = Scategorie::with(array('categorie' => function($query){
                         $query->select('id','name');
-         }))->simplePaginate(10);
+         }))->simplePaginate(50);
 
          return view('categories.scategorie_index',[
                       "scategories" => $scategories
@@ -30,15 +31,45 @@ class ScategorieController extends Controller
     public function create():View
     {
         //
-      return view('categories.scategorie_create');
+     $categories = Categorie::all();
+
+      return view('categories.scategorie_create',
+                [
+                 
+                 "categories" => $categories
+
+                ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+
+        // dd($request->categorie_id);
+          $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'categorie_id' => 'required',
+                    ]);
+
+    //   dd($request->all());
+
+          if($validated){
+
+            $scategorie = Scategorie::create([
+
+                     "name" =>$validated["name"],
+                     "categorie_id" =>$validated["categorie_id"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
+       
     }
 
     /**

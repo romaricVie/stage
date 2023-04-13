@@ -6,6 +6,8 @@ use App\Models\Entrepot;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
+
 class EntrepotController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class EntrepotController extends Controller
     public function index():View
     {
         //
-        $entrepots = DB::table('entrepots')->simplePaginate(10);
+        $entrepots = DB::table('entrepots')->simplePaginate(20);
 
         return view('entrepots.index',
                         [
@@ -34,9 +36,33 @@ class EntrepotController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
+       // dd($request->categorie_id);
+          $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'description' => 'required',
+                        'adresse_geographique' => 'required',
+                    ]);
+
+   
+
+          if($validated){
+
+            $entrepot = Entrepot::create([
+
+                     "name" =>$validated["name"],
+                     "description" =>$validated["description"],
+                     "adresse_geographique" =>$validated["adresse_geographique"],
+             ]);
+
+         
+          }
+ 
+          return redirect()->back();
+
     }
 
     /**

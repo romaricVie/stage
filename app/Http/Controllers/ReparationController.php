@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reparation;
+use App\Models\Bien;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class ReparationController extends Controller
 {
@@ -27,13 +29,14 @@ class ReparationController extends Controller
     public function create():View
     {
         //
+        $biens = Bien::all();
        return view('reparations.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
         //
     }

@@ -24,7 +24,8 @@
                  action="" 
                  enctype="multipart/form-data"
                  class="row g-3" 
-                 name="enregistrement_biens">
+                 name="enregistrement_biens"
+                 >
 
                  @csrf
 
