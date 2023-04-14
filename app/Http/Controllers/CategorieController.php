@@ -62,10 +62,14 @@ class CategorieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Categorie $categorie)
+    public function show(Categorie $categorie):View
     {
         //
-         return view('categories.show');
+         return view('categories.show',[
+
+                     "categorie" => $categorie
+
+         ]);
     }
 
     /**

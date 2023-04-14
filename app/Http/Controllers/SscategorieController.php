@@ -83,9 +83,13 @@ class SscategorieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sscategorie $sscategorie)
+    public function show(Sscategorie $sscategorie):View
     {
         //
+         return view('categories.sscategorie_show',
+                        [
+                          "sscategorie" => $sscategorie,
+                     ]);
     }
 
     /**

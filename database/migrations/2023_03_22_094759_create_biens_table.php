@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('month',15);
             $table->year('year');
             $table->string('image',100);
-             $table->string('generation',100);
-            $table->enum('etat', ['occupe','libre', 'hors_service']);
+            $table->string('generation',100);
+            $table->enum('etat', ['bon','hors_service']);
+            $table->enum('disponibilite', ['libre','occupe']);
             $table->string('ram',15)->nullable();
             $table->string('disque_dur',15)->nullable();
             $table->string('processeur',15)->nullable();

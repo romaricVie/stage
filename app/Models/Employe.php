@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employe extends Model
 {
@@ -15,6 +16,12 @@ class Employe extends Model
         'email',
         'fonction',
         'contact',
+        'flotte',
+        'fixe',
+        'statut',
+        'contrat',
+        'autres',
+        'entite_id',
     ];
 
 
@@ -29,5 +36,10 @@ class Employe extends Model
     public function affectations(): HasMany
     {
         return $this->hasMany(Affectation::class);
+    }
+
+    public function entite(): BelongsTo
+    {
+        return $this->belongsTo(Entite::class);
     }
 }

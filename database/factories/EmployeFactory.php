@@ -23,6 +23,12 @@ class EmployeFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'fonction' => 'Informaticien',
             'contact' => '01010101',
+            'flotte' => '01010101',
+            'fixe' => fake()->numberBetween(1, 100),
+            'statut' => fake()->randomElement(['actif','inactif']),
+            'contrat' =>fake()->randomElement(['cdd','cdi']),
+            'autres' =>fake()->text(),
+            'entite_id' =>fake()->numberBetween(1, 5),
         ];
     }
 }

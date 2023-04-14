@@ -18,6 +18,7 @@ class EspaceController extends Controller
     {
         //
         $espaces = Espace::with('entrepot','emplacement')->simplePaginate(20);
+
          return view('entrepots.espace_index',[
 
                      'espaces' => $espaces
@@ -80,9 +81,16 @@ class EspaceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Espace $espace)
+    public function show(Espace $espace):View
     {
         //
+
+      return view('entrepots.espace_show',[
+
+                     'espace' => $espace
+         ]);
+
+
     }
 
     /**

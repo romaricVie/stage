@@ -17,7 +17,7 @@
        <a href="{{route('employes.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter employé</button></a>
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Liste des categories({{$employes->count()}})</h5>
+            <h5 class="card-title">Liste des employés({{$employes->count()}})</h5>
              <!-- Bien table -->
               <table class="table table-hover ">
                   <thead>

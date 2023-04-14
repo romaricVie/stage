@@ -65,6 +65,10 @@ class EntiteController extends Controller
     public function show(Entite $entite)
     {
         //
+         return view('entites.show',[
+
+                 'entite' => $entite
+        ]);
     }
 
     /**

@@ -77,9 +77,13 @@ class EmplacementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Emplacement $emplacement)
+    public function show(Emplacement $emplacement):View
     {
         //
+        return view('entrepots.emplacement_show',[
+
+                 "emplacement" => $emplacement
+        ]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employe;
+use App\Models\Entite;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 //use App\Models\Bien;
@@ -30,7 +31,11 @@ class EmployeController extends Controller
     {
         //
 
-        return view('employes.create');
+        $entites = Entite::all();
+        return view('employes.create',[
+                     "entites" => $entites,
+
+        ]);
     }
 
     /**
@@ -40,6 +45,7 @@ class EmployeController extends Controller
     {
         //
         
+        // dd($request->all());
          $validated = $request->validate([
                 
                         'name' => 'required',
@@ -47,6 +53,13 @@ class EmployeController extends Controller
                         'email' => ['required', 'string', 'email', 'max:255'],
                         'fonction' => 'required',
                         'contact' => 'required',
+                        'flotte' => ['string', 'nullable'],
+                        'fixe' => ['string', 'nullable'],
+                        'statut' =>'required',
+                        'contrat' =>'required',
+                        'autres' =>['string', 'nullable'],
+                        'entite_id' =>'required',
+
                     ]);
  
                   if($validated){
@@ -58,6 +71,14 @@ class EmployeController extends Controller
                             "email" => $validated["email"],
                             "fonction" => $validated["fonction"],
                             "contact" => $validated["contact"],
+                            "flotte" => $validated["flotte"],
+                            "fixe" => $validated["fixe"],
+                            "statut" => $validated["statut"],
+                            "contrat" => $validated["contrat"],
+                            "autres" => $validated["autres"],
+                            "entite_id" => $validated["entite_id"],
+
+
                      ]);
 
                   }

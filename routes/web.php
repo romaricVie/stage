@@ -67,32 +67,39 @@ Route::middleware('auth')->group(function () {
         // Scategorie
         Route::get('/scategories', [ScategorieController::class, 'index'])->name('scategories.index');
         Route::get('/scategories/create', [ScategorieController::class, 'create'])->name('scategories.create'); 
-        Route::post('/scategories', [ScategorieController::class, 'store'])->name('scategories.store'); 
+        Route::post('/scategories', [ScategorieController::class, 'store'])->name('scategories.store');
+        Route::get('/scategories/{scategorie}', [ScategorieController::class, 'show'])->name('scategories.show'); 
 
         //Sscategorie
         Route::get('/sscategories', [SscategorieController::class, 'index'])->name('sscategories.index');
         Route::get('/sscategories/create', [SscategorieController::class, 'create'])->name('sscategories.create');
         Route::post('/sscategories', [SscategorieController::class, 'store'])->name('sscategories.store');
+        Route::get('/sscategories/{sscategorie}', [SscategorieController::class, 'show'])->name('sscategories.show');
 
         /* Entrepots  */
         Route::get('/entrepots', [EntrepotController::class, 'index'])->name('entrepots.index');
         Route::get('/entrepots/create', [EntrepotController::class, 'create'])->name('entrepots.create');
         Route::post('/entrepots', [EntrepotController::class, 'store'])->name('entrepots.store');
+        Route::get('/entrepots/{entrepot}', [EntrepotController::class, 'show'])->name('entrepots.show');
+
 
         //Emplacement
         Route::get('/emplacements', [EmplacementController::class, 'index'])->name('emplacements.index');
         Route::get('/emplacements/create', [EmplacementController::class, 'create'])->name('emplacements.create');
         Route::post('/emplacements', [EmplacementController::class, 'store'])->name('emplacements.store');
+        Route::get('/emplacements/{emplacement}', [EmplacementController::class, 'show'])->name('emplacements.show');
 
         //Espace
         Route::get('/espaces', [EspaceController::class, 'index'])->name('espaces.index');
         Route::get('/espaces/create', [EspaceController::class, 'create'])->name('espaces.create');
         Route::post('/espaces', [EspaceController::class, 'store'])->name('espaces.store');
+        Route::get('/espaces/{espace}', [EspaceController::class, 'show'])->name('espaces.show');
 
         /* Entites */
         Route::get('/entites', [EntiteController::class, 'index'])->name('entites.index');
         Route::get('/entites/create', [EntiteController::class, 'create'])->name('entites.create');
         Route::post('/entites', [EntiteController::class, 'store'])->name('entites.store');
+        Route::get('/entites/{entite}', [EntiteController::class, 'show'])->name('entites.show');
 
         /* Employes */
         Route::get('/employes', [EmployeController::class, 'index'])->name('employes.index');

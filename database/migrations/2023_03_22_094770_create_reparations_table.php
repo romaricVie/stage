@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('maintenancier',50);
             $table->string('contact_maintenancier',30);
             $table->text('description_panne');
+            $table->string('day',15);
+            $table->string('month',15);
+            $table->year('year');
             $table->foreignId('bien_id') // Bien id
                    ->constrained()
                    ->onUpdate('cascade')

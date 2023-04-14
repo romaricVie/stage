@@ -24,6 +24,7 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Nom</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -31,6 +32,9 @@
                       <tr>
                         <th scope="row">{{$entite->id}}</th>
                         <td>{{$entite->name}}</td>
+                        <td>
+                           <a href="{{route('entites.show', ['entite' => $entite->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
+                       </td>
                       </tr>
                     @endforeach
                   </tbody>

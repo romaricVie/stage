@@ -25,6 +25,7 @@
                       <th scope="col">#</th>
                       <th scope="col">Nom</th>
                       <th scope="col">Entrepot</th>
+                      <th scope="col">Detail</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -33,6 +34,9 @@
                         <th scope="row">{{$emplacement->id}}</th>
                         <td>{{$emplacement->name}}</td>
                         <td>{{$emplacement->entrepot->name}}</td>
+                       <td>
+                           <a href="{{route('emplacements.show', ['emplacement' => $emplacement->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
+                       </td> 
                       </tr>
                     @endforeach
                   </tbody>

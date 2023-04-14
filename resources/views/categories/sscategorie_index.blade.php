@@ -26,6 +26,7 @@
                       <th scope="col">Nom</th>
                       <th scope="col">Categorie</th>
                        <th scope="col">sous categorie</th>
+                       <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -33,8 +34,11 @@
                       <tr>
                         <th scope="row">{{$sscategorie->id}}</th>
                         <td>{{$sscategorie->name}}</td>
-                        <td>{{$sscategorie->categorie->name ?? 'none'}}</td>
+                        <td>{{$sscategorie->categorie->name}}</td>
                         <td>{{$sscategorie->scategorie->name}}</td>
+                        <td>
+                           <a href="{{route('sscategories.show', ['sscategorie' => $sscategorie->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
+                       </td>
                       </tr>
                    @endforeach
                   </tbody>

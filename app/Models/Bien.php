@@ -18,6 +18,7 @@ class Bien extends Model
         'image',
         'ram',
         'etat',
+        'disponibilite',
         'generation',
         'disque_dur',
         'processeur',

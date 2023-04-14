@@ -68,9 +68,16 @@ class EntrepotController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Entrepot $entrepot)
+    public function show(Entrepot $entrepot):View
     {
         //
+
+         return view('entrepots.show',
+                        [
+                            "entrepot" => $entrepot
+                        ]);
+
+
     }
 
     /**

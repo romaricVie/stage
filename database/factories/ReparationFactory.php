@@ -24,6 +24,9 @@ class ReparationFactory extends Factory
             'contact_maintenancier' => '07074902578',
             'description_panne' => fake()->text(),
             'bien_id' => fake()->numberBetween(1, 5),
+            'day' => fake()->dayOfMonth(),
+            'month' => fake()->month(),
+            'year' => fake()->year(),
         ];
     }
 }

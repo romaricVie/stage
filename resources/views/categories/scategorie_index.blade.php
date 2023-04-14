@@ -25,6 +25,7 @@
                       <th scope="col">#</th>
                       <th scope="col">Nom</th>
                       <th scope="col">Categorie</th>
+                      <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -32,7 +33,10 @@
                       <tr>
                         <th scope="row">{{$scategorie->id}}</th>
                         <td>{{$scategorie->name}}</td>
-                        <td>{{$scategorie->categorie->name?? "Non defini"}}</td>
+                        <td>{{$scategorie->categorie->name}}</td>
+                         <td>
+                           <a href="{{route('scategories.show', [ 'scategorie' => $scategorie->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
+                       </td>
                       </tr>
                     @endforeach
                   </tbody>

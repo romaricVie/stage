@@ -7,6 +7,7 @@ use App\Models\Bien;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 class ReparationController extends Controller
 {
@@ -30,7 +31,10 @@ class ReparationController extends Controller
     {
         //
         $biens = Bien::all();
-       return view('reparations.create');
+        return view('reparations.create',[
+
+                   "biens" => $biens
+       ]);
     }
 
     /**
@@ -39,6 +43,52 @@ class ReparationController extends Controller
     public function store(Request $request):RedirectResponse
     {
         //
+         //dd($request->all());
+       //$bien = DB::table('biens')->where('id',$request->bien_id)->first();   
+
+      //  dd($bien->etat);
+ 
+      //dd($request->etat);
+         $validated = $request->validate([
+                
+                        'etat' => 'required',
+                        'maintenancier' => 'required',
+                        'price' => ['required', 'string'],
+                        'contact_maintenancier' => ['required', 'string'],
+                        'description_panne' => ['required','string'],
+                        'day' => 'required',
+                        'month' => 'required',
+                        'year' =>'required',
+                        'bien_id' =>'required',
+
+                    ]);
+ 
+                  if($validated){
+
+                            $reparation = Reparation::create([
+
+                                            "etat" => $validated["etat"],
+                                            "maintenancier" => $validated["maintenancier"],
+                                            "price" => $validated["price"],
+                                            "contact_maintenancier" => $validated["contact_maintenancier"],
+                                            "description_panne" => $validated["description_panne"],
+                                            "day" => $validated["day"],
+                                            "month" => $validated["month"],
+                                            "year" => $validated["year"],
+                                            "bien_id" => $validated["bien_id"],
+
+                                     ]);
+
+            //update etat bien($request->bien);  
+             $bien = DB::table('biens')->where('id',$request->bien_id)->update(['etat'=>$validated["etat"] ]);   
+              
+            
+
+                  }
+
+
+ 
+          return redirect()->back();
     }
 
     /**

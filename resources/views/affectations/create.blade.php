@@ -40,7 +40,7 @@
                       <select  name="bien_id" class="form-select form-select-sm" id="inputBien" aria-label=".form-select-sm example">
                            <option selected>Choisir un biens</option>
                             @foreach($biens as $bien)
-                              <option value="{{$bien->id}}">{{$bien->name}}</option>
+                              <option value="{{$bien->id}}">(#{{$bien->id}}) {{$bien->name}}</option>
                            @endforeach
                     </select>
                   </div><!-- End Employe -->

@@ -21,4 +21,10 @@ class Entite extends Model
     {
         return $this->hasMany(Bien::class);
     }
+
+
+     public function employes(): HasMany
+    {
+        return $this->hasMany(Employe::class);
+    }
 }

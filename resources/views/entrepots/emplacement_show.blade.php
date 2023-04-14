@@ -4,11 +4,11 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Categorie</h1>
+      <h1>Emplacement</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-          <li class="breadcrumb-item active">{{$categorie->name}}</li>
+          <li class="breadcrumb-item active">{{$emplacement->name}}</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -17,7 +17,7 @@
        
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Liste des biens de la categorie {{$categorie->name}}</h5>
+            <h5 class="card-title">Liste des biens de l'emplacement {{$emplacement->name}}</h5>
              <!-- Bien table -->
               <table class="table table-hover ">
                   <thead>
@@ -26,17 +26,17 @@
                       <th scope="col">Nom du biens</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
-                      <th scope="col">Entrepôts</th>
+                      <th scope="col">Categorie</th>
                     </tr>
                   </thead>
                   <tbody>
-                     @foreach($categorie->biens as $bien)
+                     @foreach($emplacement->biens as $bien)
                       <tr>
                         <th scope="row">{{$bien->id}}</th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
                         <td>{{$bien->disponibilite}}</td>
-                        <td>{{$bien->entrepot->name}}</td>
+                        <td>{{$bien->categorie->name}}</td>
                       </tr>
                     @endforeach
                   </tbody>
