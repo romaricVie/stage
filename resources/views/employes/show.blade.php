@@ -12,7 +12,7 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+     
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">
@@ -21,7 +21,7 @@
               <table class="table table-hover ">
                   <thead>
                     <tr>
-                       <th scope="col">#</th>
+                       <th scope="col">#Indentifiant</th>
                        <th scope="col">Nom du bien</th>
                     </tr>
                   </thead>

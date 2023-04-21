@@ -15,37 +15,9 @@
 
     <section class="section dashboard">
        <a href="{{route('espaces.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter espace</button></a>
-      <div class="card">
-         <div class="card-body">
-            <h5 class="card-title">Liste des espaces</h5>
-             <!-- Bien table -->
-              <table class="table table-hover ">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nom</th>
-                      <th scope="col">Entrepôt</th>
-                      <th scope="col">Emplacement</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($espaces as $espace)
-                      <tr>
-                        <th scope="row">{{$espace->id}}</th>
-                        <td>{{$espace->name}}</td>
-                        <td>{{$espace->entrepot->name}}</td>
-                        <td>{{$espace->emplacement->name}}</td>
-                        <td>
-                           <a href="{{route('espaces.show', ['espace' => $espace->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
-                       </td>
-                      </tr>
-                    @endforeach
-                  </tbody>
-          </table>
-         </div>
-           {{ $espaces->links() }}
-      </div>
+
+       <livewire:espaces/>  
+
     </section>
 </main><!-- End #main -->
 @endsection

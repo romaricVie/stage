@@ -32,6 +32,7 @@ class BienFactory extends Factory
             'processeur' =>fake()->randomElement(['i3', 'i5', 'i7','i9']),
             'couleur' => fake()->randomElement(['Noir', 'Gris', 'Or']),
             'marque' => fake()->randomElement(['HP', 'Lonovo', 'Toshiba','Dell']),
+            'etiquette' => fake()->numberBetween(200000, 900000),
             'categorie_id' =>fake()->numberBetween(1, 5),
             'scategorie_id'=> fake()->numberBetween(1, 5),
             'sscategorie_id' =>fake()->numberBetween(1, 5),

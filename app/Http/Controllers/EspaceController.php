@@ -17,12 +17,9 @@ class EspaceController extends Controller
     public function index()
     {
         //
-        $espaces = Espace::with('entrepot','emplacement')->simplePaginate(20);
+     /*   $espaces = Espace::with('entrepot','emplacement')->simplePaginate(20);*/
 
-         return view('entrepots.espace_index',[
-
-                     'espaces' => $espaces
-         ]);
+         return view('entrepots.espace_index');
     }
 
     /**

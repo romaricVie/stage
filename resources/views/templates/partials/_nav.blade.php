@@ -88,17 +88,17 @@
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{route('categories.index')}}" class="nav-link collapsed">
-              <i class="bi bi-circle"></i><span>Categories</span>
+              <i class="bi bi-circle"></i><span>Liste categorie</span>
             </a>
           </li>
           <li>
             <a href="{{route('scategories.index')}}" class="nav-link collapsed">
-              <i class="bi bi-circle"></i><span>Sous Categorie</span>
+              <i class="bi bi-circle"></i><span>Liste sous Categorie</span>
             </a>
           </li>
           <li>
             <a href="{{route('sscategories.index')}}">
-              <i class="bi bi-circle"></i><span>Sous sous Categorie</span>
+              <i class="bi bi-circle"></i><span>Liste sous sous categorie</span>
             </a>
           </li>
         </ul>
@@ -117,17 +117,17 @@
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="{{route('entrepots.index')}}">
-              <i class="bi bi-circle"></i><span>Entrepôts</span>
+              <i class="bi bi-circle"></i><span>Liste entrepôt</span>
             </a>
           </li>
           <li>
             <a href="{{route('emplacements.index')}}">
-              <i class="bi bi-circle"></i><span>Emplacements</span>
+              <i class="bi bi-circle"></i><span>Liste emplacement</span>
             </a>
           </li>
           <li>
             <a href="{{route('espaces.index')}}">
-              <i class="bi bi-circle"></i><span>Espaces</span>
+              <i class="bi bi-circle"></i><span>Liste espace</span>
             </a>
           </li>
         </ul>

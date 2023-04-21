@@ -15,35 +15,9 @@
 
     <section class="section dashboard">
        <a href="{{route('emplacements.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter emplacement</button></a>
-      <div class="card">
-         <div class="card-body">
-            <h5 class="card-title">Liste des emplacements</h5>
-             <!-- Bien table -->
-              <table class="table table-hover ">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nom</th>
-                      <th scope="col">Entrepot</th>
-                      <th scope="col">Detail</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                     @foreach($emplacements as $emplacement)
-                      <tr>
-                        <th scope="row">{{$emplacement->id}}</th>
-                        <td>{{$emplacement->name}}</td>
-                        <td>{{$emplacement->entrepot->name}}</td>
-                       <td>
-                           <a href="{{route('emplacements.show', ['emplacement' => $emplacement->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
-                       </td> 
-                      </tr>
-                    @endforeach
-                  </tbody>
-          </table>
-         </div>
-          {{ $emplacements->links() }}
-      </div>
+          
+           <livewire:emplacements/>  
+
     </section>
 </main><!-- End #main -->
 @endsection

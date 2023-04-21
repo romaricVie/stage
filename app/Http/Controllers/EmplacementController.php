@@ -16,15 +16,12 @@ class EmplacementController extends Controller
     public function index():View
     {
         //
-        $emplacements = Emplacement::with(array('entrepot'=> function($query){
+      /*  $emplacements = Emplacement::with(array('entrepot'=> function($query){
                        $query->select('id','name');
 
         }))->simplePaginate(20);
-
-        return view('entrepots.emplacement_index',[
-
-                 "emplacements" => $emplacements
-        ]);
+*/
+        return view('entrepots.emplacement_index');
     }
 
     /**

@@ -16,17 +16,23 @@ class Bien extends Model
         'month',
         'year',
         'image',
-        'ram',
         'etat',
         'disponibilite',
+        'etiquette', //fn
         'generation',
+        'ram',
         'disque_dur',
         'processeur',
         'couleur',
         'marque',
+        'longueur',
+        'largeur',
+        'hauteur',
+        'nbre_battant',
         'immatriculation',
         'puissance',
         'matiere',
+        'poids',
         'autres',
         'employe_id',  // id de l'employe
         'categorie_id',
@@ -35,7 +41,7 @@ class Bien extends Model
         'entrepot_id',
         'emplacement_id',
         'espace_id',
-        'entite_id',
+        'entite_id', //31
 
     ];
 
@@ -89,5 +95,11 @@ class Bien extends Model
         return $this->hasMany(Reparation::class);
     }
 
+  // Un bien peut etre affecter un ou plusieur fois
+    public function affectations(): HasMany
+    {
+        return $this->hasMany(Affectation::class);
+    }
+  
 
 }

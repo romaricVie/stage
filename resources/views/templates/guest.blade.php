@@ -6,5 +6,6 @@
 			 @yield('content')
 		</section>
 	@include('templates/partials/_footer')
+	
 </body>
 </html>

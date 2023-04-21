@@ -106,21 +106,27 @@ Route::middleware('auth')->group(function () {
         Route::get('/employes/create', [EmployeController::class, 'create'])->name('employes.create');
         Route::post('/employes', [EmployeController::class, 'store'])->name('employes.store');
         Route::get('/employes/{employe}', [EmployeController::class, 'show'])->name('employes.show');
+        Route::get('/employes/informations/{employe}', [EmployeController::class, 'infos'])->name('employes.infos');
+        Route::put('/employes/{employe}', [EmployeController::class, 'update'])->name('employes.update');
+        Route::get('/employes/{employe}/edit', [EmployeController::class, 'edit'])->name('employes.edit');
 
-        /* Reparations ReparationController */
-        Route::get('/reparations', [ReparationController::class, 'index'])->name('reparations.index');
-        Route::get('/reparations/show', [ReparationController::class, 'show'])->name('reparations.show');
-        Route::get('/reparations/create', [ReparationController::class, 'create'])->name('reparations.create');
-        Route::post('/reparations', [ReparationController::class, 'store'])->name('reparations.store');
 
         /* AffectationController */
         Route::get('/affectations', [AffectationController::class, 'index'])->name('affectations.index');
         Route::get('/affectations/create', [AffectationController::class, 'create'])->name('affectations.create');
         Route::post('/affectations', [AffectationController::class, 'store'])->name('affectations.store');
+        Route::get('/affectations/{affectation}', [AffectationController::class, 'show'])->name('affectations.show');
+
+        /* Reparations ReparationController */
+        Route::get('/reparations', [ReparationController::class, 'index'])->name('reparations.index');
+        Route::get('/reparations/create', [ReparationController::class, 'create'])->name('reparations.create');
+        Route::post('/reparations', [ReparationController::class, 'store'])->name('reparations.store');
+        Route::get('/reparations/{reparation}', [ReparationController::class, 'show'])->name('reparations.show');
 
         /* Biens */
         Route::get('/biens', [BienController::class, 'index'])->name('biens.index');
         Route::get('/biens/create', [BienController::class, 'create'])->name('biens.create');
+        Route::post('/biens', [BienController::class, 'store'])->name('biens.store');
         Route::get('/biens/{bien}', [BienController::class, 'show'])->name('biens.show');
 
 });

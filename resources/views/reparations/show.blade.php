@@ -4,7 +4,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Réparations</h1>
+      <h1>Réparations détails</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -16,17 +16,17 @@
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Details</h5>
+            <h5 class="card-title">Informations sur la réparation</h5>
              <!-- Bien table -->
               <div>
-                  <span class="fw-bold">Nom maintenancier :</span>Paul<br>
-                  <span class="fw-bold">Contact :</span>01020145<br>
-                  <span class="fw-bold">Coût :</span>1500 000F<br>
-                  <span class="fw-bold">Nom du bien :</span>Apple mac book<br>
-                  <span class="fw-bold">Identifiant :</span>#1<br>
-                  <span class="fw-bold">Etat :</span>Bon<br>
-                  <span class="fw-bold">Date :</span>04/04/2023<br>
-                  <span class="fw-bold">Description panne:</span><br>Augmentation de la memoire RAM
+                  <p><span class="fw-bold">Nom du maintenancier :</span> {{$reparation->maintenancier}}</p>
+                  <p><span class="fw-bold">Contact :</span> {{$reparation->contact_maintenancier}}</p>
+                  <p><span class="fw-bold">Coût :</span> {{$reparation->price}} FCFA</p>
+                  <p><span class="fw-bold">Identifiant :</span> {{$reparation->bien->id}}</p>
+                  <p><span class="fw-bold">Nom du bien :</span> {{$reparation->bien->name}}</p>
+                  <p><span class="fw-bold">Etat :</span> {{$reparation->etat}}</p>
+                  <p><span class="fw-bold">Date :</span> {{$reparation->day}}/{{$reparation->month}}/{{$reparation->year}}<p>
+                  <p><span class="fw-bold">Description panne:</span> {{$reparation->description_panne}}<p>
               </div>  
          </div>
       </div>

@@ -18,11 +18,9 @@ class AffectationController extends Controller
     public function index():View
     {
         //
-      $affectations = Affectation::simplePaginate(10);
+    //  $affectations = Affectation::simplePaginate(10);
 
-      return view('affectations.index',[
-                   'affectations' => $affectations
-      ]);
+      return view('affectations.index');
     }
 
     /**
@@ -30,6 +28,7 @@ class AffectationController extends Controller
      */
     public function create():View
     {
+      
         //
         $employes = Employe::all();
         $biens = Bien::all();
@@ -81,9 +80,14 @@ class AffectationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Affectation $affectation)
+    public function show(Affectation $affectation):View
     {
         //
+
+         return view('affectations.show',[
+                   'affectation' => $affectation
+      ]);
+
     }
 
     /**

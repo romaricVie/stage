@@ -17,11 +17,9 @@ class EmployeController extends Controller
     public function index():View
     {
         //
-         $employes = Employe::all();
+      //   $employes = Employe::all();
          
-         return view('employes.index',[
-              'employes'=> $employes
-         ]);
+         return view('employes.index');
     }
 
     /**
@@ -100,20 +98,72 @@ class EmployeController extends Controller
          ]);
     }
 
+
+
+    public function infos(Employe $employe):View
+    {
+      
+         
+         return view('employes.infos',[
+                     'employe' => $employe
+         ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employe $employe)
+    public function edit(Employe $employe):View
     {
         //
+
+        $entites = Entite::all();
+        return view('employes.edit',[
+                     'employe' => $employe,
+                     'entites' => $entites
+         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employe $employe)
+    public function update(Request $request, Employe $employe):RedirectResponse
     {
         //
+          //dd($request->all());
+          $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'firstname' => 'required',
+                        'email' => ['required', 'string', 'email', 'max:255'],
+                        'fonction' => 'required',
+                        'contact' => 'required',
+                        'flotte' => ['string', 'nullable'],
+                        'fixe' => ['string', 'nullable'],
+                        'statut' =>'required',
+                        'contrat' =>'required',
+                        'autres' =>['string', 'nullable'],
+                        'entite_id' =>'required',
+
+                    ]);
+ 
+             if($validated){
+                $employe->update([
+                                "name" => $validated["name"],
+                                "firstname" => $validated["firstname"],
+                                "email" => $validated["email"],
+                                "fonction" => $validated["fonction"],
+                                "contact" => $validated["contact"],
+                                "flotte" => $validated["flotte"],
+                                "fixe" => $validated["fixe"],
+                                "statut" => $validated["statut"],
+                                "contrat" => $validated["contrat"],
+                                "autres" => $validated["autres"],
+                                "entite_id" => $validated["entite_id"],
+                         ]);
+
+                  }
+         
+        return redirect()->route('employes.index');
     }
 
     /**

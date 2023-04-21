@@ -7,5 +7,6 @@
 			 @yield('content')
 		</section>
 	@include('templates/partials/_footer')
+	@livewireScripts
 </body>
 </html>
