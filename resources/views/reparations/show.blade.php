@@ -20,10 +20,12 @@
              <!-- Bien table -->
               <div>
                   <p><span class="fw-bold">Nom du maintenancier :</span> {{$reparation->maintenancier}}</p>
-                  <p><span class="fw-bold">Contact :</span> {{$reparation->contact_maintenancier}}</p>
+                  <p><span class="fw-bold">Contact maintenancier :</span> {{$reparation->contact_maintenancier}}</p>
                   <p><span class="fw-bold">Coût :</span> {{$reparation->price}} FCFA</p>
-                  <p><span class="fw-bold">Identifiant :</span> {{$reparation->bien->id}}</p>
                   <p><span class="fw-bold">Nom du bien :</span> {{$reparation->bien->name}}</p>
+                  <p><span class="fw-bold">Identifiant :</span> {{$reparation->bien->etiquette}}</p>
+                  <p><span class="fw-bold">Emplacement :</span> {{$reparation->bien->emplacement->name}}</p>
+                  <p><span class="fw-bold">Espace :</span> {{$reparation->bien->espace->name}}</p>
                   <p><span class="fw-bold">Etat :</span> {{$reparation->etat}}</p>
                   <p><span class="fw-bold">Date :</span> {{$reparation->day}}/{{$reparation->month}}/{{$reparation->year}}<p>
                   <p><span class="fw-bold">Description panne:</span> {{$reparation->description_panne}}<p>
@@ -34,3 +36,4 @@
 
 </main><!-- End #main -->
 @endsection
+

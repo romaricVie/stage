@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('affectations', function (Blueprint $table) {
             $table->id();
-            $table->string('description',200)->nullable();
-            $table->string('motif_affection',200);
+            $table->string('description')->nullable();
+            $table->string('motif_affection')->nullable();
+            $table->string('etiquette');
             $table->foreignId('employe_id') // employe
                    ->constrained()
                    ->onUpdate('cascade')

@@ -159,11 +159,15 @@ class BienController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Bien $bien)
+    public function show(Bien $bien):View
     {
         //
 
-        return view('biens.show');
+        return view('biens.show',[
+                   
+                    "bien" => $bien,
+
+        ]);
     }
 
     /**

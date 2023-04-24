@@ -25,26 +25,44 @@
               <img src="{{asset('assets/img/pc.jpeg')}}" alt="img" title="image" class="img-fluid">
               <h5 class="card-title">Informations sur le biens</h5>
               <div>
-                  <span class="fw-bold">Nom :</span>MacBook<br>
-                  <span class="fw-bold">Marque :</span>apple<br>
-                  <span class="fw-bold">Prix :</span>1500 000F<br>
-                  <span class="fw-bold">Disponibilité :</span>Occupé<br>
-                  <span class="fw-bold">Detenu par :</span>N'DRI romaric<br>
-                  <span class="fw-bold">Entrepots :</span>Voodoo<br>
-                  <span class="fw-bold">emplacement :</span>VCIS<br>
-                  <span class="fw-bold">espace :</span>space 1<br>
-                  <span class="fw-bold">Entité :</span>Technologie<br>
-                  <span class="fw-bold">Categorie :</span>Informatique<br>
-                  <span class="fw-bold">Sous Categorie :</span>Ordinateur<br>
-                  <span class="fw-bold">Sous sous categorie :</span>PC<br>
-                  <span class="fw-bold">disque_dur :</span>500GB<br>
-                  <span class="fw-bold">processeur :</span>i7<br>
-                  <span class="fw-bold">Generation :</span>11th<br>
-                  <span class="fw-bold">couleur :</span>Gris<br>
-                  <span class="fw-bold">immatriculation :</span>1021520<br>
-                  <span class="fw-bold">Puissance :</span>11CV<br>
-                  <span class="fw-bold">matiere :</span>RAS<br>
-                  <span class="fw-bold">autres :</span>RAS<br>
+                  <span class="fw-bold">Nom :</span> {{$bien->name}}<br>
+                  <span class="fw-bold">Etiquette :</span> {{$bien->etiquette}}<br>
+                  <span class="fw-bold">Marque :</span> {{$bien->marque}}<br>
+                  <span class="fw-bold">Prix :</span> {{$bien->price}}<br>
+                  <span class="fw-bold">couleur :</span> {{$bien->couleur}}<br>
+                  <span class="fw-bold">Disponibilité :</span> {{$bien->disponibilite}}<br>
+                  <span class="fw-bold">Etat :</span> {{$bien->etat}}<br>
+                  <span class="fw-bold">Achat :</span> {{$bien->day}}/{{$bien->month}}/{{$bien->year}}<br>
+                 
+                     <span class="fw-bold">Detenu par :</span>
+                           <ul>
+                             @foreach($bien->affectations as $affectation)
+                                <li>{{$affectation->employe->name}} {{$affectation->employe->firstname}}</li>
+                              @endforeach 
+                           </ul>
+                  <span class="fw-bold">Categorie :</span> {{$bien->categorie->name}}<br>
+                  <span class="fw-bold">Sous Categorie :</span> {{$bien->scategorie->name}}<br>
+                  <span class="fw-bold">Sous sous categorie :</span> {{$bien->sscategorie->name}}<br>
+                  <span class="fw-bold">disque_dur :</span> {{$bien->disque_dur}}<br>
+                  <span class="fw-bold">processeur :</span> {{$bien->processeur}}<br>
+                  <span class="fw-bold">Ram :</span> {{$bien->ram}}<br>
+                  <span class="fw-bold">Generation :</span> {{$bien->generation}}<br>
+
+                  <span class="fw-bold">Longeur :</span> {{$bien->longueur}}<br>
+                  <span class="fw-bold">Largeur :</span> {{$bien->largeur}}<br>
+                  <span class="fw-bold">Hauteur :</span> {{$bien->hauteur}}<br>
+
+                  <span class="fw-bold">Nombre de battants :</span> {{$bien->nbre_battant}}<br>
+                  <span class="fw-bold">poids :</span> {{$bien->poids}}<br>
+                  <span class="fw-bold">immatriculation :</span> {{$bien->immatriculation}}<br>
+
+                  <span class="fw-bold">Entrepots :</span> {{$bien->entrepot->name}}<br>
+                  <span class="fw-bold">emplacement :</span> {{$bien->emplacement->name}}<br>
+                  <span class="fw-bold">espace :</span> {{$bien->espace->name}}<br>
+                  <span class="fw-bold">Entité :</span> {{$bien->entite->name}}<br>
+                  <span class="fw-bold">Puissance :</span> {{$bien->puissance}}<br>
+                  <span class="fw-bold">matiere :</span> {{$bien->matiere}}<br>
+                  <span class="fw-bold">autres :</span> {{$bien->autres}}<br>
               </div>  
          </div>
       </div>

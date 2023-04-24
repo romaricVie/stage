@@ -20,6 +20,7 @@ class AffectationFactory extends Factory
             //
             'description' => fake()->text(),
             'motif_affection' => fake()->text(),
+            'etiquette' => fake()->numberBetween(200000, 900000),
             'employe_id' => fake()->numberBetween(1, 5),
             'bien_id' =>fake()->numberBetween(1, 5),
         ];

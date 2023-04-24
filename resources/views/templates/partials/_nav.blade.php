@@ -10,21 +10,10 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Rechercher un biens" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
+   
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
 
         <li class="nav-item dropdown pe-3">
 
@@ -68,20 +57,38 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('dashboard')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('employes.index')}}">
-          <i class="bi bi-person"></i><span>Employés</span>
+       <li class="nav-item">
+          <a class="nav-link collapsed" href="{{route('biens.index')}}">
+               <i class="bi bi-gem"></i><span>Biens</span>
+          </a>
+       </li><!-- End Bien Nav -->
+
+       <li class="nav-item">
+            <a class="nav-link collapsed"  href="{{route('affectations.index')}}">
+               <i class="bi bi-gift"></i><span>Affectations</span>
+            </a>
+       </li><!-- End Affectation Nav -->
+
+       <li class="nav-item">
+        <a class="nav-link collapsed"  href="{{route('reparations.index')}}">
+          <i class="bi bi-check2-square"></i><span>Reparations</span>
         </a>
-      </li><!-- End employes Nav -->
+       </li><!-- End Reparation Nav -->
 
-      <li class="nav-item">
+       <li class="nav-item">
+          <a class="nav-link collapsed" data-bs-target="#components-nav" href="{{route('employes.index')}}">
+            <i class="bi bi-person"></i><span>Employés</span>
+          </a>
+       </li><!-- End employes Nav -->
+
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Categories</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -102,15 +109,9 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Categorie Nav -->
+       </li><!-- End Categorie Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{route('biens.index')}}">
-          <i class="bi bi-gem"></i><span>Biens</span>
-        </a>
-      </li><!-- End Bien Nav -->
-
-      <li class="nav-item">
+       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-building"></i><span>Entrepôts</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -131,26 +132,13 @@
             </a>
           </li>
         </ul>
-      </li><!-- End Entrepots Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed"  href="{{route('entites.index')}}">
-         <i class="bi bi-diagram-3-fill"></i><span>Entités</span>
-        </a>
-      </li><!-- End Entité Nav -->
-
-       <li class="nav-item">
-        <a class="nav-link collapsed"  href="{{route('affectations.index')}}">
-         <i class="bi bi-gift"></i><span>Affectations</span>
-        </a>
-      </li><!-- End Affectation Nav -->
-
-
-       <li class="nav-item">
-        <a class="nav-link collapsed"  href="{{route('reparations.index')}}">
-          <i class="bi bi-check2-square"></i><span>Reparations</span>
-        </a>
-      </li><!-- End Reparation Nav -->
+       </li><!-- End Entrepots Nav -->
+       
+        <li class="nav-item">
+           <a class="nav-link collapsed"  href="{{route('entites.index')}}">
+               <i class="bi bi-diagram-3-fill"></i><span>Entités</span>
+           </a>
+        </li><!-- End Entité Nav -->
      
     <!-- End Contact Page Nav -->
     <!-- End Register Page Nav -->

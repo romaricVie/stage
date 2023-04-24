@@ -7,7 +7,7 @@
              
              <div class="row">
                  <div class="col-6">
-                    <input type="text" name="affectation" wire:model="query"  class="form-control" placeholder="Entrer le motif">
+                    <input type="text" name="etiquette" wire:model="query"  class="form-control" placeholder="Entrer etiquette">
                 </div> <!-- End search -->
                 <div class="col-6">
                      Afficher
@@ -35,7 +35,7 @@
                       <tr>
                         <th scope="row">{{$affectation->id}}</th>
                         <td>{{$affectation->employe->name}}</td>
-                        <td>(#{{$affectation->bien->id}}) {{$affectation->bien->name}}</td>
+                        <td>(#{{$affectation->bien->etiquette}}) {{$affectation->bien->name}}</td>
                         <td><a href="{{route('affectations.show', ['affectation' => $affectation->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a></td>
                       </tr>
                     @endforeach

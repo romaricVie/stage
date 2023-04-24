@@ -26,9 +26,9 @@
                   >
                    @csrf
                   <div class="col-6">
-                      <label for="inputCategorie" class="form-label">Employé</label>
+                      <label for="inputCategorie" class="form-label">Employé <span> *</span></label>
                       <select name="employe_id" class="form-select form-select-sm" id="inputCategorie" aria-label=".form-select-sm example">
-                           <option selected>Choisir un employé</option>
+                           <option selected>Choisir un employé </option>
                            @foreach($employes as $employe)
                              <option value="{{$employe->id}}">{{$employe->name}}</option>
                            @endforeach
@@ -36,19 +36,20 @@
                   </div><!-- End Employe -->
 
                    <div class="col-6">
-                      <label for="inputBien" class="form-label">Biens</label>
+                      <label for="inputBien" class="form-label">Biens <span> *</span></label>
                       <select  name="bien_id" class="form-select form-select-sm" id="inputBien" aria-label=".form-select-sm example">
                            <option selected>Choisir un biens</option>
                             @foreach($biens as $bien)
-                              <option value="{{$bien->id}}">(#{{$bien->id}}) {{$bien->name}}</option>
+                              <option value="{{$bien->id}}">(#{{$bien->etiquette}}) {{$bien->name}}</option>
                            @endforeach
                     </select>
                   </div><!-- End Employe -->
 
-                 <div class="col-6">
+                
+                <div class="col-6">
                     <label for="inputNanme4" class="form-label">Motif affection</label>
                     <input type="text" name="motif_affection" class="form-control" id="inputNanme4" placeholder="Entrer le motif" required>
-                </div> <!-- End sous categorie -->
+                </div><!-- End motif -->
                  <div class="col-6 form-floating">
                     <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                   <label for="floatingTextarea">Description</label>

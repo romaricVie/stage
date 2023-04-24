@@ -20,9 +20,11 @@
              <!-- Bien table -->
               <p><span class="fw-bold">Nom employé:</span> {{$affectation->employe->name}}</p>
               <p><span class="fw-bold">Contact employé:</span> {{$affectation->employe->contact}}</p>
-              <p><span class="fw-bold">Identifiant du biens:</span>{{$affectation->bien->id}}</p>
+              <p><span class="fw-bold">Email employé:</span> {{$affectation->employe->email}}</p>
+               <p><span class="fw-bold">Entité :</span> {{$affectation->employe->entite->name}}</p>
+              <p><span class="fw-bold">Identifiant du biens:</span> {{$affectation->bien->etiquette}}</p>
               <p><span class="fw-bold">Nom du biens:</span> {{$affectation->bien->name}}</p>
-              <p><span class="fw-bold">Motif affectation:</span> {{$affectation->motif}}</p>
+              <p><span class="fw-bold">Motif affectation:</span> {{$affectation->motif_affection}}</p>
               <p><span class="fw-bold">Description:</span> {{$affectation->description}}</p>
          </div>
       </div>

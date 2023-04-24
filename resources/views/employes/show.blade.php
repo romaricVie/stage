@@ -28,7 +28,7 @@
                   <tbody>
                     @foreach($employe->affectations as $affectation)
                       <tr>
-                        <th scope="row">{{$affectation->bien->id}}</th>
+                        <th scope="row">{{$affectation->bien->etiquette}}</th>
                         <td>{{$affectation->bien->name}}</td>
                       </tr>
                     @endforeach

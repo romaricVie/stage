@@ -13,6 +13,7 @@ class Affectation extends Model
         
         'description', 
         'motif_affection',
+        'etiquette',
         'employe_id',  // identifiant de l'employe
         'bien_id', // identifiant du bien
 

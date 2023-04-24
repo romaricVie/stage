@@ -8,7 +8,7 @@ use App\Models\Bien;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Support\Facades\DB;
 
 class AffectationController extends Controller
 {
@@ -49,10 +49,12 @@ class AffectationController extends Controller
     {
         //
 
+       $bien = DB::table('biens')->where('id',$request->bien_id)->first();
+    
        $validated = $request->validate([
                 
-                        'description' => 'required',
-                        'motif_affection' => 'required',
+                        'description' => ['string', 'nullable'],
+                        'motif_affection' => ['string', 'nullable'],
                         'employe_id' => 'required',
                         'bien_id' => 'required',
 
@@ -66,11 +68,16 @@ class AffectationController extends Controller
 
                      "description" =>$validated["description"],
                      "motif_affection" =>$validated["motif_affection"],
+                     "etiquette" =>$bien->etiquette,
                      "employe_id" =>$validated["employe_id"],
                      "bien_id" =>$validated["bien_id"],
              ]);
 
-         
+           //update etat bien($request->bien);  
+             $bien = DB::table('biens')->where('id',$request->bien_id)->update([
+                                      'disponibilite'=> 'occupe'
+
+                                  ]);
           }
  
           return redirect()->back();

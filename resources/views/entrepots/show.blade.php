@@ -32,7 +32,7 @@
                   <tbody>
                      @foreach($entrepot->biens as $bien)
                       <tr>
-                        <th scope="row">{{$bien->id}}</th>
+                        <th scope="row">{{$bien->etiquette}}</th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
                         <td>{{$bien->disponibilite}}</td>

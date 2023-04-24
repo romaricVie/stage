@@ -80,7 +80,7 @@ class ReparationController extends Controller
                                      ]);
 
             //update etat bien($request->bien);  
-             $bien = DB::table('biens')->where('id',$request->bien_id)->update(['etat'=>$validated["etat"] ]);   
+             $bien = DB::table('biens')->where('id',$request->bien_id)->update(['etat'=>$validated["etat"]]);   
               
             
 

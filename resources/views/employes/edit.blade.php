@@ -16,7 +16,7 @@
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Enregistrer un employé</h5>
+            <h5 class="card-title">Mise à jour</h5>
              <!-- Employes Form -->
               <form  
                     class="row g-3"
