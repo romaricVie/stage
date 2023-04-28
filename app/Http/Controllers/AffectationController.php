@@ -119,5 +119,7 @@ class AffectationController extends Controller
     public function destroy(Affectation $affectation)
     {
         //
+        $affectation->delete();
+        return redirect()->route('affectations.index');
     }
 }

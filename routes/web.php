@@ -109,6 +109,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/employes/informations/{employe}', [EmployeController::class, 'infos'])->name('employes.infos');
         Route::put('/employes/{employe}', [EmployeController::class, 'update'])->name('employes.update');
         Route::get('/employes/{employe}/edit', [EmployeController::class, 'edit'])->name('employes.edit');
+        Route::delete('/employes/{employe}', [EmployeController::class, 'destroy'])->name('employes.destroy');
 
 
         /* AffectationController */
@@ -116,18 +117,24 @@ Route::middleware('auth')->group(function () {
         Route::get('/affectations/create', [AffectationController::class, 'create'])->name('affectations.create');
         Route::post('/affectations', [AffectationController::class, 'store'])->name('affectations.store');
         Route::get('/affectations/{affectation}', [AffectationController::class, 'show'])->name('affectations.show');
+        Route::delete('/affectations/{affectation}', [AffectationController::class, 'destroy'])->name('affectations.destroy');
 
         /* Reparations ReparationController */
         Route::get('/reparations', [ReparationController::class, 'index'])->name('reparations.index');
         Route::get('/reparations/create', [ReparationController::class, 'create'])->name('reparations.create');
         Route::post('/reparations', [ReparationController::class, 'store'])->name('reparations.store');
         Route::get('/reparations/{reparation}', [ReparationController::class, 'show'])->name('reparations.show');
+        Route::delete('/reparations/{reparation}', [ReparationController::class, 'destroy'])->name('reparations.destroy');
 
         /* Biens */
         Route::get('/biens', [BienController::class, 'index'])->name('biens.index');
         Route::get('/biens/create', [BienController::class, 'create'])->name('biens.create');
         Route::post('/biens', [BienController::class, 'store'])->name('biens.store');
         Route::get('/biens/{bien}', [BienController::class, 'show'])->name('biens.show');
+        Route::put('/biens/{bien}', [BienController::class, 'update'])->name('biens.update');
+        Route::get('/biens/{bien}/edit', [BienController::class, 'edit'])->name('biens.edit');
+        Route::delete('/biens/{bien}', [BienController::class, 'destroy'])->name('biens.destroy');
+       
 
 });
 

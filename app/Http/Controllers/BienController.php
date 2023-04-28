@@ -173,9 +173,34 @@ class BienController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bien $bien)
+    public function edit(Bien $bien):View
     {
         //
+        
+        $categories = Categorie::all();
+        $scategories = Scategorie::all();
+        $sscategories = Sscategorie::all();
+        $entrepots = Entrepot::all();
+        $emplacements = Emplacement::all();
+        $espaces = Espace::all();
+        $entites = Entite::all();
+
+
+         return view('biens.edit',
+                    [
+
+                       "bien" => $bien,
+                       "categories" => $categories,
+                       "scategories" =>$scategories,
+                       "sscategories" =>$sscategories,
+                       "entrepots" =>$entrepots,
+                       "emplacements" =>$emplacements,
+                       "espaces" => $espaces,
+                       "entites" => $entites,
+
+                 ]);
+
+
     }
 
     /**
@@ -184,6 +209,89 @@ class BienController extends Controller
     public function update(Request $request, Bien $bien)
     {
         //
+   
+
+
+
+        $validated = $request->validate([
+                
+                        'name' => 'required',
+                        'price' => ['string', 'nullable'],
+                        'day' => ['string', 'nullable'],
+                        'month' => ['string', 'nullable'],
+                        'year' => ['string', 'nullable'],
+                        'image' => ['sometimes', 'image','mimes:jpg,png,jpeg,gif,svg','max:102400'], //100 MO
+                        'etat' => ['string', 'required'],
+                        'disponibilite' =>['string', 'required'],
+                        'generation' =>['string', 'nullable'],
+                        'ram' => ['string', 'nullable'],
+                        'disque_dur' =>['string', 'nullable'],
+                        'processeur' =>['string', 'nullable'],
+                        'couleur' =>['string', 'nullable'],
+                        'marque' =>['string', 'nullable'],
+                        'longueur' =>['string', 'nullable'],
+                        'largeur' =>['string', 'nullable'],
+                        'hauteur' =>['string', 'nullable'],
+                        'nbre_battant' =>['string', 'nullable'],
+                        'immatriculation' =>['string', 'nullable'],
+                        'puissance' =>['string', 'nullable'],
+                        'matiere' =>['string', 'nullable'],
+                        'poids' =>['string', 'nullable'],
+                        'autres' =>['string', 'nullable'],
+                        'categorie_id' =>['string', 'required'],
+                        'scategorie_id' =>['string', 'nullable'],
+                        'sscategorie_id' =>['string', 'nullable'],
+                        'entrepot_id' =>['string', 'required'],
+                        'emplacement_id' =>['string', 'nullable'],
+                        'espace_id' =>['string', 'nullable'],
+                        'entite_id' =>['string', 'nullable'],
+
+                    ]);
+
+         // dd($request->all());
+ 
+                  if($validated){
+
+                    $bien->update([
+
+                            "name" => $validated["name"],
+                            "price" => $validated["price"],
+                            "day" => $validated["day"],
+                            "month" => $validated["month"],
+                            "year" => $validated["year"],
+                            "image" => $this->storeImage(),
+                            "etat" => $validated["etat"],
+                            "disponibilite" => $validated["disponibilite"],
+                            "generation" => $validated["generation"],
+                            "ram" => $validated["ram"],
+                            "disque_dur" => $validated["disque_dur"],
+                            "etiquette" => $this->etiquette(),
+                            "processeur" => $validated["processeur"],
+                            "couleur" => $validated["couleur"],
+                            "marque" => $validated["marque"],
+                            "longueur" => $validated["longueur"],
+                            "largeur" => $validated["largeur"],
+                            "hauteur" => $validated["hauteur"],
+                            "nbre_battant" => $validated["nbre_battant"],
+                            "immatriculation" => $validated["immatriculation"],
+                            "puissance" => $validated["puissance"],
+                            "matiere" => $validated["matiere"],
+                            "poids" => $validated["poids"],
+                            "autres" => $validated["autres"],
+                            "categorie_id" => $validated["categorie_id"],
+                            "scategorie_id" => $validated["scategorie_id"],
+                            "sscategorie_id" => $validated["sscategorie_id"],
+                            "entrepot_id" => $validated["entrepot_id"],
+                            "emplacement_id" => $validated["emplacement_id"],
+                            "espace_id" => $validated["espace_id"],
+                            "entite_id" => $validated["entite_id"],
+
+                     ]);
+
+                  }
+
+            return redirect()->route('biens.index');
+
     }
 
     /**
@@ -192,9 +300,12 @@ class BienController extends Controller
     public function destroy(Bien $bien)
     {
         //
+
+        $bien->delete();
+        return redirect()->route('biens.index');
     }
 
-    private function storeImage():string
+    private function storeImage()
     {
           if(request('image'))
           {  
@@ -213,30 +324,28 @@ class BienController extends Controller
         $bien = DB::table('biens')->count();
 
         if(request('categorie_id') ==="1"){
-            return "info-".$bien;
+            return "Info-".$bien;
         }
 
         
         if(request('categorie_id') ==="2"){
-            return "mobil-".$bien;
+            return "Mobil-".$bien;
         }
 
         
         if(request('categorie_id') ==="3"){
-            return "electro-".$bien;
+            return "Electro-".$bien;
         }
 
 
         if(request('categorie_id') ==="4"){
-            return "electro-".$bien;
+            return "Engins-".$bien;
         }
 
         if(request('categorie_id') ==="5"){
-            return "engins-".$bien;
+            return "Goodi-".$bien;
         }
 
-        if(request('categorie_id') ==="6"){
-            return "goodi-".$bien;
-        }
+        
     }
 }

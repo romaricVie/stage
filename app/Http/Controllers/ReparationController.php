@@ -125,5 +125,7 @@ class ReparationController extends Controller
     public function destroy(Reparation $reparation)
     {
         //
+        $reparation->delete();
+        return redirect()->route('reparations.index');
     }
 }

@@ -15,8 +15,20 @@
 
     <section class="section dashboard">
              <!-- Bien detail -->
-         
-      <a href="#"><button type="button" class="btn btn-outline-success btn-sm m-2"><i class="bi bi-write"></i>Modifier</button></a>
+      
+      <a href="{{route('biens.edit',['bien' => $bien->id])}}"><button type="button" class="btn btn-outline-success btn-sm m-2 d-inline"><i class="bi bi-write"></i>Modifier</button></a>
+      <form  
+
+              action="{{route('biens.destroy',$bien)}}"
+              method="POST"
+              onsubmit ="return confirm('Etre vous sur de vouloir supprimer ce bien?');"
+              class="d-inline" 
+        >
+        @csrf
+        @method('delete')
+           <button type="submit" class="btn btn-outline-danger btn-sm m-2"><i class="bi bi-write"></i>Supprimer</button></a>
+      </form>
+      
 
       <div class="card">
          <div class="card-body">
@@ -33,13 +45,17 @@
                   <span class="fw-bold">Disponibilité :</span> {{$bien->disponibilite}}<br>
                   <span class="fw-bold">Etat :</span> {{$bien->etat}}<br>
                   <span class="fw-bold">Achat :</span> {{$bien->day}}/{{$bien->month}}/{{$bien->year}}<br>
-                 
-                     <span class="fw-bold">Detenu par :</span>
-                           <ul>
+                  <span class="fw-bold">Detenu par :</span>
+                        @if($bien->affectations->count()>0)
+                            <ol>
                              @foreach($bien->affectations as $affectation)
                                 <li>{{$affectation->employe->name}} {{$affectation->employe->firstname}}</li>
                               @endforeach 
-                           </ul>
+                            </ol>
+                               @else
+                                 <span>Pas encors affecteté</span><br>
+                              @endif
+
                   <span class="fw-bold">Categorie :</span> {{$bien->categorie->name}}<br>
                   <span class="fw-bold">Sous Categorie :</span> {{$bien->scategorie->name}}<br>
                   <span class="fw-bold">Sous sous categorie :</span> {{$bien->sscategorie->name}}<br>

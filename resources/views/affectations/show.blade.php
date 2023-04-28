@@ -14,6 +14,18 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
+       <form  
+
+              action="{{route('affectations.destroy',$affectation)}}"
+              method="POST"
+              onsubmit ="return confirm('Etre vous sûr de vouloir supprimer cette affectation ?');"
+              class="d-inline" 
+        >
+        @csrf
+        @method('delete')
+           <button type="submit" class="btn btn-outline-danger btn-sm m-2"><i class="bi bi-write"></i>Supprimer</button>
+      </form>
+      
       <div class="card">
          <div class="card-body">
             <h5 class="card-title">Détail de l'affectation</h5>

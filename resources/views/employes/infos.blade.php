@@ -13,7 +13,19 @@
       </nav>
     </div><!-- End Page Title -->
     <div>
-        <a href="{{route('employes.edit',['employe' => $employe->id])}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-edit"></i> Mise à jour</button></a>
+         <a href="{{route('employes.edit',['employe' => $employe->id])}}"><button type="button" class="btn btn-outline-success btn-md m-2 d-inline "><i class="bi bi-edit"></i> Modifier employé</button></a>
+        <form  
+
+              action="{{route('employes.destroy',$employe)}}"
+              method="POST"
+              onsubmit ="return confirm('Etre vous sûr de vouloir supprimer cet employé ?');"
+              class="d-inline" 
+        >
+        @csrf
+        @method('delete')
+           <button type="submit" class="btn btn-outline-danger btn-md m-2"><i class="bi bi-write"></i>Supprimer</button>
+      </form>
+
       </div>
     <section class="section dashboard">
       <div class="card">
