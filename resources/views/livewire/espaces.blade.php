@@ -22,11 +22,11 @@
               <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nom</th>
-                      <th scope="col">Entrepôt</th>
-                      <th scope="col">Emplacement</th>
-                      <th scope="col">Action</th>
+                       <th scope="col">#</th>
+                       <th scope="col">Nom</th>
+                       <th scope="col">Emplacement</th>
+                       <th scope="col">Entrepôt</th>
+                       <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -34,8 +34,8 @@
                       <tr>
                         <th scope="row">{{$espace->id}}</th>
                         <td>{{$espace->name}}</td>
-                        <td>{{$espace->entrepot->name}}</td>
                         <td>{{$espace->emplacement->name}}</td>
+                        <td>{{$espace->entrepot->name}}</td>
                         <td>
                            <a href="{{route('espaces.show', ['espace' => $espace->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
                        </td>

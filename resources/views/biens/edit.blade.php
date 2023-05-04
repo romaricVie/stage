@@ -7,7 +7,7 @@
       <h1>Modifier les information d'un bien</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('biens.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Biens</li>
         </ol>
       </nav>
@@ -48,13 +48,14 @@
                        aria-label=".form-select-sm example"
                        name="scategorie_id" 
                        >
-                         <option selected>Choisir une sous categorie...</option>
+                         <option value="">Choisir une sous categorie...</option>
                          @foreach($scategories as  $scategorie)
                            <option value="{{$scategorie->id}}" @if($scategorie->id === $bien->scategorie->id) selected @endif >{{$scategorie->name}}</option>
                          @endforeach
                   </select>
                 </div> <!--End sous categorie -->
 
+             
                 <div class="col-6">
                     <label for="inputSscategorie" class="form-label">Sous sous categorie</label>
                      <select 
@@ -65,13 +66,13 @@
                        name ="sscategorie_id"
 
                        >
-                         <option selected>Choisir une sous sous categorie...</option>
+                    <option value="">Choisir une sous sous categorie...</option>
                         @foreach($sscategories as $sscategorie)
-                          <option value="{{$sscategorie->id}}" @if($sscategorie->id === $bien->sscategorie->id) selected @endif >{{$sscategorie->name}}</option>
-                        @endforeach
-                         
+                          <option value="{{$sscategorie->id }}" @if($sscategorie->id ?? '' === $bien->sscategorie->id) selected @endif >{{$sscategorie->name}}</option>
+                      @endforeach    
                   </select>
-                </div> <!-- Sous sous categorie -->
+                </div> 
+                <!-- Sous sous categorie -->
                 <div class="col-6">
                     <label for="inputName" class="form-label">Nom</label>
                     <input type="text" name="name" class="form-control" id="inputName" placeholder="Entrer le nom" value="{{$bien->name}}" required>
@@ -234,10 +235,7 @@
                         </label>
                      </div>
                 </div><!--End disponibilite -->
-                <span class="text-center fs-3">Image du biens</span>
-                <div class="col-6 input-group mb-3">
-                    <input class="form-control" type="file" name="image" value="{{$bien->image}}" id="formFile">
-                </div><!--End image-->
+               
                 <span class="text-center fs-3">Localisation</span>
                 <div class="col-6">
                   <label for="inputEntrepot" class="form-label">Entrepôt</label>
@@ -249,7 +247,7 @@
                       name="entrepot_id"
                       required 
                       >
-                         <option selected>Choisir un entrepôt...</option>
+                         <option value="">Choisir un entrepôt...</option>
                          @foreach($entrepots as $entrepot)
                             <option value="{{$entrepot->id}}" @if($entrepot->id === $bien->entrepot->id) selected @endif>{{$entrepot->name}}</option>
                          @endforeach
@@ -265,9 +263,9 @@
                         name="emplacement_id" 
 
                         >
-                         <option selected>Choisir un emplacement...</option>
+                         <option value="">Choisir un emplacement...</option>
                          @foreach($emplacements as $emplacement)
-                            <option value="{{$emplacement->id}}" @if($emplacement->id === $bien->emplacement->id) selected @endif>{{$emplacement->name}}</option>
+                            <option value="{{$emplacement->id ?? ''}}" @if($emplacement->id ?? '' === $bien->emplacement->id ?? '') selected @endif>{{$emplacement->name}}</option>
                          @endforeach
                   </select>
                 </div><!--End emplacement-->
@@ -280,9 +278,9 @@
                       name="espace_id" 
 
                       >
-                         <option selected>Choisir un espace...</option>
+                         <option value="">Choisir un espace...</option>
                         @foreach($espaces as $espace)
-                          <option value="{{$espace->id}}" @if($espace->id === $bien->espace->id) selected @endif >{{$espace->name}}</option>
+                          <option value="{{$espace->id }}" @if($espace->id === $bien->espace->id) selected @endif >{{$espace->name}}</option>
                        @endforeach
                   </select>
                 </div><!--End espace-->
@@ -297,9 +295,9 @@
                       name="entite_id" 
 
                       >
-                         <option selected>Choisir une entité...</option>
+                         <option value="">Choisir une entité...</option>
                          @foreach($entites as $entite)
-                            <option value="{{$entite->id}}" @if($entite->id === $bien->entite->id) selected @endif >{{$entite->name}}</option>
+                            <option value="{{$entite->id }}" @if($entite->id  === $bien->entite->id) selected @endif >{{$entite->name}}</option>
                          @endforeach
                   </select>
                 </div><!--End entite-->

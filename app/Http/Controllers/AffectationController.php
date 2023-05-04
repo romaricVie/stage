@@ -31,7 +31,7 @@ class AffectationController extends Controller
       
         //
         $employes = Employe::all();
-        $biens = Bien::all();
+        $biens = DB::table('biens')->where("disponibilite","libre" )->get();
 
         return view('affectations.create',
 
@@ -49,18 +49,18 @@ class AffectationController extends Controller
     {
         //
 
-       $bien = DB::table('biens')->where('id',$request->bien_id)->first();
+       //dd($request->all());
     
        $validated = $request->validate([
                 
-                        'description' => ['string', 'nullable'],
+                        'employe_id' => ['required'],
+                        'bien_id' => ['required'],
                         'motif_affection' => ['string', 'nullable'],
-                        'employe_id' => 'required',
-                        'bien_id' => 'required',
+                        'description' => ['string', 'nullable'],
 
                     ]);
 
-   
+       $bien = DB::table('biens')->where('id',$request->bien_id)->first();
 
           if($validated){
 

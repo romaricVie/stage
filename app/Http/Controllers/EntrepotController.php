@@ -17,7 +17,7 @@ class EntrepotController extends Controller
     {
         //
         $entrepots = DB::table('entrepots')->simplePaginate(20);
-
+ //  dd($entrepots);
         return view('entrepots.index',
                         [
                             "entrepots" => $entrepots
@@ -43,7 +43,7 @@ class EntrepotController extends Controller
           $validated = $request->validate([
                 
                         'name' => 'required',
-                        'description' => 'required',
+                        'description' =>  ['string'],
                         'adresse_geographique' => 'required',
                     ]);
 

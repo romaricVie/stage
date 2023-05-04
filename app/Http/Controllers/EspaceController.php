@@ -52,7 +52,7 @@ class EspaceController extends Controller
           $validated = $request->validate([
                 
                         'name' => 'required',
-                        'description' => 'required',
+                        'description' =>  ['string'],
                         'entrepot_id' => 'required',
                         'emplacement_id' => 'required',
                     ]);

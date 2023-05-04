@@ -7,7 +7,7 @@
       <h1>Formulaire d'enregistrement</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('biens.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Biens</li>
         </ol>
       </nav>
@@ -32,9 +32,14 @@
 
                 <span class="text-center fs-3">Categorie</span>
                 <div class="col-6">
-                    <label for="inputCategorie" class="form-label">Categorie</label>
-                    <select class="form-select form-select-sm" name="categorie_id"  id="inputCategorie" aria-label=".form-select-sm example">
-                         <option selected>Choisir une categorie...</option>
+                    <label for="inputName" class="form-label">Désignation <span class="text-danger"> *</span></label>
+                    <input type="text" name="name" class="form-control" id="inputName" placeholder="Entrer le nom" required>
+                </div>  <!--End nom -->
+
+                <div class="col-6">
+                    <label for="inputCategorie" class="form-label">Categorie <span class="text-danger"> *</span></label>
+                    <select class="form-select form-select-sm" name="categorie_id"  id="inputCategorie" aria-label=".form-select-sm example" required>
+                         <option value="">Choisir une categorie...</option>
                         @foreach($categories as $categorie)
                           <option value="{{$categorie->id}}">{{$categorie->name}}</option>
                         @endforeach
@@ -42,7 +47,7 @@
                   </select>
                 </div> <!--End Categorie-->
                 <div class="col-6">
-                  <label for="inputScategorie" class="form-label">Sous categorie</label>
+                  <label for="inputScategorie" class="form-label">Sous categorie <span class="text-danger"> *</span></label>
                    <select 
                        class="form-select form-select-sm" 
                        id="inputScategorie" 
@@ -50,7 +55,7 @@
                        name="scategorie_id" 
                        OnChange ="enregistre_ordinateur();"
                        >
-                         <option selected>Choisir une sous categorie...</option>
+                         <option value="">Choisir une sous categorie...</option>
                          @foreach($scategories as  $scategorie)
                            <option value="{{$scategorie->id}}">{{$scategorie->name}}</option>
                          @endforeach
@@ -67,25 +72,14 @@
                        name ="sscategorie_id"
 
                        >
-                         <option selected>Choisir une sous sous categorie...</option>
+                         <option value="">Choisir une sous sous categorie...</option>
                         @foreach($sscategories as $sscategorie)
                           <option value="{{$sscategorie->id}}">{{$sscategorie->name}}</option>
                         @endforeach
                          
                   </select>
                 </div> <!-- Sous sous categorie -->
-                <div class="col-6">
-                    <label for="inputName" class="form-label">Nom</label>
-                    <input type="text" name="name" class="form-control" id="inputName" placeholder="Entrer le nom" required>
-                </div>  <!--End nom -->
-                <div class="col-6">
-                    <label for="inputColor" class="form-label">Couleur</label>
-                    <input type="text" name="couleur" class="form-control" id="inputColor" placeholder="Entrer la couleur" >
-                </div>  <!--End Couleur -->
-                <div class="col-6">
-                    <label for="inputbattants" class="form-label">Nombre de battants</label>
-                    <input type="text" name="nbre_battant" class="form-control" id="inputbattants" placeholder="Entrer le Nombre">
-                </div>  <!--End battants -->
+              
                 <span class="text-center fs-3">Taille</span>
                 <div class="col-4">
                     <label for="inputLongeur" class="form-label">Longeur</label>
@@ -99,6 +93,16 @@
                     <label for="inputHauteur"  class="form-label">Hauteur</label>
                     <input type="text" name="hauteur" class="form-control" id="inputHauteur" placeholder="Entrer hauteur">
                 </div> <!--End Hauteur -->
+
+                <div class="col-6">
+                    <label for="inputColor" class="form-label">Couleur</label>
+                    <input type="text" name="couleur" class="form-control" id="inputColor" placeholder="Entrer la couleur" >
+                </div>  <!--End Couleur -->
+                <div class="col-6">
+                    <label for="inputbattants" class="form-label">Nombre de battants</label>
+                    <input type="text" name="nbre_battant" class="form-control" id="inputbattants" placeholder="Entrer le Nombre">
+                </div>  <!--End battants -->
+
                  <!--End taille -->
                 <span class="text-center fs-3">Date achat</span>
                 <div class="col-4">
@@ -124,6 +128,28 @@
                     <label for="inputMark" class="form-label">Marque</label>
                     <input type="text" name="marque" class="form-control" id="inputMark" placeholder="Entrer la Marque">
                 </div>  <!--End Marque --> 
+
+                   <div class="col-6">
+                     <label for="" class="form-label">Type de quantité</label>
+                       <div class="form-check">
+                           <input class="form-check-input" type="radio" name="type_qty" value="bien_unique" id="flexRadio01">
+                           <label class="form-check-label" for="flexRadio01">
+                           Bien unique
+                          </label>
+                      </div>
+                      <div class="form-check">
+                            <input class="form-check-input" type="radio" name="type_qty" value="groupe_bien" id="flexRadio02">
+                           <label class="form-check-label" for="flexRadio02">
+                           Groupe de bien
+                          </label>
+                     </div>
+                </div>
+                <div class="col-6">
+                          <label for="inputqty" class="form-label">Quantité</label>
+                          <input type="text" name="qty" class="form-control" id="inputqty" placeholder="Entrer la quantité">
+                 </div><!--End qty --> 
+                
+
                 <!-- PC -->
                <span id="form_ordinateur" style="visibility:hidden">
                   <div class="row pc g-3">
@@ -184,7 +210,7 @@
                           </label>
                      </div>
                 </div> <!-- End etat-->
-                <div class="col-6">
+              <!--   <div class="col-6">
                    <label for="" class="form-label">Disponibilité du biens</label>
                      <div class="form-check">
                          <input class="form-check-input" type="radio" name="disponibilite" value="occupe" id="flexRadioDefault1">
@@ -198,7 +224,7 @@
                          libre
                         </label>
                      </div>
-                </div><!--End disponibilite -->
+                </div> --><!--End disponibilite -->
                 <span class="text-center fs-3">Image du biens</span>
                 <div class="col-6 input-group mb-3">
                     <input class="form-control" name="image" type="file" id="formFile">
@@ -214,7 +240,7 @@
                       name="entrepot_id"
                       required 
                       >
-                         <option selected>Choisir un entrepôt...</option>
+                         <option  value="">Choisir un entrepôt...</option>
                          @foreach($entrepots as $entrepot)
                             <option value="{{$entrepot->id}}">{{$entrepot->name}}</option>
                          @endforeach
@@ -230,7 +256,7 @@
                         name="emplacement_id" 
 
                         >
-                         <option selected>Choisir un emplacement...</option>
+                         <option  value="">Choisir un emplacement...</option>
                          @foreach($emplacements as $emplacement)
                             <option value="{{$emplacement->id}}">{{$emplacement->name}}</option>
                          @endforeach
@@ -245,7 +271,7 @@
                       name="espace_id" 
 
                       >
-                         <option selected>Choisir un espace...</option>
+                         <option  value="">Choisir un espace...</option>
                         @foreach($espaces as $espace)
                           <option value="{{$espace->id}}">{{$espace->name}}</option>
                        @endforeach
@@ -262,7 +288,7 @@
                       name="entite_id" 
 
                       >
-                         <option selected>Choisir une entité...</option>
+                         <option  value="">Choisir une entité...</option>
                          @foreach($entites as $entite)
                             <option value="{{$entite->id}}">{{$entite->name}}</option>
                          @endforeach

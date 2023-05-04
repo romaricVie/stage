@@ -63,6 +63,8 @@ class ReparationController extends Controller
 
                     ]);
  
+               $bien = DB::table('biens')->where('id',$request->bien_id)->first();
+
                   if($validated){
 
                             $reparation = Reparation::create([
@@ -75,6 +77,7 @@ class ReparationController extends Controller
                                             "day" => $validated["day"],
                                             "month" => $validated["month"],
                                             "year" => $validated["year"],
+                                            "etiquette" =>$bien->etiquette,
                                             "bien_id" => $validated["bien_id"],
 
                                      ]);

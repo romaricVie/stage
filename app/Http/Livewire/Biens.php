@@ -17,7 +17,8 @@ class Biens extends Component
     {
         return view('livewire.biens',[
               
-              "biens" => Bien::where('etiquette','like','%'.$this->query.'%') 
+              "biens" => Bien::where('etiquette','like','%'.$this->query.'%')
+                               ->orderBy('id','DESC')
                                ->paginate($this->perPage),
        
         ]);

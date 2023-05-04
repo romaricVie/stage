@@ -37,20 +37,50 @@
 
                     <div class="col-12">
                       <label for="yourName" class="form-label">Votre nom</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <input 
+                           type="text" 
+                           name="name" 
+                           class="form-control @error('name') is-invalid @enderror" 
+                           id="yourName" 
+                           placeholder="Entrer votre nom" 
+                           required
+                           >
+                           @error('name')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                      <div class="col-12">
                       <label for="yourFirstname" class="form-label">Votre Prenoms</label>
-                      <input type="text" name="firstname" class="form-control" id="yourFirstname" required>
+                      <input 
+                         type="text"
+                         name="firstname"
+                         class="form-control @error('firstname') is-invalid @enderror"
+                         id="yourFirstname" 
+                         placeholder="Entrez votre prenom" 
+                         required
+                         >
+                          @error('firstname')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                       <div class="invalid-feedback">Please, enter your firstname!</div>
                     </div>
 
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Votre Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <input 
+                          type="email"
+                          name="email"
+                          class="form-control @error('email') is-invalid @enderror" 
+                          id="yourEmail" 
+                          placeholder="Entrez votre email" 
+                          required>
+
+                           @error('email')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
 
@@ -58,7 +88,17 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Mot de passe</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input 
+                            type="password" 
+                            name="password" 
+                            class="form-control @error('password') is-invalid @enderror" 
+                            id="yourPassword" 
+                            placeholder="Entrer votre password" 
+                            required>
+
+                       @error('password')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 

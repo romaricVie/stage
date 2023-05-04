@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('day',15);
             $table->string('month',15);
             $table->year('year');
+            $table->string('etiquette');
             $table->foreignId('bien_id') // Bien id
                    ->constrained()
                    ->onUpdate('cascade')

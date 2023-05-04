@@ -4,11 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Emplacement;
+use App\Models\Reparation;
 
-class Emplacements extends Component
+class Reparations extends Component
 {
-
       use WithPagination;
       public $query="";
       public $perPage = 5;
@@ -16,11 +15,10 @@ class Emplacements extends Component
 
     public function render()
     {
-        return view('livewire.emplacements',[
+        return view('livewire.reparations',[
               
-              "emplacements" => Emplacement::with(array('entrepot'=> function($query){
-                                                          $query->select('id','name');
-                                                  }))->where('name','like','%'.$this->query.'%') 
+                  "reparations" => Reparation::with('bien')
+                                                      ->where('etiquette','like','%'.$this->query.'%') 
                                                       ->orderBy('id','DESC')
                                                       ->paginate($this->perPage),
        

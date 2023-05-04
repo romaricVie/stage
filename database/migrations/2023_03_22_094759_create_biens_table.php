@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('biens', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price')->nullable();
+            $table->bigInteger('price')->nullable();
             $table->string('day')->nullable();
             $table->string('month')->nullable();
             $table->year('year')->nullable();
@@ -47,6 +47,7 @@ return new class extends Migration
                    ->onUpdate('cascade')
                    ->onDelete('cascade');
             $table->foreignId('scategorie_id') //sous categorie
+                   ->nullable()
                    ->constrained()
                    ->onUpdate('cascade')
                    ->onDelete('cascade');
@@ -56,18 +57,22 @@ return new class extends Migration
                    ->onUpdate('cascade')
                    ->onDelete('cascade');
             $table->foreignId('entrepot_id') //Entrepot (site)
+                   ->nullable()
                    ->constrained()
                    ->onUpdate('cascade')
                    ->onDelete('cascade');
             $table->foreignId('emplacement_id') //Emplacement
+                   ->nullable()
                    ->constrained()
                    ->onUpdate('cascade')
                    ->onDelete('cascade');
             $table->foreignId('espace_id') //Espace
+                   ->nullable()
                    ->constrained()
                    ->onUpdate('cascade')
                    ->onDelete('cascade');
             $table->foreignId('entite_id') //Entite
+                   ->nullable()
                    ->constrained()
                    ->onUpdate('cascade')
                    ->onDelete('cascade');

@@ -30,21 +30,40 @@
                   <form class="row g-3 needs-validation" 
                     method="POST" 
                     action="{{route('login')}}" 
-                     novalidate
+                     novalidate 
                      >
 
                       @csrf
 
                      <div class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" placeholder="Entrez votre adresse email" required>
+                      <input 
+                            type="email"
+                            name="email"
+                             class="form-control @error('email') is-invalid @enderror" 
+                             id="yourEmail"
+                             placeholder="Entrez votre adresse email" 
+                             required>
+
+                          @error('email')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror   
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
 
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Mot de passe</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input 
+                            type="password"
+                            name="password" 
+                            class="form-control @error('password') is-invalid @enderror"
+                            id="yourPassword" 
+                            required>
+
+                             @error('password')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror 
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 

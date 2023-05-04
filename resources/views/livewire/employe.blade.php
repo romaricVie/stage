@@ -25,10 +25,10 @@
                   <thead>
                     <tr>
                        <th scope="col">#</th>
-                       <th scope="col">Nom</th>
-                       <th scope="col">Prenoms</th>
+                       <th scope="col">Nom et prenom</th>
                        <th scope="col">Fonction</th>
                        <th scope="col">Contacts</th>
+                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -36,13 +36,13 @@
                       <tr>
                         <th scope="row">{{$employe->id}}</th>
                         <td>
-                          <a href="{{route('employes.show', ['employe' => $employe->id])}}">{{$employe->name}}</a>
+                          <a href="{{route('employes.infos', ['employe' => $employe->id])}}">{{$employe->name."  ".$employe->firstname}}</a>
                         </td>
+                         <td>{{$employe->fonction}}</td>
+                         <td>{{$employe->contact}}</td>
                         <td>
-                           <a href="{{route('employes.infos', ['employe' => $employe->id])}}">{{$employe->firstname}}</a> 
+                           <a href="{{route('employes.show', ['employe' => $employe->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a> 
                         </td>
-                        <td>{{$employe->fonction}}</td>
-                        <td>{{$employe->contact}}</td>
                       </tr>
                     @endforeach
                   </tbody>

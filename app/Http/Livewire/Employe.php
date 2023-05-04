@@ -25,10 +25,11 @@ class Employe extends Component
         return view('livewire.employe',[
 
             "employes" => Travailleur::where('name','like','%'.$this->query.'%')
-                             ->orWhere('firstname','like','%'.$this->query.'%')
-                             ->orWhere('email','like','%'.$this->query.'%')
-                             ->orWhere('contact','like','%'.$this->query.'%')
-                             ->paginate($this->perPage),
+                              ->orWhere('firstname','like','%'.$this->query.'%')
+                              ->orWhere('email','like','%'.$this->query.'%')
+                              ->orWhere('contact','like','%'.$this->query.'%')
+                              ->orderBy('id','DESC')
+                              ->paginate($this->perPage),
                          ]);
     }
 }

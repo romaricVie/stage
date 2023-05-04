@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('fixe',30);
             $table->enum('statut', ['actif','inactif']);
             $table->enum('contrat', ['cdi','cdd']);
-            $table->text('autres');
+            $table->text('autres')->nullable();
             $table->foreignId('entite_id') //Entite
                    ->constrained()
                    ->onUpdate('cascade')

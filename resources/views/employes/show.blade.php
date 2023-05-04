@@ -7,7 +7,7 @@
       <h1>Bien appartenant à un employé</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('employes.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Employé</li>
         </ol>
       </nav>
@@ -22,7 +22,7 @@
                   <thead>
                     <tr>
                        <th scope="col">#Indentifiant</th>
-                       <th scope="col">Nom du bien</th>
+                       <th scope="col">Désignation</th>
                     </tr>
                   </thead>
                   <tbody>

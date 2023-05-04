@@ -35,7 +35,7 @@
                         <th scope="row">{{$bien->etiquette}}</th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
-                        <td>{{$bien->disponibilite}}</td>
+                        <td> <span class="badge rounded-pill text-bg-success">{{$bien->disponibilite}}</span></td>
                         <td>{{$bien->entrepot->name}}</td>
                       </tr>
                     @endforeach

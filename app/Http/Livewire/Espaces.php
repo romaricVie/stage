@@ -19,8 +19,9 @@ class Espaces extends Component
         return view('livewire.espaces',[
               
               "espaces" => Espace::with('entrepot','emplacement')
-                                        ->where('name','like','%'.$this->query.'%') 
-                                        ->paginate($this->perPage),
+                                         ->where('name','like','%'.$this->query.'%')
+                                         ->orderBy('id','DESC') 
+                                         ->paginate($this->perPage),
        
         ]);
     }

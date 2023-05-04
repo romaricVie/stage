@@ -18,8 +18,9 @@ class Affectations extends Component
         return view('livewire.affectations',[
               
                   "affectations" => Affectation::with('bien','employe')
-                                                     ->where('etiquette','like','%'.$this->query.'%') 
-                                                     ->paginate($this->perPage),
+                                                      ->where('etiquette','like','%'.$this->query.'%') 
+                                                      ->orderBy('id','DESC')
+                                                      ->paginate($this->perPage),
        
         ]);
     }

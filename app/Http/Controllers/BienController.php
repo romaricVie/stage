@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class BienController extends Controller
 {
@@ -76,7 +77,7 @@ class BienController extends Controller
       
          $validated = $request->validate([
                 
-                        'name' => 'required',
+                        'name' => ['required'],
                         'price' => ['string', 'nullable'],
                         'day' => ['string', 'nullable'],
                         'month' => ['string', 'nullable'],
@@ -122,7 +123,7 @@ class BienController extends Controller
                             "year" => $validated["year"],
                             "image" => $this->storeImage(),
                             "etat" => $validated["etat"],
-                            "disponibilite" => $validated["disponibilite"],
+                            "disponibilite" => "libre",   //$validated["disponibilite"],
                             "generation" => $validated["generation"],
                             "ram" => $validated["ram"],
                             "disque_dur" => $validated["disque_dur"],
@@ -259,13 +260,11 @@ class BienController extends Controller
                             "day" => $validated["day"],
                             "month" => $validated["month"],
                             "year" => $validated["year"],
-                            "image" => $this->storeImage(),
                             "etat" => $validated["etat"],
                             "disponibilite" => $validated["disponibilite"],
                             "generation" => $validated["generation"],
                             "ram" => $validated["ram"],
                             "disque_dur" => $validated["disque_dur"],
-                            "etiquette" => $this->etiquette(),
                             "processeur" => $validated["processeur"],
                             "couleur" => $validated["couleur"],
                             "marque" => $validated["marque"],

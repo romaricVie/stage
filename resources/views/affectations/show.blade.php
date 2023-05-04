@@ -7,7 +7,7 @@
       <h1>Affectation details </h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('affectations.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Affectations</li>
         </ol>
       </nav>
@@ -34,10 +34,10 @@
               <p><span class="fw-bold">Contact employé:</span> {{$affectation->employe->contact}}</p>
               <p><span class="fw-bold">Email employé:</span> {{$affectation->employe->email}}</p>
                <p><span class="fw-bold">Entité :</span> {{$affectation->employe->entite->name}}</p>
-              <p><span class="fw-bold">Identifiant du biens:</span> {{$affectation->bien->etiquette}}</p>
+              <p><span class="fw-bold">Etiquette du biens:</span><span class="badge rounded-pill text-bg-success">{{$affectation->bien->etiquette}}</span></p>
               <p><span class="fw-bold">Nom du biens:</span> {{$affectation->bien->name}}</p>
               <p><span class="fw-bold">Motif affectation:</span> {{$affectation->motif_affection}}</p>
-              <p><span class="fw-bold">Description:</span> {{$affectation->description}}</p>
+              <p><span class="fw-bold">Description:</span> {{$affectation->description ?? 'Non-definie'}}</p>
          </div>
       </div>
     </section>
