@@ -7,7 +7,7 @@
       <h1>Sous categorie</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('scategories.index')}}">Home</a></li>
           <li class="breadcrumb-item active">{{$scategorie->name}}</li>
         </ol>
       </nav>
@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nom du biens</th>
+                      <th scope="col">Designation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
                       <th scope="col">Entrepôts</th>

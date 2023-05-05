@@ -38,26 +38,16 @@ class BienController extends Controller
     {
         //
 
-        $categories = Categorie::all();
+      /*  $categories = Categorie::all();
         $scategories = Scategorie::all();
         $sscategories = Sscategorie::all();
         $entrepots = Entrepot::all();
         $emplacements = Emplacement::all();
         $espaces = Espace::all();
-        $entites = Entite::all();
+        $entites = Entite::all();*/
 
 
-         return view('biens.create',
-                    [
-                       "categories" => $categories,
-                       "scategories" =>$scategories,
-                       "sscategories" =>$sscategories,
-                       "entrepots" =>$entrepots,
-                       "emplacements" =>$emplacements,
-                       "espaces" => $espaces,
-                       "entites" => $entites,
-
-                 ]);
+         return view('biens.create');
     }
 
     /**
@@ -67,6 +57,7 @@ class BienController extends Controller
     {
         //
 
+          // dd($request->all());
            /* $bien = DB::table('biens')
                                 ->count();
                                 
@@ -84,7 +75,6 @@ class BienController extends Controller
                         'year' => ['string', 'nullable'],
                         'image' => ['sometimes', 'image','mimes:jpg,png,jpeg,gif,svg','max:102400'], //100 MO
                         'etat' => ['string', 'required'],
-                        'disponibilite' =>['string', 'required'],
                         'generation' =>['string', 'nullable'],
                         'ram' => ['string', 'nullable'],
                         'disque_dur' =>['string', 'nullable'],

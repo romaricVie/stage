@@ -32,16 +32,10 @@ class SscategorieController extends Controller
     public function create():View
     {
         //
-        $categories = Categorie::all();
-        $scategories = Scategorie::all();
+      //  $categories = Categorie::all();
+      //  $scategories = Scategorie::all();
 
-         return view('categories.sscategorie_create',
-
-                        [
-                            "categories" => $categories,
-                            "scategories" => $scategories
-
-                     ]);
+         return view('categories.sscategorie_create');
     }
 
     /**

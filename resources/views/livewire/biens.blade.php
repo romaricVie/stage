@@ -32,7 +32,7 @@
                   <tbody>
                     @foreach($biens as $bien)
                       <tr>
-                        <th scope="row">{{$bien->etiquette}}</th>
+                        <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->created_at}}</td>
                         <td>

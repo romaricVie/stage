@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nom du biens</th>
+                      <th scope="col">Désignation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
                       <th scope="col">Categorie</th>

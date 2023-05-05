@@ -29,16 +29,10 @@ class EspaceController extends Controller
     {
         //
 
-        $entrepots = Entrepot::all();
-        $emplacements = Emplacement::all();
+        //$entrepots = Entrepot::all();
+       // $emplacements = Emplacement::all();
 
-         return view('entrepots.espace_create',
-                        [
-
-                        "entrepots" => $entrepots,
-                        "emplacements" => $emplacements,
-
-                     ]);
+         return view('entrepots.espace_create');
     }
 
     /**

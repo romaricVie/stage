@@ -7,7 +7,7 @@
       <h1>Categorie</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Home</a></li>
           <li class="breadcrumb-item active">{{$categorie->name}}</li>
         </ol>
       </nav>
@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nom du biens</th>
+                      <th scope="col">Désignations</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
                       <th scope="col">Entrepôts</th>
@@ -32,7 +32,7 @@
                   <tbody>
                      @foreach($categorie->biens as $bien)
                       <tr>
-                        <th scope="row">{{$bien->etiquette}}</th>
+                        <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
                         <td> <span class="badge rounded-pill text-bg-success">{{$bien->disponibilite}}</span></td>

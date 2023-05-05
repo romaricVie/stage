@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nom</th>
+                      <th scope="col">Désignation entrepot </th>
                       <th scope="col">Adresse géographique</th>
                       <th scope="col">Action</th>
                     </tr>
