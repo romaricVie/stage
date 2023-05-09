@@ -79,7 +79,8 @@ class AffectationController extends Controller
 
                                   ]);
           }
- 
+          
+          session()->flash('success', 'Affectation effectuée avec succès!');
           return redirect()->back();
 
     }

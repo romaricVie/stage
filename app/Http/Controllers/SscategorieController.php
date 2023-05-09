@@ -67,7 +67,8 @@ class SscategorieController extends Controller
 
          
           }
- 
+          
+          session()->flash('success', 'Sous sous categorie enregistrer avec succès!');
           return redirect()->back();
 
 

@@ -143,7 +143,7 @@ class BienController extends Controller
                   }
 
 
- 
+          session()->flash('success', 'Bien enregistré avec succès!');
           return redirect()->back();
     }
 

@@ -54,8 +54,8 @@ class CategorieController extends Controller
 
          
           }
- 
-          return redirect()->back();
+            session()->flash('success', 'Categorie enregistrée avec succès!');
+            return redirect()->back();
        
     }
 

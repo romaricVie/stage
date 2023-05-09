@@ -14,16 +14,15 @@
     </div><!-- End Page Title -->
 
      <section class="section dashboard">
+
+          @if(session('success'))
+                <script type="text/javascript">
+                    swal("Félicitations!","{!! session('success') !!}","success",{
+                        button:"OK"
+                    })
+               </script>
+           @endif
            <livewire:bien-create/> 
-           <script language="JavaScript">
-     
-                function enregistre_ordinateur() {
-                if (document.enregistrement_biens.scategorie_id.selectedIndex == 1)
-                document.getElementById('form_ordinateur').style.visibility = 'visible';
-                else
-                document.getElementById('form_ordinateur').style.visibility = 'hidden';
-                }
-    </script>
     </section>
     
 </main><!-- End #main -->

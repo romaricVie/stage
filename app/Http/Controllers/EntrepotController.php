@@ -60,8 +60,8 @@ class EntrepotController extends Controller
 
          
           }
- 
-          return redirect()->back();
+            session()->flash('success', 'Entrepot enregistré avec succès!');
+            return redirect()->back();
 
     }
 

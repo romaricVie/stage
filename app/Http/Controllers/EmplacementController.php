@@ -50,7 +50,7 @@ class EmplacementController extends Controller
        $validated = $request->validate([
                 
                         'name' => 'required',
-                        'description' => 'required',
+                        'description' =>  ['string', 'nullable'],
                         'entrepot_id' => 'required',
                     ]);
 
@@ -67,7 +67,7 @@ class EmplacementController extends Controller
 
          
           }
- 
+          session()->flash('success', 'Emplacement enregistré avec succès!');
           return redirect()->back();
     }
 

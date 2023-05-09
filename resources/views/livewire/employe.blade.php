@@ -49,5 +49,8 @@
           </table>
            {{$employes->links()}}
          </div>
+          <div class="d-flex justify-content-end m-4">
+            <a class="btn btn-outline-primary" href="{{route('employes.pdf')}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
+        </div>
       </div>
 </div>

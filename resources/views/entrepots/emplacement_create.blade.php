@@ -12,6 +12,14 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
+    
+     @if(session('success'))
+                <script type="text/javascript">
+                    swal("Félicitations!","{!! session('success') !!}","success",{
+                        button:"OK"
+                    })
+               </script>
+           @endif
 
     <section class="section dashboard">
       <div class="card">

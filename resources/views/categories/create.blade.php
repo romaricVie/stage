@@ -7,11 +7,21 @@
       <h1>Categories</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('categories.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Categories</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
+
+     <!-- Alert Messages -->
+              @if(session('success'))
+                    <script type="text/javascript">
+                        swal("Félicitations!","{!! session('success') !!}","success",{
+                            button:"OK"
+                        })
+                    </script>
+                 @endif
+
 
     <section class="section dashboard">
       <div class="card">

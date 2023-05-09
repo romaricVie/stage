@@ -15,6 +15,8 @@
 
     <section class="section dashboard">
       <a href="{{route('categories.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter Categorie</button></a>
+
+    
             <livewire:categories/> 
     </section>
 

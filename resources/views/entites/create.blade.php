@@ -6,12 +6,19 @@
       <h1>Entité</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('entites.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Entité</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+     @if(session('success'))
+                <script type="text/javascript">
+                    swal("Félicitations!","{!! session('success') !!}","success",{
+                        button:"OK"
+                    })
+               </script>
+           @endif
+   
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">

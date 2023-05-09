@@ -54,7 +54,8 @@ class EntiteController extends Controller
 
          
           }
- 
+         
+          session()->flash('success', 'Entité enregistrée avec succès!');
           return redirect()->back();
 
     }

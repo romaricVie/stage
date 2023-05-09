@@ -14,6 +14,14 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
+      
+       @if(session('success'))
+                <script type="text/javascript">
+                    swal("Félicitations!","{!! session('success') !!}","success",{
+                        button:"OK"
+                    })
+               </script>
+           @endif
           <livewire:espace-create/>  
     </section>
 

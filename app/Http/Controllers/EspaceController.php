@@ -46,7 +46,7 @@ class EspaceController extends Controller
           $validated = $request->validate([
                 
                         'name' => 'required',
-                        'description' =>  ['string'],
+                        'description' =>  ['string', 'nullable'],
                         'entrepot_id' => 'required',
                         'emplacement_id' => 'required',
                     ]);
@@ -66,6 +66,7 @@ class EspaceController extends Controller
          
           }
  
+         session()->flash('success', 'Espace enregistré avec succès!');
           return redirect()->back();
     }
 

@@ -90,7 +90,7 @@ class ReparationController extends Controller
                   }
 
 
- 
+          session()->flash('success', 'Réparation enregistrée avec succès!');
           return redirect()->back();
     }
 

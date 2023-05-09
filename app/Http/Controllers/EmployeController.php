@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 //use App\Models\Bien;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EmployeController extends Controller
 {
@@ -21,6 +22,23 @@ class EmployeController extends Controller
          
          return view('employes.index');
     }
+
+
+    /**
+     * Display a listing of the resource in PDF.
+     */
+    public function createPDF()
+    {
+        //
+     
+        //Data    
+        $data = Employe::all();
+        $pdf = Pdf::loadView('employes.pdf',["data"=> $data]);
+        
+       return $pdf->download('liste des employes'.time().rand('1', '9999').'.pdf');
+         
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -82,7 +100,7 @@ class EmployeController extends Controller
                   }
 
 
- 
+          session()->flash('success', 'Employé enregistrer avec succès!');
           return redirect()->back();
     }
 

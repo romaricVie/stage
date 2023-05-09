@@ -103,6 +103,7 @@ Route::middleware('auth')->group(function () {
 
         /* Employes */
         Route::get('/employes', [EmployeController::class, 'index'])->name('employes.index');
+         Route::get('/employes/pdf', [EmployeController::class, 'createPDF'])->name('employes.pdf');
         Route::get('/employes/create', [EmployeController::class, 'create'])->name('employes.create');
         Route::post('/employes', [EmployeController::class, 'store'])->name('employes.store');
         Route::get('/employes/{employe}', [EmployeController::class, 'show'])->name('employes.show');
@@ -110,6 +111,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/employes/{employe}', [EmployeController::class, 'update'])->name('employes.update');
         Route::get('/employes/{employe}/edit', [EmployeController::class, 'edit'])->name('employes.edit');
         Route::delete('/employes/{employe}', [EmployeController::class, 'destroy'])->name('employes.destroy');
+
+
 
 
         /* AffectationController */
