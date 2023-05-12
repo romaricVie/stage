@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reparations', function (Blueprint $table) {
             $table->id();
-            $table->integer('price');
+            $table->bigInteger('price');
             $table->enum('etat', ['bon', 'hors_service']);
             $table->string('maintenancier',50);
             $table->string('contact_maintenancier',30);

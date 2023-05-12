@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EntrepotController extends Controller
 {
@@ -43,7 +44,7 @@ class EntrepotController extends Controller
           $validated = $request->validate([
                 
                         'name' => 'required',
-                        'description' =>  ['string'],
+                        'description' =>  ['string','nullable'],
                         'adresse_geographique' => 'required',
                     ]);
 
@@ -66,6 +67,21 @@ class EntrepotController extends Controller
     }
 
     /**
+     * Display all biens belong to entrepot .
+     */
+    public function createPDF(Entrepot $entrepot)
+    {
+        //
+
+        $pdf = Pdf::loadView('entrepots.entrepot_pdf',["entrepot"=> $entrepot]);
+        
+        return $pdf->download('liste des biens de l\'entrepot_'.$entrepot->name.time().rand('1', '9999').'.pdf');
+
+
+    }
+
+
+     /**
      * Display the specified resource.
      */
     public function show(Entrepot $entrepot):View
@@ -79,6 +95,7 @@ class EntrepotController extends Controller
 
 
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -7,6 +7,7 @@ use App\Models\Emplacement;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EmplacementController extends Controller
 {
@@ -81,6 +82,17 @@ class EmplacementController extends Controller
 
                  "emplacement" => $emplacement
         ]);
+    }
+
+ /**
+     * Display all biens belong to emplacement .
+     */
+    public function createPDF(Emplacement $emplacement)
+    {
+        //
+        $pdf = Pdf::loadView('entrepots.emplacement_pdf',["emplacement"=> $emplacement]);
+        
+        return $pdf->download('liste des biens de l\'emplacement_'.$emplacement->name.time().rand('1', '9999').'.pdf');
     }
 
     /**

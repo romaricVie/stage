@@ -7,7 +7,7 @@
       <h1>Réparations détails</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('reparations.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Réparations</li>
         </ol>
       </nav>

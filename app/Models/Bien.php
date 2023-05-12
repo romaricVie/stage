@@ -35,6 +35,8 @@ class Bien extends Model
         'matiere',
         'poids',
         'autres',
+        'type_qty',
+        'quantite',
         'employe_id',  // id de l'employe
         'categorie_id',
         'scategorie_id',
@@ -42,7 +44,7 @@ class Bien extends Model
         'entrepot_id',
         'emplacement_id',
         'espace_id',
-        'entite_id', //31
+        'entite_id', //33
 
     ];
 

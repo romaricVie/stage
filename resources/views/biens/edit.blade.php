@@ -4,7 +4,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Modifier les information d'un bien</h1>
+      <h1>Modifier les informations du bien</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('biens.index')}}">Home</a></li>
@@ -68,13 +68,13 @@
                        >
                     <option value="">Choisir une sous sous categorie...</option>
                         @foreach($sscategories as $sscategorie)
-                          <option value="{{$sscategorie->id }}" @if($sscategorie->id ?? '' === $bien->sscategorie->id) selected @endif >{{$sscategorie->name}}</option>
+                          <option value="{{$sscategorie->id ?? '' }}" @if($sscategorie->id === $bien->sscategorie->id) selected @endif >{{$sscategorie->name}}</option>
                       @endforeach    
                   </select>
                 </div> 
                 <!-- Sous sous categorie -->
                 <div class="col-6">
-                    <label for="inputName" class="form-label">Nom</label>
+                    <label for="inputName" class="form-label">Désignation</label>
                     <input type="text" name="name" class="form-control" id="inputName" placeholder="Entrer le nom" value="{{$bien->name}}" required>
                 </div>  <!--End nom -->
                 <div class="col-6">
@@ -265,7 +265,7 @@
                         >
                          <option value="">Choisir un emplacement...</option>
                          @foreach($emplacements as $emplacement)
-                            <option value="{{$emplacement->id ?? ''}}" @if($emplacement->id ?? '' === $bien->emplacement->id ?? '') selected @endif>{{$emplacement->name}}</option>
+                            <option value="{{$emplacement->id ?? ''}}" @if($emplacement->id === $bien->emplacement->id) selected @endif>{{$emplacement->name}}</option>
                          @endforeach
                   </select>
                 </div><!--End emplacement-->

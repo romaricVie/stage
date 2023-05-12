@@ -18,22 +18,23 @@
 
                  @csrf
 
-                <span class="text-center fs-3">Categorisation</span>
-                <div class="col-6">
-                    <label for="inputName" class="form-label">Désignation <span class="text-danger"> *</span></label>
-                    <input type="text" name="name" class="form-control" id="inputName" placeholder="Entrer la designation" required>
-                </div>  <!--End nom -->
+                <span class="text-center fs-3">Catégorisation</span>
 
                 <div class="col-6">
                     <label for="inputCategorie" class="form-label">Categorie <span class="text-danger"> *</span></label>
                     <select
 
-                           class="form-select form-select-sm" 
-                           name="categorie_id"  id="inputCategorie" 
+                           class="form-select form-select-sm @error('categorie_id') is-invalid @enderror" 
+                           name="categorie_id"  
+                           id="inputCategorie" 
                            aria-label=".form-select-sm example"
                            required
                            wire:model.lazy="categorie"
                            >
+
+                          @error('categorie_id')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror   
                          <option value="">Choisir une categorie...</option>
                         @foreach($categories as $categorie)
                           <option value="{{$categorie->id}}">{{$categorie->name}}</option>
@@ -44,13 +45,17 @@
                 <div class="col-6">
                   <label for="inputScategorie" class="form-label">Sous categorie <span class="text-danger"> *</span></label>
                    <select 
-                       class="form-select form-select-sm" 
+
+                       class="form-select form-select-sm @error('scategorie_id') is-invalid @enderror " 
                        id="inputScategorie" 
                        aria-label=".form-select-sm example"
                        name="scategorie_id" 
-                       OnChange ="enregistre_ordinateur();"
                        wire:model.lazy="scategorie"
+
                        >
+                         @error('scategorie_id')
+                                  <div class="alert alert-danger">{{ $message }}</div>
+                          @enderror
                          <option value="">Choisir une sous categorie...</option>
                          @foreach($scategories as  $scategorie)
                            <option value="{{$scategorie->id}}">{{$scategorie->name}}</option>
@@ -75,7 +80,28 @@
                   </select>
                 </div> <!-- Sous sous categorie -->
               
-                <span class="text-center fs-3">Taille</span>
+                <span class="text-center fs-3">Caractéristique</span>
+                 <div class="col-6">
+                    <label for="inputName" class="form-label">Désignation <span class="text-danger"> *</span></label>
+                    <input 
+                           type="text" 
+                           name="name" 
+                           class="form-control @error('name') is-invalid @enderror" 
+                           id="inputName" 
+                           placeholder="Entrer la designation"
+                           value="" 
+                           required 
+                           >
+
+                    @error('name')
+                             <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror   
+                </div>  <!--End nom -->
+                <div class="col-6">
+                    <label for="inputColor" class="form-label">Couleur</label>
+                    <input type="text" name="couleur" class="form-control" id="inputColor" placeholder="Entrer la couleur" >
+                </div>  <!--End Couleur -->
+
                 <div class="col-4">
                     <label for="inputLongeur" class="form-label">Longeur</label>
                     <input type="text" name="longueur" class="form-control" id="inputLongeur" placeholder="Entrer longueur">
@@ -89,10 +115,7 @@
                     <input type="text" name="hauteur" class="form-control" id="inputHauteur" placeholder="Entrer hauteur">
                 </div> <!--End Hauteur -->
 
-                <div class="col-6">
-                    <label for="inputColor" class="form-label">Couleur</label>
-                    <input type="text" name="couleur" class="form-control" id="inputColor" placeholder="Entrer la couleur" >
-                </div>  <!--End Couleur -->
+                
                 <div class="col-6">
                     <label for="inputbattants" class="form-label">Nombre de battants</label>
                     <input type="text" name="nbre_battant" class="form-control" id="inputbattants" placeholder="Entrer le Nombre">
@@ -133,21 +156,21 @@
                       </div>
                       <div class="form-check">
                             <input class="form-check-input" type="radio" name="type_qty" value="groupe_bien" id="flexRadio02">
-                           <label class="form-check-label" for="flexRadio02">
+                            <label class="form-check-label" for="flexRadio02">
                            Groupe de bien
                           </label>
                      </div>
                 </div>
                 <div class="col-6">
                           <label for="inputqty" class="form-label">Quantité</label>
-                          <input type="text" name="qty" class="form-control" id="inputqty" placeholder="Entrer la quantité">
+                          <input type="text" name="quantite" class="form-control" id="inputqty" placeholder="Entrer la quantité">
                  </div><!--End qty --> 
                 
 
                 <!-- PC -->
                <span id="form_ordinateur">
                   <div class="row pc g-3">
-                   <span class="text-center fs-3">Ordinateur</span>
+                   <span class="text-center fs-3">Caractéristique Ordinateur</span>
                       <div class="col-6">
                         <label for="inputDd" class="form-label">Disque dur</label>
                         <input type="text" name="disque_dur" class="form-control" id="inputDd" placeholder="Entrer la couleur" >
@@ -186,10 +209,10 @@
                 </div> <!--End matiere-->
                 <div class="col-12 form-floating">
                     <textarea class="form-control" name="autres" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                      <label for="floatingTextarea">Autres</label>
+                      <label for="floatingTextarea">Autres infos</label>
                 </div><!--End autre--> 
 
-                   <span class="text-center fs-3">Etat du biens</span>
+                   <span class="text-center fs-3">Etat</span>
                  <div class="col-6">
                        <div class="form-check">
                            <input class="form-check-input" type="radio" name="etat" value="bon" id="flexRadioDefault01">
@@ -219,9 +242,10 @@
                         </label>
                      </div>
                 </div> --><!--End disponibilite -->
-                <span class="text-center fs-3">Image du biens</span>
+                <span class="text-center fs-3">Ajouter une image</span>
                 <div class="col-6 input-group mb-3">
                     <input class="form-control" name="image" type="file" id="formFile">
+                     <label class="input-group-text" for="formFile">Image</label>
                 </div><!--End image-->
                 <span class="text-center fs-3">Localisation</span>
                 <div class="col-6">

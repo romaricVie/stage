@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/entrepots/create', [EntrepotController::class, 'create'])->name('entrepots.create');
         Route::post('/entrepots', [EntrepotController::class, 'store'])->name('entrepots.store');
         Route::get('/entrepots/{entrepot}', [EntrepotController::class, 'show'])->name('entrepots.show');
+        Route::get('/entrepots/biens/pdf/{entrepot}', [EntrepotController::class, 'createPDF'])->name('entrepots.biens.pdf');
 
 
         //Emplacement
@@ -88,12 +89,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/emplacements/create', [EmplacementController::class, 'create'])->name('emplacements.create');
         Route::post('/emplacements', [EmplacementController::class, 'store'])->name('emplacements.store');
         Route::get('/emplacements/{emplacement}', [EmplacementController::class, 'show'])->name('emplacements.show');
+        Route::get('/emplacements/biens/pdf/{emplacement}', [EmplacementController::class, 'createPDF'])->name('emplacements.bien.pdf');
 
         //Espace
         Route::get('/espaces', [EspaceController::class, 'index'])->name('espaces.index');
         Route::get('/espaces/create', [EspaceController::class, 'create'])->name('espaces.create');
         Route::post('/espaces', [EspaceController::class, 'store'])->name('espaces.store');
         Route::get('/espaces/{espace}', [EspaceController::class, 'show'])->name('espaces.show');
+        Route::get('/espaces/biens/pdf/{espace}', [EspaceController::class, 'createPDF'])->name('espaces.bien.pdf');
 
         /* Entites */
         Route::get('/entites', [EntiteController::class, 'index'])->name('entites.index');
@@ -103,7 +106,8 @@ Route::middleware('auth')->group(function () {
 
         /* Employes */
         Route::get('/employes', [EmployeController::class, 'index'])->name('employes.index');
-         Route::get('/employes/pdf', [EmployeController::class, 'createPDF'])->name('employes.pdf');
+        Route::get('/employes/pdf', [EmployeController::class, 'createPDF'])->name('employes.pdf');
+        Route::get('/employes/biens/pdf/{employe}', [EmployeController::class, 'BiensPDF'])->name('employes.biens.pdf');
         Route::get('/employes/create', [EmployeController::class, 'create'])->name('employes.create');
         Route::post('/employes', [EmployeController::class, 'store'])->name('employes.store');
         Route::get('/employes/{employe}', [EmployeController::class, 'show'])->name('employes.show');
@@ -111,7 +115,7 @@ Route::middleware('auth')->group(function () {
         Route::put('/employes/{employe}', [EmployeController::class, 'update'])->name('employes.update');
         Route::get('/employes/{employe}/edit', [EmployeController::class, 'edit'])->name('employes.edit');
         Route::delete('/employes/{employe}', [EmployeController::class, 'destroy'])->name('employes.destroy');
-
+ 
 
 
 
@@ -134,6 +138,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/biens/create', [BienController::class, 'create'])->name('biens.create');
         Route::post('/biens', [BienController::class, 'store'])->name('biens.store');
         Route::get('/biens/{bien}', [BienController::class, 'show'])->name('biens.show');
+        Route::get('/biens/{bien}', [BienController::class, 'show'])->name('biens.show');
+        Route::post('/search', [BienController::class, 'search'])->name('biens.search');
+        Route::get('/biens/pdf/{bien}', [BienController::class, 'createPDF'])->name('biens.bien.pdf');
         Route::put('/biens/{bien}', [BienController::class, 'update'])->name('biens.update');
         Route::get('/biens/{bien}/edit', [BienController::class, 'edit'])->name('biens.edit');
         Route::delete('/biens/{bien}', [BienController::class, 'destroy'])->name('biens.destroy');

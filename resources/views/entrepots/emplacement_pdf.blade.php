@@ -3,12 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Liste des employés</title>
+	<title>Liste des Biens  d'un emplacement</title>
 </head>
 <body>
-   <h1>Liste des employées</h1>
-   
-     <livewire:liste-employes/>  
-  
+      <livewire:bien-emplacement-pdf :emplacement="$emplacement"> 
 </body>
 </html>

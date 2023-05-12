@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('generation')->nullable();
             $table->enum('etat', ['bon','hors_service']);
-            $table->enum('disponibilite', ['libre','occupe']);
+            $table->enum('disponibilite', ['libre','occupe'])->default('libre');
+            $table->enum('type_qty', ['bien_unique','groupe_bien'])->default('bien_unique');
+            $table->bigInteger('quantite')->nullable();
             $table->string('etiquette')->unique();
             $table->string('ram')->nullable();
             $table->string('disque_dur')->nullable();

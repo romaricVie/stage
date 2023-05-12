@@ -31,7 +31,9 @@ class AffectationController extends Controller
       
         //
         $employes = Employe::all();
-        $biens = DB::table('biens')->where("disponibilite","libre" )->get();
+        $biens = DB::table('biens')->where("disponibilite","libre" )
+                                     ->where("etat","bon" )
+                                     ->get();
 
         return view('affectations.create',
 
@@ -119,7 +121,7 @@ class AffectationController extends Controller
      */
     public function destroy(Affectation $affectation)
     {
-        //
+        //rendre le bien dispo
         $affectation->delete();
         return redirect()->route('affectations.index');
     }

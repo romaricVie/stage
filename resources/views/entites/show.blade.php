@@ -40,33 +40,7 @@
                       </tr>
                     @endforeach
                   </tbody>
-          </table>
-
-          <h5 class="card-title">Liste des employés de l'entité {{$entite->name}}</h5>
-          <table class="table table-hover ">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nom</th>
-                      <th scope="col">Contact</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Statut</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                     @foreach($entite->employes as $employe)
-                      <tr>
-                        <th scope="row">{{$employe->id}}</th>
-                        <td>{{$employe->name}}</td>
-                        <td>{{$employe->contact}}</td>
-                        <td>{{$employe->email}}</td>
-                        <td>{{$employe->statut}}</td>
-                      </tr>
-                    @endforeach
-                  </tbody>
-          </table>
-         </div>
-      </div>
+          </table> 
     </section>
 
 </main><!-- End #main -->

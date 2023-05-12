@@ -8,6 +8,7 @@ use App\Models\Espace;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EspaceController extends Controller
 {
@@ -83,6 +84,19 @@ class EspaceController extends Controller
          ]);
 
 
+    }
+
+
+    /**
+     * Display the specified resource in pdf.
+     */
+    public function createPDF(Espace $espace)
+    {
+        //
+
+        $pdf = Pdf::loadView('entrepots.espace_pdf',["espace"=> $espace]);
+        
+        return $pdf->download('liste des biens de l\'espace_'.$espace->name.time().rand('1', '9999').'.pdf');
     }
 
     /**

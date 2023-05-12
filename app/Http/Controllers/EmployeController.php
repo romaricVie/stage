@@ -6,7 +6,7 @@ use App\Models\Employe;
 use App\Models\Entite;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-//use App\Models\Bien;
+use App\Models\Bien;
 use Illuminate\Http\RedirectResponse;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -25,7 +25,7 @@ class EmployeController extends Controller
 
 
     /**
-     * Display a listing of the resource in PDF.
+     * Display a listing of all employe in PDF.
      */
     public function createPDF()
     {
@@ -38,6 +38,25 @@ class EmployeController extends Controller
        return $pdf->download('liste des employes'.time().rand('1', '9999').'.pdf');
          
     }
+
+
+
+     /**
+     * Display a listing of all biens belong to employe  in PDF.
+     */
+    public function BiensPDF(Employe $employe)
+    {
+        //
+     
+        //Data
+      //  $name = "ROMARIC";    
+       // $employe = Employe::all();
+        $pdf = Pdf::loadView('employes.biens_pdf',["employe"=> $employe]);
+        
+       return $pdf->download('liste des biens affectés a_'.$employe->name.time().rand('1', '9999').'.pdf');
+         
+    }
+
 
 
     /**
@@ -100,7 +119,7 @@ class EmployeController extends Controller
                   }
 
 
-          session()->flash('success', 'Employé enregistrer avec succès!');
+          session()->flash('success', 'Employé enregistré avec succès!');
           return redirect()->back();
     }
 
@@ -180,8 +199,8 @@ class EmployeController extends Controller
                          ]);
 
                   }
-         
-        return redirect()->route('employes.index');
+          session()->flash('success', 'Employé modifié avec succès!');
+          return redirect()->route('employes.index');
     }
 
     /**
@@ -190,7 +209,8 @@ class EmployeController extends Controller
     public function destroy(Employe $employe)
     {
         //
-        $employe->delete();
-        return redirect()->route('employes.index');
+         $employe->delete();
+         session()->flash('success', 'Employé supprimé avec succès!');
+         return redirect()->route('employes.index');
     }
 }

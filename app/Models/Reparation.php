@@ -18,6 +18,7 @@ class Reparation extends Model
         'contact_maintenancier',  // identifiant de l'employe
         'description_panne',
         'day',
+        'etiquette',
         'month',
         'year',
         'bien_id',

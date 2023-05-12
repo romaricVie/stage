@@ -38,7 +38,9 @@
                         <th scope="row">{{$reparation->id}}</th>
                         <td>{{$reparation->maintenancier}} </td>
                         <td>(#{{$reparation->bien->etiquette}}) {{$reparation->bien->name}}</td>
-                        <td>{{$reparation->etat}}</td>
+                        <td> 
+                            <span class="badge rounded-pill text-bg-<?= $reparation->etat== 'bon' ? 'info' : 'danger'?>">{{$reparation->etat}}</span>
+                        </td>
                         <td> <a href="{{route('reparations.show',['reparation'=> $reparation->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a></td>
                       </tr>
                     @endforeach

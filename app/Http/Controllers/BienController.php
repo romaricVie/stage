@@ -15,6 +15,8 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class BienController extends Controller
 {
@@ -57,7 +59,7 @@ class BienController extends Controller
     {
         //
 
-          // dd($request->all());
+          //dd($request->all());
            /* $bien = DB::table('biens')
                                 ->count();
                                 
@@ -90,6 +92,8 @@ class BienController extends Controller
                         'matiere' =>['string', 'nullable'],
                         'poids' =>['string', 'nullable'],
                         'autres' =>['string', 'nullable'],
+                        'type_qty' =>['string', 'nullable'],
+                        'quantite' =>['string', 'nullable'],
                         'categorie_id' =>['string', 'required'],
                         'scategorie_id' =>['string', 'nullable'],
                         'sscategorie_id' =>['string', 'nullable'],
@@ -130,6 +134,8 @@ class BienController extends Controller
                             "matiere" => $validated["matiere"],
                             "poids" => $validated["poids"],
                             "autres" => $validated["autres"],
+                            "type_qty" => $validated["type_qty"],
+                            "quantite" => $validated["quantite"],
                             "categorie_id" => $validated["categorie_id"],
                             "scategorie_id" => $validated["scategorie_id"],
                             "sscategorie_id" => $validated["sscategorie_id"],
@@ -160,6 +166,21 @@ class BienController extends Controller
 
         ]);
     }
+
+
+
+      /**
+     * Display the specified resource in pdf.
+     */
+    public function createPDF(Bien $bien)
+    {
+        //
+
+        $pdf = Pdf::loadView('biens.biens_disponible_pdf',["bien"=> $bien]);
+        
+        return $pdf->download('liste des biens disponibles_'.time().rand('1', '9999').'.pdf');
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -201,9 +222,6 @@ class BienController extends Controller
     {
         //
    
-
-
-
         $validated = $request->validate([
                 
                         'name' => 'required',
@@ -278,7 +296,8 @@ class BienController extends Controller
                      ]);
 
                   }
-
+ 
+            session()->flash('success', 'Bien modifié avec succès!');
             return redirect()->route('biens.index');
 
     }
@@ -293,6 +312,30 @@ class BienController extends Controller
         $bien->delete();
         return redirect()->route('biens.index');
     }
+
+
+
+     /**
+     * Search bien available.
+     */
+    public function search(Request $request)
+    {
+        //
+       // dd($request->all());
+         $biens = Bien::with('categorie','scategorie','sscategorie')
+                                         ->where('disponibilite','libre')
+                                         ->where('categorie_id',$request->categorie_id)
+                                         ->where('scategorie_id',$request->scategorie_id)
+                                         ->where('sscategorie_id',$request->sscategorie_id)
+                                         ->get();
+         
+         return view('biens.search',[
+                             "biens" => $biens
+                   ]);
+    
+    }
+
+
 
     private function storeImage()
     {
@@ -323,16 +366,16 @@ class BienController extends Controller
 
         
         if(request('categorie_id') ==="3"){
-            return "Electro-".$bien;
+            return "Vehicule-".$bien;
         }
 
 
         if(request('categorie_id') ==="4"){
-            return "Engins-".$bien;
+            return "Electro-".$bien;
         }
 
         if(request('categorie_id') ==="5"){
-            return "Goodi-".$bien;
+            return "Goodie-".$bien;
         }
 
         

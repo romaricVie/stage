@@ -4,7 +4,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Bien appartenant à un employé</h1>
+      <h1>Bien affecté à un employé</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{route('employes.index')}}">Home</a></li>
@@ -35,6 +35,9 @@
                   </tbody>
           </table>
          </div>
+         <div class="d-flex justify-content-end m-4">
+            <a class="btn btn-outline-primary" href="{{route('employes.biens.pdf',$employe)}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
+        </div>
       </div>
     </section>
 

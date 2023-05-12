@@ -46,7 +46,7 @@
                           @enderror   
                            <option value="">Choisir un employé </option>
                            @foreach($employes as $employe)
-                             <option value="{{$employe->id}}">{{$employe->name}}</option>
+                             <option value="{{$employe->id}}">{{$employe->name.' '.$employe->firstname}}</option>
                            @endforeach
                     </select>
                   </div><!-- End Employe -->

@@ -12,7 +12,13 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
+    @if(session('success'))
+                <script type="text/javascript">
+                    swal("Félicitations!","{!! session('success') !!}","success",{
+                        button:"OK"
+                    })
+               </script>
+           @endif
     <section class="section dashboard">
        <div>
            <a href="{{route('employes.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter employé</button></a>

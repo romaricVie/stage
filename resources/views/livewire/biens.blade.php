@@ -23,9 +23,10 @@
               <table class="table table-hover ">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col">#Identification</th>
                       <th scope="col">Désignation</th>
-                      <th scope="col">Date enregistrement</th>
+                      <th scope="col">Etat</th>
+                      <th scope="col">Disponibilité</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
@@ -34,7 +35,10 @@
                       <tr>
                         <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
                         <td>{{$bien->name}}</td>
-                        <td>{{$bien->created_at}}</td>
+                        <td>
+                            <span class="badge rounded-pill text-bg-<?= $bien->etat== 'bon' ? 'info' : 'danger'?>">{{$bien->etat}}</span>
+                        </td>
+                         <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>
                         <td>
                            <a href="{{route('biens.show', ['bien' => $bien->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
                        </td>

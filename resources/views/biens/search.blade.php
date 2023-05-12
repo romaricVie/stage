@@ -4,50 +4,39 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Entrepôt</h1>
+      <h1>Biens</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('entrepots.index')}}">Home</a></li>
-          <li class="breadcrumb-item active">{{$entrepot->name}}</li>
+          <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+          <li class="breadcrumb-item active">Biens</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
-       
-      <div class="card">
+
+     <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Liste des biens de l'entrepôt {{$entrepot->name}}</h5>
+            <h5 class="card-title">Liste des biens disponibles</h5>
              <!-- Bien table -->
-              <table class="table table-hover ">
+              <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">#Identifiant</th>
+                      <th scope="col">#Identification</th>
                       <th scope="col">Désignation</th>
-                      <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
-                      <th scope="col">Categorie</th>
                     </tr>
                   </thead>
                   <tbody>
-                     @foreach($entrepot->biens as $bien)
+                    @foreach($biens as $bien)
                       <tr>
                         <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
                         <td>{{$bien->name}}</td>
-                        <td>{{$bien->etat}}</td>
                         <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>
-                        <td>{{$bien->categorie->name}}</td>
                       </tr>
-                    @endforeach
+                     @endforeach
                   </tbody>
           </table>
-        </div>
-
-        <div class="d-flex justify-content-end m-4">
-            <a class="btn btn-outline-primary" href="{{route('entrepots.biens.pdf',$entrepot)}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
-        </div>
+         </div>
       </div>
-    </section>
-
 </main><!-- End #main -->
 @endsection

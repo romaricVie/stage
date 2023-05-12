@@ -22,7 +22,7 @@
               <table class="table table-hover ">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col">#Identifiant</th>
                       <th scope="col">Designation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
@@ -32,10 +32,10 @@
                   <tbody>
                      @foreach($scategorie->biens as $bien)
                       <tr>
-                        <th scope="row">{{$bien->etiquette}}</th>
+                        <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
-                        <td>{{$bien->disponibilite}}</td>
+                        <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>"> {{$bien->disponibilite}}</span></td>
                         <td>{{$bien->entrepot->name}}</td>
                       </tr>
                     @endforeach

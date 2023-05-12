@@ -44,9 +44,9 @@ class ReparationController extends Controller
     {
         //
          //dd($request->all());
-       //$bien = DB::table('biens')->where('id',$request->bien_id)->first();   
+     //  $bien = DB::table('biens')->where('id',$request->bien_id)->first();   
 
-      //  dd($bien->etat);
+    //  dd($bien->etiquette);
  
       //dd($request->etat);
          $validated = $request->validate([
@@ -64,6 +64,7 @@ class ReparationController extends Controller
                     ]);
  
                $bien = DB::table('biens')->where('id',$request->bien_id)->first();
+       //dd($bien->etiquette);
 
                   if($validated){
 
@@ -77,7 +78,7 @@ class ReparationController extends Controller
                                             "day" => $validated["day"],
                                             "month" => $validated["month"],
                                             "year" => $validated["year"],
-                                            "etiquette" =>$bien->etiquette,
+                                            "etiquette" => $bien->etiquette,
                                             "bien_id" => $validated["bien_id"],
 
                                      ]);

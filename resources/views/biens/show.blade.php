@@ -32,12 +32,12 @@
 
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">image du biens</h5>
+            <h5 class="card-title">image du bien</h5>
              <!-- Bien table -->
              @if($bien->image)
                  <img src="{{asset('storage/'.$bien->image)}}" alt="img" title="image" class="img-fluid">
               @endif
-              <h5 class="card-title">Informations sur le biens</h5>
+              <h5 class="card-title">Informations sur le bien</h5>
               <div>
                   <span class="fw-bold">Nom :</span> {{$bien->name }}<br>
                   <span class="fw-bold">Etiquette :</span> <span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span><br>
@@ -45,7 +45,8 @@
                   <span class="fw-bold">Prix :</span> {{$bien->price ?? 'non-defini'}}<br>
                   <span class="fw-bold">couleur :</span> {{$bien->couleur ?? 'non-definie'}}<br>
                   <span class="fw-bold">Disponibilité :</span> <span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span> <br>
-                  <span class="fw-bold">Etat :</span> {{$bien->etat}}<br>
+                  <span class="fw-bold">Etat :</span>
+                          <span class="badge rounded-pill text-bg-<?= $bien->etat== 'bon' ? 'info' : 'danger'?>"> {{$bien->etat}}</span><br>
                   <span class="fw-bold">Achat :</span> {{$bien->day}}/{{$bien->month}}/{{$bien->year}}<br>
                   <span class="fw-bold">Affecté à :</span>
                         @if($bien->affectations->count()>0)

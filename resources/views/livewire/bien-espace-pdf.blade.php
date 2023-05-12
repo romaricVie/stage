@@ -1,20 +1,5 @@
-@extends('templates/master')
-@section('content')
+<div>
 
-<main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Espace</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('espaces.index')}}">Home</a></li>
-          <li class="breadcrumb-item active">{{$espace->name}}</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section dashboard">
-       
       <div class="card">
          <div class="card-body">
             <h1 class="card-title">Liste des biens de l'espace {{$espace->name}}</h1>
@@ -32,21 +17,15 @@
                   <tbody>
                      @foreach($espace->biens as $bien)
                       <tr>
-                        <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
+                        <th scope="row">{{$bien->etiquette}}</th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
-                        <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>
+                        <td>{{$bien->disponibilite}}</td>
                         <td>{{$bien->categorie->name}}</td>
                       </tr>
                     @endforeach
                   </tbody>
           </table>
          </div>
-         <div class="d-flex justify-content-end m-4">
-            <a class="btn btn-outline-primary" href="{{route('espaces.bien.pdf',$espace)}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
-        </div>
       </div>
-    </section>
-
-</main><!-- End #main -->
-@endsection
+</div>

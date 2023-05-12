@@ -7,7 +7,7 @@
       <h1>Emplacement</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('emplacements.index')}}">Home</a></li>
           <li class="breadcrumb-item active">{{$emplacement->name}}</li>
         </ol>
       </nav>
@@ -22,7 +22,7 @@
               <table class="table table-hover ">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col">#Identifiant</th>
                       <th scope="col">Désignation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
@@ -32,16 +32,19 @@
                   <tbody>
                      @foreach($emplacement->biens as $bien)
                       <tr>
-                        <th scope="row">{{$bien->etiquette}}</th>
+                        <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
                         <td>{{$bien->name}}</td>
                         <td>{{$bien->etat}}</td>
-                        <td>{{$bien->disponibilite}}</td>
+                        <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>"> {{$bien->disponibilite}}</span></td>
                         <td>{{$bien->categorie->name}}</td>
                       </tr>
                     @endforeach
                   </tbody>
           </table>
          </div>
+         <div class="d-flex justify-content-end m-4">
+            <a class="btn btn-outline-primary" href="{{route('emplacements.bien.pdf',$emplacement)}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
+        </div>
       </div>
     </section>
 
