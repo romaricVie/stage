@@ -14,6 +14,12 @@ class Entrepot extends Model
         'name',
         'description',
         'adresse_geographique',
+        'batiment',
+        'superficie',
+        'etage',
+        'piece',
+        'parking',
+
     ];
 
 

@@ -117,8 +117,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/employes/{employe}', [EmployeController::class, 'destroy'])->name('employes.destroy');
  
 
-
-
         /* AffectationController */
         Route::get('/affectations', [AffectationController::class, 'index'])->name('affectations.index');
         Route::get('/affectations/create', [AffectationController::class, 'create'])->name('affectations.create');

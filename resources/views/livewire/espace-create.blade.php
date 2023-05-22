@@ -14,7 +14,7 @@
                  >
                   @csrf
                   <div class="col-6">
-                      <label for="inputCategorie" class="form-label">Entrepôt</label>
+                      <label for="inputCategorie" class="form-label">Entrepôt <span class="text-danger"> *</span></label>
                       <select
 
                             name="entrepot_id"
@@ -22,6 +22,7 @@
                             id="inputCategorie"
                             aria-label=".form-select-sm example"
                             wire:model.lazy="query"
+                            required
                         >
                            <option selected>Choisir un entrepot</option>
                            @foreach($entrepots as $entrepot)
@@ -32,13 +33,14 @@
 
                   </div><!-- End entrepot -->
                   <div class="col-6">
-                    <label for="inputScategorie" class="form-label">Emplacement</label>
+                    <label for="inputScategorie" class="form-label">Emplacement <span class="text-danger"> *</span></label>
                      <select
 
                             name="emplacement_id" 
                             class="form-select form-select-sm"
                             id="inputScategorie" 
                             aria-label=".form-select-sm example"
+                            required
                             >
                            <option value="" selected>Choisir un emplacement...</option>
                           @foreach($emplacements as $emplacement)
@@ -48,12 +50,12 @@
                   </div><!-- End emplacement -->
 
                  <div class="col-6">
-                    <label for="inputNanme5" class="form-label">Nom espace</label>
+                    <label for="inputNanme5" class="form-label">Nom espace <span class="text-danger"> *</span></label>
                     <input type="text" name="name" class="form-control" id="inputNanme5" placeholder="Entrer sous categorie" required>
                 </div> <!-- End espace -->
                  <div class="col-6 form-floating">
                     <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                      <label for="floatingTextarea">description</label>
+                      <label for="floatingTextarea">Description</label>
                 </div>
 
                   <div class="">

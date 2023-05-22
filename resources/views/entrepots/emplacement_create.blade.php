@@ -34,7 +34,7 @@
                   >
                    @csrf
                   <div class="col-6">
-                      <label for="inputCategorie" class="form-label">Entrepôt</label>
+                      <label for="inputCategorie" class="form-label">Entrepôt <span class="text-danger"> *</span></label>
                       <select name="entrepot_id" class="form-select form-select-sm" id="inputCategorie" aria-label=".form-select-sm example">
                            <option selected>Choisir un entrepot</option>
                            @foreach($entrepots as $entrepot)
@@ -44,13 +44,13 @@
                   </div><!-- End emplacement -->
 
                  <div class="col-6">
-                    <label for="inputNanme4" class="form-label">Nom emplacement</label>
+                    <label for="inputNanme4" class="form-label">Nom emplacement <span class="text-danger"> *</span></label>
                     <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer emplacement" required>
                 </div> <!-- End emplacement -->
 
                  <div class="col-6 form-floating">
                     <textarea class="form-control" name="description" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                      <label for="floatingTextarea">description</label>
+                      <label for="floatingTextarea">Description</label>
                 </div>
 
                   <div class="">

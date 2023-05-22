@@ -39,6 +39,17 @@ return new class extends Migration
             $table->string('matiere')->nullable();
             $table->string('poids')->nullable();//poids
             $table->string('autres')->nullable();
+            $table->string('code')->nullable();
+            $table->string('place')->nullable();
+            $table->string('energie')->nullable();
+            $table->string('fournisseur_name')->nullable();
+            $table->string('fournisseur_tel')->nullable();
+            $table->enum('type_bien', ['bien_materiel','bien_immateriel'])->default('bien_materiel');
+            $table->string('expiration')->nullable();
+            $table->foreignId('user_id') // admin 
+                   ->constrained()
+                   ->onUpdate('cascade')
+                   ->onDelete('cascade');
             $table->foreignId('employe_id') // employe 24
                    ->nullable()
                    ->constrained()

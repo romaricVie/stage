@@ -41,11 +41,23 @@
                     @endforeach
                   </tbody>
           </table>
+            <div class="d-flex justify-content-end m-4">
+                <a class="btn btn-outline-primary" href="{{route('entrepots.biens.pdf',$entrepot)}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
+           </div>
+           <h5 class="card-title">Informations de l'entrepot {{$entrepot->name}}</h5>
+           <!-- Bien table -->
+              <div>
+                  <p><span class="fw-bold">Adresse geographique :</span> {{$entrepot->adresse_geographique}}</p>
+                  <p><span class="fw-bold">batiment :</span> {{$entrepot->batiment ?? 'Non defini'}}</p>
+                  <p><span class="fw-bold">Nom étage :</span> {{$entrepot->etage ?? 'Non defini'}}</p>
+                  <p><span class="fw-bold">Nombre Piece :</span> {{$entrepot->piece ?? 'Non defini'}}</p>
+                  <p><span class="fw-bold">Superficie :</span> {{$entrepot->superficie ?? 'Non defini'}}</p>
+                  <p><span class="fw-bold">Nombre de parking :</span> {{$entrepot->parking ?? 'Non defini'}}</p>
+                  <p><span class="fw-bold">Description :</span> {{$entrepot->description ?? 'Non defini'}}<p>
+                 
+              </div>  
         </div>
 
-        <div class="d-flex justify-content-end m-4">
-            <a class="btn btn-outline-primary" href="{{route('entrepots.biens.pdf',$entrepot)}}"><i class="bi bi-printer-fill"></i> Imprimer</a>
-        </div>
       </div>
     </section>
 

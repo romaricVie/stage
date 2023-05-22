@@ -33,19 +33,19 @@
               >
               @csrf
                   <div class="col-6">
-                      <label for="inputNanme4" class="form-label">Nom</label>
+                      <label for="inputNanme4" class="form-label">Nom <span class="text-danger"> *</span></label>
                       <input type="text" name="name"  class="form-control" id="inputNanme4" placeholder="Entrer nom" required>
                   </div>
                   <div class="col-6">
-                      <label for="inputNanme9" class="form-label">Prenoms</label>
+                      <label for="inputNanme9" class="form-label">Prenoms <span class="text-danger"> *</span></label>
                       <input type="text" name="firstname" class="form-control" id="inputNanme9" placeholder="Entrer prenoms" required>
                   </div>
                    <div class="col-6">
-                      <label for="inputNanme7" class="form-label">Fonction</label>
+                      <label for="inputNanme7" class="form-label">Fonction <span class="text-danger"> *</span></label>
                       <input type="text" name="fonction" class="form-control" id="inputNanme7" placeholder="Entrer la fonction" required>
                   </div>
                    <div class="col-6">
-                    <label for="inputEntite" class="form-label">Entité</label>
+                    <label for="inputEntite" class="form-label">Entité <span class="text-danger"> *</span></label>
                     <select name="entite_id" class="form-select form-select-sm" id="inputEntite" aria-label=".form-select-sm example">
                          <option selected>Choisir une entité</option>
                          @foreach($entites as $entite)
@@ -54,13 +54,13 @@
                   </select>
                 </div>
                   <div class="col-6">
-                      <label for="inputNanme6"  class="form-label">Email</label>
+                      <label for="inputNanme6"  class="form-label">Email <span class="text-danger"> *</span></label>
                       <input type="email" name="email" class="form-control" id="inputNanme6" placeholder="Entrer email" required>
                   </div>
                  
 
                   <div class="col-6">
-                      <label for="inputNanme8" class="form-label">Contact</label>
+                      <label for="inputNanme8" class="form-label">Contact <span class="text-danger"> *</span></label>
                       <input type="text" name="contact" class="form-control" id="inputNanme8" placeholder="Entrer contact" required>
                   </div>
                    <div class="col-6">
@@ -73,7 +73,7 @@
                   </div>
                  
                   <div class="col-6">
-                     <label for="" class="form-label">Statut</label>
+                     <label for="" class="form-label">Statut <span class="text-danger"> *</span></label>
                        <div class="form-check">
                            <input class="form-check-input" type="radio" name="statut" value="actif" id="flexRadioDefault2">
                            <label class="form-check-label" for="flexRadioDefault2">
@@ -89,7 +89,7 @@
                 </div>
 
                 <div class="col-6">
-                     <label for="" class="form-label">Type de contrat</label>
+                     <label for="" class="form-label">Type de contrat <span class="text-danger"> *</span></label>
                        <div class="form-check">
                            <input class="form-check-input" type="radio" name="contrat" value="cdi" id="flexRadioDefault1">
                            <label class="form-check-label" for="flexRadioDefault1">

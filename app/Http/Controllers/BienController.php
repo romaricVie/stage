@@ -10,6 +10,8 @@ use App\Models\Entrepot;
 use App\Models\Emplacement;
 use App\Models\Espace;
 use App\Models\Entite;
+use App\Models\Employe;
+use App\Models\Affectation;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
@@ -59,7 +61,7 @@ class BienController extends Controller
     {
         //
 
-          //dd($request->all());
+        //  dd($request->all());
            /* $bien = DB::table('biens')
                                 ->count();
                                 
@@ -94,6 +96,13 @@ class BienController extends Controller
                         'autres' =>['string', 'nullable'],
                         'type_qty' =>['string', 'nullable'],
                         'quantite' =>['string', 'nullable'],
+                        'code' =>['string', 'nullable'],
+                        'place' =>['string', 'nullable'],
+                        'energie' =>['string', 'nullable'],
+                        'fournisseur_name' =>['string', 'nullable'],
+                        'fournisseur_tel' =>['string', 'nullable'],
+                        'type_bien' =>['string', 'nullable'],
+                        'expiration' =>['string', 'nullable'],
                         'categorie_id' =>['string', 'required'],
                         'scategorie_id' =>['string', 'nullable'],
                         'sscategorie_id' =>['string', 'nullable'],
@@ -101,6 +110,7 @@ class BienController extends Controller
                         'emplacement_id' =>['string', 'nullable'],
                         'espace_id' =>['string', 'nullable'],
                         'entite_id' =>['string', 'nullable'],
+                        'employe_id' =>['string', 'nullable'],
 
                     ]);
 
@@ -136,6 +146,13 @@ class BienController extends Controller
                             "autres" => $validated["autres"],
                             "type_qty" => $validated["type_qty"],
                             "quantite" => $validated["quantite"],
+                            "code" =>$validated["code"],
+                            "place" =>$validated["place"],
+                            "energie" =>$validated["energie"],
+                            "fournisseur_name" =>$validated["fournisseur_name"],
+                            "fournisseur_tel" =>$validated["fournisseur_tel"],
+                            "type_bien" =>$validated["type_bien"],
+                            "expiration" =>$validated["expiration"],
                             "categorie_id" => $validated["categorie_id"],
                             "scategorie_id" => $validated["scategorie_id"],
                             "sscategorie_id" => $validated["sscategorie_id"],
@@ -143,10 +160,33 @@ class BienController extends Controller
                             "emplacement_id" => $validated["emplacement_id"],
                             "espace_id" => $validated["espace_id"],
                             "entite_id" => $validated["entite_id"],
-
+                            "employe_id" => $validated["employe_id"],
+                            "user_id" => auth()->user()->id
+                         
                      ]);
 
+                    //dd($bien->id);
+
+
+
                   }
+
+                  //Affectation
+       if($request->employe_id){
+
+                         Affectation::create([
+
+                                         "etiquette" =>$bien->etiquette,
+                                         "employe_id" =>$request->employe_id,
+                                         "bien_id" =>$bien->id,
+                                    ]);
+                        //update etat bien($request->bien);  
+                         DB::table('biens')->where('id',$bien->id)->update([
+                                                      'disponibilite'=> 'occupe'
+
+                                                  ]);
+
+                 }
 
 
           session()->flash('success', 'Bien enregistré avec succès!');
@@ -376,8 +416,11 @@ class BienController extends Controller
 
         if(request('categorie_id') ==="5"){
             return "Goodie-".$bien;
-        }
+        }else{
 
+            return "Voodoo-".$bien;
+         }
+       
         
     }
 }

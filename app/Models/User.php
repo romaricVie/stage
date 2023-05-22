@@ -46,4 +46,9 @@ class User extends Authenticatable
 
     //relationship
     
+     public function biens(): HasMany
+    {
+        return $this->hasMany(Bien::class);
+    }
+
 }

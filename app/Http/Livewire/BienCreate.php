@@ -10,6 +10,7 @@ use App\Models\Categorie;
 use App\Models\Scategorie;
 use App\Models\Sscategorie;
 use App\Models\Entite;
+use App\Models\Employe;
 
 class BienCreate extends Component
 {
@@ -26,6 +27,7 @@ class BienCreate extends Component
                "categories" => Categorie::all(),
                "entrepots" => Entrepot::all(),
                "entites" => Entite::all(),
+               "employes" => Employe::all(),
 
                "scategories" => Scategorie::where('categorie_id',$this->categorie)->get(),
                "sscategories" => Sscategorie::where('scategorie_id',$this->scategorie)->get(),

@@ -23,7 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nom du biens</th>
+                      <th scope="col">Désignation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
                       <th scope="col">Entrepôts</th>
@@ -34,8 +34,8 @@
                       <tr>
                         <th scope="row">{{$bien->id}}</th>
                         <td>{{$bien->name}}</td>
-                        <td>{{$bien->etat}}</td>
-                        <td>{{$bien->disponibilite}}</td>
+                        <td><span class="badge rounded-pill text-bg-<?= $bien->etat== 'bon' ? 'info' : 'danger'?>"> {{$bien->etat}}</span></td>
+                        <td> <span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>
                         <td>{{$bien->entrepot->name}}</td>
                       </tr>
                     @endforeach

@@ -37,6 +37,13 @@ class Bien extends Model
         'autres',
         'type_qty',
         'quantite',
+        'code',
+        'place',
+        'energie',
+        'fournisseur_name',
+        'fournisseur_tel',
+        'type_bien',
+        'expiration',
         'employe_id',  // id de l'employe
         'categorie_id',
         'scategorie_id',
@@ -45,11 +52,17 @@ class Bien extends Model
         'emplacement_id',
         'espace_id',
         'entite_id', //33
+        'user_id',
 
     ];
 
 
     //Relationships
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function categorie(): BelongsTo
     {

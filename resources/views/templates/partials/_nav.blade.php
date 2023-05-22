@@ -19,7 +19,7 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="{{asset('assets/img/user.png')}}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Romaric</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{auth()->user()->name}}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -72,9 +72,9 @@
 
        <li class="nav-item">
             <a class="nav-link collapsed"  href="{{route('affectations.index')}}">
-               <i class="bi bi-gift"></i><span>Affectations</span>
+              <i class="bi bi-arrows-move"></i><span>Mouvements</span>
             </a>
-       </li><!-- End Affectation Nav -->
+       </li><!-- End mouvement Nav -->
 
        <li class="nav-item">
         <a class="nav-link collapsed"  href="{{route('reparations.index')}}">

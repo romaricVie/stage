@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+
 class EntrepotController extends Controller
 {
     /**
@@ -45,9 +46,14 @@ class EntrepotController extends Controller
                 
                         'name' => 'required',
                         'description' =>  ['string','nullable'],
-                        'adresse_geographique' => 'required',
-                    ]);
+                        'adresse_geographique' => ['required'],
+                        'batiment' =>  ['string','nullable'],
+                        'superficie' =>  ['string','nullable'],
+                        'etage' =>  ['string','nullable'],
+                        'piece' =>  ['string','nullable'],
+                        'parking' =>  ['string','nullable'],
 
+                    ]);
    
 
           if($validated){
@@ -57,12 +63,17 @@ class EntrepotController extends Controller
                      "name" =>$validated["name"],
                      "description" =>$validated["description"],
                      "adresse_geographique" =>$validated["adresse_geographique"],
+                     "batiment" =>$validated["batiment"],
+                     "superficie" =>$validated["superficie"],
+                     "etage" =>$validated["etage"],
+                     "piece" =>$validated["piece"],
+                     "parking" =>$validated["parking"],
              ]);
-
-         
+     
           }
-            session()->flash('success', 'Entrepot enregistré avec succès!');
-            return redirect()->back();
+            
+        session()->flash('success', 'Entrepot enregistré avec succès!');
+        return redirect()->back();
 
     }
 

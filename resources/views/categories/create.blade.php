@@ -35,7 +35,7 @@
               >
                @csrf
                 <div class="col-6">
-                    <label for="inputNanme4" class="form-label">Nom categorie</label>
+                    <label for="inputNanme4" class="form-label">Nom categorie <span class="text-danger"> *</span></label>
                     <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer la categorie" required>
                 </div>            
                 <div class="">

@@ -89,7 +89,7 @@
                            class="form-control @error('name') is-invalid @enderror" 
                            id="inputName" 
                            placeholder="Entrer la designation"
-                           value="" 
+                           :value="old('name')" 
                            required 
                            >
 
@@ -98,31 +98,99 @@
                     @enderror   
                 </div>  <!--End nom -->
                 <div class="col-6">
+                    <label for="inputCode" class="form-label">Code</label>
+                    <input type="text" name="code" class="form-control" id="inputCode" placeholder="Entrer le code" :value="old('code')" >
+                </div>  <!--End code -->
+
+                 <div class="col-6">
                     <label for="inputColor" class="form-label">Couleur</label>
-                    <input type="text" name="couleur" class="form-control" id="inputColor" placeholder="Entrer la couleur" >
+                    <input type="text" name="couleur" class="form-control" id="inputColor" placeholder="Entrer la couleur" :value="old('couleur')" >
                 </div>  <!--End Couleur -->
+                  <div class="col-6">
+                    <label for="inputMatiere" class="form-label">Matière</label>
+                    <input type="text" name="matiere" class="form-control" id="inputMatiere" placeholder="Entrer matière" :value="old('matiere')">
+                </div> <!--End matiere-->
+                <div class="col-6">
+                    <label for="inputPoids" class="form-label">Poids</label>
+                    <input type="text" name="poids" class="form-control" id="inputPoids" placeholder="Entrer le poids" :value="old('poids')">
+                </div> <!--End matiere-->
+
+
+                <div class="col-6">
+                    <label for="inputbattants" class="form-label">Nombre de battants</label>
+                    <input type="text" name="nbre_battant" class="form-control" id="inputbattants" placeholder="Entrer le Nombre" :value="old('nbre_battant')">
+                </div>  <!--End battants -->
+
 
                 <div class="col-4">
                     <label for="inputLongeur" class="form-label">Longeur</label>
-                    <input type="text" name="longueur" class="form-control" id="inputLongeur" placeholder="Entrer longueur">
+                    <input type="text" name="longueur" class="form-control" id="inputLongeur" placeholder="Entrer longueur" :value="old('longueur')">
                 </div>  <!--End longeur -->   
                  <div class="col-4">
                     <label for="inputLargeur" class="form-label">Largeur</label>
-                    <input type="text" name="largeur" class="form-control" id="inputLargeur" placeholder="Entrer largeur">
+                    <input type="text" name="largeur" class="form-control" id="inputLargeur" placeholder="Entrer largeur" :value="old('largeur')">
                 </div>   <!--End Largeur -->
                 <div class="col-4">
                     <label for="inputHauteur"  class="form-label">Hauteur</label>
-                    <input type="text" name="hauteur" class="form-control" id="inputHauteur" placeholder="Entrer hauteur">
-                </div> <!--End Hauteur -->
+                    <input type="text" name="hauteur" class="form-control" id="inputHauteur" placeholder="Entrer hauteur" :value="old('hauteur')">
+                </div> <!--End Hauteur -->  
 
-                
                 <div class="col-6">
-                    <label for="inputbattants" class="form-label">Nombre de battants</label>
-                    <input type="text" name="nbre_battant" class="form-control" id="inputbattants" placeholder="Entrer le Nombre">
-                </div>  <!--End battants -->
+                    <label for="inputMark" class="form-label">Marque</label>
+                    <input type="text" name="marque" class="form-control" id="inputMark" placeholder="Entrer la Marque" :value="old('marque')">
+                </div>  <!--End Marque --> 
+
+                 <div class="col-6">
+                    <label for="inputPrice" class="form-label">Prix</label>
+                    <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Entrer le montant" :value="old('price')">
+                </div><!--End prix --> 
+              
+                     <!-- PC -->
+               <span id="form_ordinateur">
+                  <div class="row pc g-3">
+                   <span class="text-center fs-3">Caractéristique Ordinateur</span>
+                      <div class="col-6">
+                        <label for="inputDd" class="form-label">Disque dur</label>
+                        <input type="text" name="disque_dur" class="form-control" id="inputDd" placeholder="Entrer la couleur" :value="old('disque_dur')">
+                      </div>   <!--End disque dur -->
+
+                    <div class="col-6">
+                        <label for="inputRam" class="form-label">RAM</label>
+                        <input type="text" name="ram" class="form-control" id="inputRam" placeholder="Entrer la ram" :value="old('ram')" >
+                    </div>  <!--End Ram -->
+                     <div class="col-6">
+                        <label for="inputProcesseur" class="form-label">Processeur</label>
+                        <input type="text" name="processeur" class="form-control" id="inputProcesseur" placeholder="Entrer le Processeur" :value="old('processeur')">
+                    </div>  <!--End processeur -->
+                    <div class="col-6">
+                        <label for="inputGeneration" class="form-label">Generation</label>
+                        <input type="text" name="generation" class="form-control" id="inputGeneration" placeholder="Entrer la generation" :value="old('generation')">
+                    </div>  <!--End generation -->
+                </div> 
+               </span><!--End pc-->
+               
+                 <span class="text-center fs-3">Caractéristique Vehicule</span>
+                <div class="col-6">
+                    <label for="inputImmatriculation" class="form-label">Immatriculation</label>
+                    <input type="text" name="immatriculation" class="form-control" id="inputImmatriculation" placeholder="Entrer l'immatriculation">
+                </div><!--End immatriculation-->
+                <div class="col-6">
+                    <label for="inputPuissance" class="form-label">Puissance</label>
+                    <input type="text" name="puissance" class="form-control" id="inputPuissance" placeholder="Entrer puissance">
+                </div> <!--End puissant-->
+
+                <div class="col-6">
+                    <label for="inputPlace" class="form-label">Places assises</label>
+                    <input type="text" name="place" class="form-control" id="inputPlace" placeholder="Entrer place">
+                </div><!--End place-->
+
+                 <div class="col-6">
+                    <label for="inputEnergie" class="form-label">Energie</label>
+                    <input type="text" name="energie" class="form-control" id="inputEnergie" placeholder="Entrer Energie">
+                </div><!--End place-->
 
                  <!--End taille -->
-                <span class="text-center fs-3">Date achat</span>
+               <span class="text-center fs-3">Date achat</span>
                 <div class="col-4">
                     <label for="inputDay" class="form-label">Jour</label>
                     <input type="text" name="day" class="form-control" id="inputDay" placeholder="Entrer le jour">
@@ -137,15 +205,35 @@
                 </div>  <!--End Annee -->
                 <!--End date -->  
 
+                <span class="text-center fs-3">Fournisseur</span>
                 <div class="col-6">
-                    <label for="inputPrice" class="form-label">Prix</label>
-                    <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Entrer le montant">
-                </div><!--End prix -->   
-
-                <div class="col-6">
-                    <label for="inputMark" class="form-label">Marque</label>
-                    <input type="text" name="marque" class="form-control" id="inputMark" placeholder="Entrer la Marque">
+                    <label for="fournisseur_name" class="form-label">Nom fournisseur</label>
+                    <input type="text" name="fournisseur_name" class="form-control" id="fournisseur_name" placeholder="Entrer le nom">
                 </div>  <!--End Marque --> 
+                <div class="col-6">
+                    <label for="fournisseur_tel" class="form-label">Téléphone fournisseur</label>
+                    <input type="text" name="fournisseur_tel" class="form-control" id="fournisseur_tel" placeholder="Entrer le numero">
+                </div>  <!--End Marque --> 
+                    <span class="text-center fs-3">Type de bien</span>
+                       <div class="col-6">
+                       <div class="form-check">
+                           <input class="form-check-input" type="radio" name="type_bien" value="bien_materiel" id="Radiobien_materiel">
+                           <label class="form-check-label" for="Radiobien_materiel">
+                           Bien matériel
+                          </label>
+                      </div>
+                      <div class="form-check">
+                            <input class="form-check-input" type="radio" name="type_bien" value="bien_immateriel" id="flexRadioBien">
+                            <label class="form-check-label" for="flexRadioBien">
+                           Bien immatériel
+                          </label>
+                     </div>
+                </div> <!--End type de bien --> 
+                  <div class="col-6">
+                          <label for="expiration" class="form-label">Date d'expiration</label>
+                          <input type="date" name="expiration" class="form-control" id="expiration" placeholder="jj/mm/aaaa">
+                 </div>
+
                     <span class="text-center fs-3">Type de quantité</span>
                    <div class="col-6">
                        <div class="form-check">
@@ -161,58 +249,14 @@
                           </label>
                      </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                           <label for="inputqty" class="form-label">Quantité</label>
                           <input type="text" name="quantite" class="form-control" id="inputqty" placeholder="Entrer la quantité">
                  </div><!--End qty --> 
                 
+              
 
-                <!-- PC -->
-               <span id="form_ordinateur">
-                  <div class="row pc g-3">
-                   <span class="text-center fs-3">Caractéristique Ordinateur</span>
-                      <div class="col-6">
-                        <label for="inputDd" class="form-label">Disque dur</label>
-                        <input type="text" name="disque_dur" class="form-control" id="inputDd" placeholder="Entrer la couleur" >
-                      </div>   <!--End disque dur -->
-
-                    <div class="col-6">
-                        <label for="inputRam" class="form-label">RAM</label>
-                        <input type="text" name="ram" class="form-control" id="inputRam" placeholder="Entrer la ram" >
-                    </div>  <!--End Ram -->
-                     <div class="col-6">
-                        <label for="inputProcesseur" class="form-label">Processeur</label>
-                        <input type="text" name="processeur" class="form-control" id="inputProcesseur" placeholder="Entrer le Processeur">
-                    </div>  <!--End processeur -->
-                    <div class="col-6">
-                        <label for="inputGeneration" class="form-label">Generation</label>
-                        <input type="text" name="generation" class="form-control" id="inputGeneration" placeholder="Entrer la generation">
-                    </div>  <!--End generation -->
-                </div> 
-               </span><!--End pc-->
-               
-                <div class="col-6">
-                    <label for="inputImmatriculation" class="form-label">Immatriculation</label>
-                    <input type="text" name="immatriculation" class="form-control" id="inputImmatriculation" placeholder="Entrer l'immatriculation">
-                </div><!--End immatriculation-->
-                <div class="col-6">
-                    <label for="inputPuissance" class="form-label">Puissance</label>
-                    <input type="text" name="puissance" class="form-control" id="inputPuissance" placeholder="Entrer puissance">
-                </div> <!--End puissant-->
-                <div class="col-6">
-                    <label for="inputMatiere" class="form-label">Matière</label>
-                    <input type="text" name="matiere" class="form-control" id="inputMatiere" placeholder="Entrer matière">
-                </div> <!--End matiere-->
-                <div class="col-6">
-                    <label for="inputPoids" class="form-label">Poids</label>
-                    <input type="text" name="poids" class="form-control" id="inputPoids" placeholder="Entrer le poids">
-                </div> <!--End matiere-->
-                <div class="col-12 form-floating">
-                    <textarea class="form-control" name="autres" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                      <label for="floatingTextarea">Autres infos</label>
-                </div><!--End autre--> 
-
-                   <span class="text-center fs-3">Etat</span>
+                   <span class="text-center fs-3">Etat du bien</span>
                  <div class="col-6">
                        <div class="form-check">
                            <input class="form-check-input" type="radio" name="etat" value="bon" id="flexRadioDefault01">
@@ -226,27 +270,27 @@
                            Hors service
                           </label>
                      </div>
-                </div> <!-- End etat-->
-              <!--   <div class="col-6">
-                   <label for="" class="form-label">Disponibilité du biens</label>
-                     <div class="form-check">
-                         <input class="form-check-input" type="radio" name="disponibilite" value="occupe" id="flexRadioDefault1">
-                         <label class="form-check-label" for="flexRadioDefault1">
-                         occupe
-                        </label>
-                      </div>
-                      <div class="form-check">
-                          <input class="form-check-input" type="radio" name="disponibilite" value="libre" id="flexRadioDefault2">
-                         <label class="form-check-label" for="flexRadioDefault2">
-                         libre
-                        </label>
-                     </div>
-                </div> --><!--End disponibilite -->
+                </div><!--End disponibilite -->
                 <span class="text-center fs-3">Ajouter une image</span>
                 <div class="col-6 input-group mb-3">
-                    <input class="form-control" name="image" type="file" id="formFile">
+                     <input
+
+                         class="form-control" 
+                         name="image" 
+                         type="file" 
+                         id="formFile"
+                         accept="image/*"
+
+                         >
                      <label class="input-group-text" for="formFile">Image</label>
                 </div><!--End image-->
+
+                 <span class="text-center fs-3">Autres informations</span>
+                  <div class="col-12 form-floating">
+                    <textarea class="form-control" name="autres" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                      <label for="floatingTextarea">Autres infos</label>
+                </div><!--End autre--> 
+
                 <span class="text-center fs-3">Localisation</span>
                 <div class="col-6">
                   <label for="inputEntrepot" class="form-label">Entrepôt</label>
@@ -257,7 +301,7 @@
                       aria-label=".form-select-sm example"
                       name="entrepot_id"
                       required 
-                     wire:model.lazy="entrepot" 
+                      wire:model.lazy="entrepot" 
                       >
                          <option  value="">Choisir un entrepôt...</option>
                          @foreach($entrepots as $entrepot)
@@ -314,6 +358,23 @@
                          @endforeach
                   </select>
                 </div><!--End entite-->
+                  <span class="text-center fs-3">Affectation</span>
+                   <div class="col-6">
+                    <label for="inputEmploye" class="form-label">Employé</label>
+                    <select 
+
+                      class="form-select form-select-sm" 
+                      id="inputEmploye" 
+                      aria-label=".form-select-sm example"
+                      name="employe_id" 
+                      
+                      >
+                         <option  value="">Choisir une employé...</option>
+                         @foreach($employes as $employe)
+                            <option value="{{$employe->id}}">{{$employe->name.' '.$employe->firstname}}</option>
+                         @endforeach
+                  </select>
+                </div>
                 <div class="">
                    <button type="submit" class="btn btn-success">J'enregistre un bien</button>
                 </div><!--End submit-->

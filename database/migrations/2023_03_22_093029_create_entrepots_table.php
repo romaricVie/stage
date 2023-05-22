@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('entrepots', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('description')->nullable();
             $table->string('adresse_geographique');
+            $table->string('description')->nullable();
+            $table->string('batiment')->nullable();
+            $table->string('superficie')->nullable();
+            $table->string('etage')->nullable();
+            $table->string('piece')->nullable();
+            $table->string('parking')->nullable();
             $table->timestamps();
         });
     }

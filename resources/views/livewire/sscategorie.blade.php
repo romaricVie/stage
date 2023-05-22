@@ -14,15 +14,15 @@
                  >
                   @csrf
                   <div class="col-6">
-                      <label for="inputCategorie" class="form-label">Categorie</label>
+                      <label for="inputCategorie" class="form-label">Categorie <span class="text-danger"> *</span></label>
                       <select
 
-                           name="categorie_id" 
-                           class="form-select form-select-sm"
-                           id="inputCategorie"
-                           aria-label=".form-select-sm example"
+                            name="categorie_id" 
+                            class="form-select form-select-sm"
+                            id="inputCategorie"
+                            aria-label=".form-select-sm example"
                             wire:model.lazy="query"
-
+                            required
                            >
                            <option value="" selected>Choisir une categorie</option>
                            @foreach($categories as $categorie)
@@ -32,9 +32,9 @@
 
                   </div><!-- End categorie -->
                   <div class="col-6">
-                      <label for="inputScategorie" class="form-label">Sous Categorie</label>
-                      <select name="scategorie_id" class="form-select form-select-sm" id="inputScategorie" aria-label=".form-select-sm example">
-                           <option selected>Choisir sous categorie</option>
+                      <label for="inputScategorie" class="form-label">Sous Categorie <span class="text-danger"> *</span></label>
+                      <select name="scategorie_id" class="form-select form-select-sm" id="inputScategorie" aria-label=".form-select-sm example" required>
+                           <option value="" selected>Choisir sous categorie</option>
                            @foreach($scategories as $scategorie)
                               <option value="{{$scategorie->id}}">{{$scategorie->name}}</option>
                           @endforeach
@@ -42,7 +42,7 @@
                   </div><!-- End sous categorie -->
 
                  <div class="col-6">
-                    <label for="inputNanme5" class="form-label">Nom sous sous categorie</label>
+                    <label for="inputNanme5" class="form-label">Nom sous sous categorie <span class="text-danger"> *</span></label>
                     <input type="text" name="name" class="form-control" id="inputNanme5" placeholder="Entrer sous categorie" required>
                 </div> <!-- End sous categorie -->
 
