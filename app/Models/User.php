@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\belongsToMany;
 
 class User extends Authenticatable
 {
@@ -49,6 +51,20 @@ class User extends Authenticatable
      public function biens(): HasMany
     {
         return $this->hasMany(Bien::class);
+    }
+
+     // Un utilisateur à un ou plusieurs roles
+    public function roles() : belongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+
+    //isAdmin
+
+    public function isAdmin()
+    {
+       return $this->roles()->where('name','admin')->first();
     }
 
 }

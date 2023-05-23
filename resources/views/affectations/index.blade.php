@@ -7,7 +7,7 @@
       <h1>Affectations</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('affectations.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Affectations</li>
         </ol>
       </nav>

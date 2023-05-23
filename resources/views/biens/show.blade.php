@@ -102,6 +102,7 @@
                    @if($bien->autre)
                      <span class="fw-bold">autres :</span> {{$bien->autres ?? 'non-defini'}}<br>
                   @endif
+                  <span class="fw-bold">Enregistré le :</span> {{$bien->created_at}}<br>
               </div>  
          </div>
       </div>

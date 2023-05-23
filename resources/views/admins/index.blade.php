@@ -4,10 +4,10 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Biens</h1>
+      <h1>Bienvenue sur la page d'dministration</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{route('biens.index')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
           <li class="breadcrumb-item active">Biens</li>
         </ol>
       </nav>
@@ -21,9 +21,9 @@
            @endif
 
     <section class="section dashboard">
-       <a href="{{route('biens.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter un bien</button></a>
-       
-          <livewire:biens/> 
+  
+       <livewire:users/>      
+        
     </section>
 
 </main><!-- End #main -->

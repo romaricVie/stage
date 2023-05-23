@@ -350,6 +350,7 @@ class BienController extends Controller
         //
 
         $bien->delete();
+        session()->flash('success', 'Bien supprimé avec succès!');
         return redirect()->route('biens.index');
     }
 

@@ -23,7 +23,7 @@
               <table class="table table-hover ">
                   <thead>
                     <tr>
-                      <th scope="col">#Identification</th>
+                      <th scope="col">#Identifiant</th>
                       <th scope="col">Désignation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>

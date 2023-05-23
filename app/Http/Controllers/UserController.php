@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -67,7 +68,9 @@ class UserController extends Controller
 
       ]);
           
-        
+         $role = Role::select('id')->where('name','admin')->first();
+         $user->roles()->attach($role);
+
          return redirect()->route('login.create');
 
        }

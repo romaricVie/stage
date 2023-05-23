@@ -13,6 +13,7 @@ use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ReparationController;
 use App\Http\Controllers\AffectationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,7 +115,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/employes/informations/{employe}', [EmployeController::class, 'infos'])->name('employes.infos');
         Route::put('/employes/{employe}', [EmployeController::class, 'update'])->name('employes.update');
         Route::get('/employes/{employe}/edit', [EmployeController::class, 'edit'])->name('employes.edit');
-        Route::delete('/employes/{employe}', [EmployeController::class, 'destroy'])->name('employes.destroy');
+        Route::delete('/employes/{employe}', [EmployeController::class, 'destroy'])->name('employes.destroy')->middleware('can:edit-user');
  
 
         /* AffectationController */
@@ -122,14 +123,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/affectations/create', [AffectationController::class, 'create'])->name('affectations.create');
         Route::post('/affectations', [AffectationController::class, 'store'])->name('affectations.store');
         Route::get('/affectations/{affectation}', [AffectationController::class, 'show'])->name('affectations.show');
-        Route::delete('/affectations/{affectation}', [AffectationController::class, 'destroy'])->name('affectations.destroy');
+        Route::delete('/affectations/{affectation}', [AffectationController::class, 'destroy'])->name('affectations.destroy')->middleware('can:edit-user');;
 
         /* Reparations ReparationController */
         Route::get('/reparations', [ReparationController::class, 'index'])->name('reparations.index');
         Route::get('/reparations/create', [ReparationController::class, 'create'])->name('reparations.create');
         Route::post('/reparations', [ReparationController::class, 'store'])->name('reparations.store');
         Route::get('/reparations/{reparation}', [ReparationController::class, 'show'])->name('reparations.show');
-        Route::delete('/reparations/{reparation}', [ReparationController::class, 'destroy'])->name('reparations.destroy');
+        Route::delete('/reparations/{reparation}', [ReparationController::class, 'destroy'])->name('reparations.destroy')->middleware('can:edit-user');;
 
         /* Biens */
         Route::get('/biens', [BienController::class, 'index'])->name('biens.index');
@@ -141,8 +142,20 @@ Route::middleware('auth')->group(function () {
         Route::get('/biens/pdf/{bien}', [BienController::class, 'createPDF'])->name('biens.bien.pdf');
         Route::put('/biens/{bien}', [BienController::class, 'update'])->name('biens.update');
         Route::get('/biens/{bien}/edit', [BienController::class, 'edit'])->name('biens.edit');
-        Route::delete('/biens/{bien}', [BienController::class, 'destroy'])->name('biens.destroy');
+        Route::delete('/biens/{bien}', [BienController::class, 'destroy'])->name('biens.destroy')->middleware('can:edit-user');
        
 
+});
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth','can:edit-user'])->group(function (){
+               /*+++ users controller +++*/
+
+            Route::get('/users', [AdminController::class, 'index'])->name('index');
+            Route::get('users/{user}', [AdminController::class, 'show'])->name('show');
+            Route::get('users/{user}/edit', [AdminController::class, 'edit'])->name('edit');
+            Route::patch('users/{user}', [AdminController::class, 'update'])->name('update');
+            Route::delete('users/{user}', [AdminController::class, 'destroy'])->name('destroy');
+
+         
 });
 

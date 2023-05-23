@@ -43,7 +43,9 @@
                   </a>
                </form>
             </li>
-
+               @can('edit-user')
+                   <li><a href="{{route('admin.index')}}" class="dropdown-item d-flex align-items-center"><i class="bi bi-person-check"></i>Administration</a></li>
+               @endcan
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
 
