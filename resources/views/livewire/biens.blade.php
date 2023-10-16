@@ -24,6 +24,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#Identifiant</th>
+                      <th scope="col">Code</th>
                       <th scope="col">Désignation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
@@ -34,7 +35,8 @@
                     @foreach($biens as $bien)
                       <tr>
                         <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
-                        <td>{{$bien->name}}</td>
+                         <td>{{$bien->code ?? 'Non defini'}}</td>
+                         <td>{{$bien->name}}</td>
                         <td>
                             <span class="badge rounded-pill text-bg-<?= $bien->etat== 'bon' ? 'info' : 'danger'?>">{{$bien->etat}}</span>
                         </td>

@@ -59,7 +59,7 @@
                                @else
                                  <span>Pas encors affecteté</span><br>
                               @endif
-                  <span class="fw-bold">Code :</span> {{$bien->code ?? 'non-definie'}}<br>
+                  <span class="fw-bold">Code :</span> {{$bien->code ?? 'non-defini'}}<br>
                   <span class="fw-bold">Categorie :</span> {{$bien->categorie->name}}<br>
                   <span class="fw-bold">Sous Categorie :</span> {{$bien->scategorie->name}}<br>
                   <span class="fw-bold">Sous sous categorie :</span> {{$bien->sscategorie->name ?? 'non defini'}}<br>
@@ -99,7 +99,7 @@
                   @endif
                    <span class="fw-bold">Nom fournisseur :</span> {{$bien->fournisseur_name ?? 'non-defini'}}<br>
                    <span class="fw-bold">Contact fournisseur :</span> {{$bien->fournisseur_tel ?? 'non-defini'}}<br>
-                   @if($bien->autre)
+                   @if($bien->autres)
                      <span class="fw-bold">autres :</span> {{$bien->autres ?? 'non-defini'}}<br>
                   @endif
                   <span class="fw-bold">Enregistré le :</span> {{$bien->created_at}}<br>

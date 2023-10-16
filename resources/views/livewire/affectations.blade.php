@@ -34,7 +34,7 @@
                     @foreach($affectations as $affectation)
                       <tr>
                         <th scope="row">{{$affectation->id}}</th>
-                        <td>{{$affectation->employe->name}}</td>
+                        <td>{{$affectation->employe->name.' '.$affectation->employe->firstname}}</td>
                         <td>(#{{$affectation->bien->etiquette}}) {{$affectation->bien->name}}</td>
                         <td><a href="{{route('affectations.show', ['affectation' => $affectation->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a></td>
                       </tr>
