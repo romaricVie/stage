@@ -71,6 +71,8 @@ class AffectationController extends Controller
                      "description" =>$validated["description"],
                      "motif_affection" =>$validated["motif_affection"],
                      "etiquette" =>$bien->etiquette,
+                     "code"=> $bien->code,
+                     "name" => $bien->name,
                      "employe_id" =>$validated["employe_id"],
                      "bien_id" =>$validated["bien_id"],
              ]);

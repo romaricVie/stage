@@ -24,7 +24,7 @@
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Enregistrer un employé</h5>
+            <h5 class="card-title text-center">Enregistrer un employé</h5>
              <!-- Employes Form -->
               <form  
                     class="row g-3"
@@ -103,15 +103,29 @@
                           </label>
                        </div>
                 </div>
-                  <div class="col-6 form-floating">
+                <div class="col-6"><!-- New --> 
+                     <label for="" class="form-label">Sexe <span class="text-danger"> *</span></label>
+                       <div class="form-check">
+                           <input class="form-check-input" type="radio" name="sexe" value="male" id="flexRadioDefault01" required>
+                           <label class="form-check-label" for="flexRadioDefault01">
+                           Homme
+                          </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="sexe" value="femele" id="flexRadioDefault04" required>
+                           <label class="form-check-label" for="flexRadioDefault04">
+                           Femme
+                          </label>
+                       </div>
+                </div>
+                <div class="col-6 form-floating">
                         <textarea class="form-control" name="autres" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                         <label for="floatingTextarea">Autres infos</label>
-                  </div><!--End autre--> 
-
-                  <div class="">
+                </div><!--End autre--> 
+                <div class="text-center">
                      <button type="submit" class="btn btn-success">J'enregistre un employé</button>
-                  </div>
-              </form>
+                </div>
+            </form>
          </div>
       </div>
     </section>

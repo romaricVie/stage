@@ -16,12 +16,13 @@
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Liste des biens affecté à {{$employe->name}}</h5>
+            <h5 class="card-title">Liste des biens affecté à {{$employe->name." ".$employe->firstname}}</h5>
              <!-- Bien table -->
               <table class="table table-hover ">
                   <thead>
                     <tr>
                        <th scope="col">#Indentifiant</th>
+                       <th>Code</th>
                        <th scope="col">Désignation</th>
                     </tr>
                   </thead>
@@ -29,7 +30,8 @@
                     @foreach($employe->affectations as $affectation)
                       <tr>
                         <th scope="row">{{$affectation->bien->etiquette}}</th>
-                        <td>{{$affectation->bien->name}}</td>
+                        <td>{{$affectation->bien->code}}</td>
+                        <td><a href="{{route('biens.show',['bien'=>$affectation->bien->id])}}">{{$affectation->bien->name}}</a></td>
                       </tr>
                     @endforeach
                   </tbody>

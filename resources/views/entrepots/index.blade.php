@@ -35,7 +35,7 @@
                         <td>{{$entrepot->name}}</td>
                         <td>{{$entrepot->adresse_geographique}}</td>
                         <td>
-                           <a href="{{route('entrepots.show', ['entrepot' => $entrepot->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
+                           <a href="{{route('entrepots.show',['entrepot' => $entrepot->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
                        </td>
                       </tr>
                        @endforeach

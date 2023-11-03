@@ -23,7 +23,15 @@
     <section class="section dashboard">
        <a href="{{route('biens.create')}}"><button type="button" class="btn btn-outline-success btn-md m-2"><i class="bi bi-plus"></i> Ajouter un bien</button></a>
        
-          <livewire:biens/> 
+       <!-- Filtre -->
+        <div class="mb-2">
+           <livewire:filter-pots/>
+        </div>
+
+        <!-- Table-->
+        <div class="">
+           <livewire:biens/> 
+        </div>
     </section>
 
 </main><!-- End #main -->

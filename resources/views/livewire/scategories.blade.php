@@ -35,7 +35,7 @@
                         <td>{{$scategorie->name}}</td>
                         <td>{{$scategorie->categorie->name}}</td>
                          <td>
-                           <a href="{{route('scategories.show', [ 'scategorie' => $scategorie->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
+                           <a href="{{route('scategories.show',['scategorie'=>$scategorie->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a>
                        </td>
                       </tr>
                     @endforeach

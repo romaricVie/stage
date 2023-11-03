@@ -33,7 +33,7 @@
                   <p><span class="fw-bold">Nom du maintenancier :</span> {{$reparation->maintenancier}}</p>
                   <p><span class="fw-bold">Contact maintenancier :</span> {{$reparation->contact_maintenancier}}</p>
                   <p><span class="fw-bold">Coût :</span> {{$reparation->price}} FCFA</p>
-                  <p><span class="fw-bold">Nom du bien :</span> {{$reparation->bien->name}}</p>
+                  <p><span class="fw-bold">Nom du bien :</span><a href="{{route('biens.show',['bien'=>$reparation->bien->id])}}"> {{$reparation->bien->name}}</a></p>
                   <p><span class="fw-bold">Identifiant :</span> {{$reparation->bien->etiquette}}</p>
                   <p><span class="fw-bold">Emplacement :</span> {{$reparation->bien->emplacement->name}}</p>
                   <p><span class="fw-bold">Espace :</span> {{$reparation->bien->espace->name}}</p>

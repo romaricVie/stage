@@ -31,12 +31,21 @@
                  action="{{route('entites.store')}}" 
               > 
               @csrf
-              
+                
                   <div class="col-6">
-                      <label for="inputNanme4" class="form-label">Nom entité</label>
+                      <label for="inputNanme4" class="form-label">Pays</label>
+                      <input type="text" name="pays" class="form-control" id="inputNanme4" placeholder="Entrer entité" required>
+                  </div>  
+                   <div class="col-6">
+                      <label for="inputNanme4" class="form-label">Ville</label>
+                      <input type="text" name="ville" class="form-control" id="inputNanme4" placeholder="Entrer entité" required>
+                  </div>  
+                   <div class="col-6">
+                      <label for="inputNanme4" class="form-label">Nom entité(société)</label>
                       <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer entité" required>
-                  </div>            
-                  <div class="">
+                  </div> 
+                
+                <div class="">
                     <button type="submit" class="btn btn-success">J'enregistre une entité</button>
                   </div>
               </form>

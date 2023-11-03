@@ -25,8 +25,10 @@
               <table class="table table-hover ">
                   <thead>
                     <tr>
-                       <th scope="col">#</th>
-                       <th scope="col">Nom maintenancier</th>
+                       <th scope="col">#Identifiant</th>
+                       <th scope="col">Code</th>
+                       <th scope="col">Maintenancier</th>
+                       <th scope="col">Prix</th>
                        <th scope="col">Designation</th>
                        <th scope="col">Etat</th>
                        <th scope="col">Action</th>
@@ -35,9 +37,11 @@
                   <tbody>
                     @foreach($reparations as $reparation)
                       <tr>
-                        <th scope="row">{{$reparation->id}}</th>
-                        <td>{{$reparation->maintenancier}} </td>
-                        <td>(#{{$reparation->bien->etiquette}}) {{$reparation->bien->name}}</td>
+                        <th scope="row">{{$reparation->bien->etiquette}}</th>
+                        <td>{{$reparation->bien->code}}</td>
+                        <td>{{$reparation->maintenancier}}</td>
+                        <td>{{$reparation->price}}</td>
+                        <td><a href="{{route('biens.show',['bien'=>$reparation->bien->id])}}">{{$reparation->bien->name}}</a></td>
                         <td> 
                             <span class="badge rounded-pill text-bg-<?= $reparation->etat== 'bon' ? 'info' : 'danger'?>">{{$reparation->etat}}</span>
                         </td>

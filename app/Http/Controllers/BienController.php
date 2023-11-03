@@ -177,6 +177,8 @@ class BienController extends Controller
                          Affectation::create([
 
                                          "etiquette" =>$bien->etiquette,
+                                         "code" => $bien->code,
+                                         "name"=> $bien->name,
                                          "employe_id" =>$request->employe_id,
                                          "bien_id" =>$bien->id,
                                     ]);

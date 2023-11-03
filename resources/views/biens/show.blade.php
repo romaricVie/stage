@@ -53,16 +53,23 @@
                         @if($bien->affectations->count()>0)
                             <ol>
                              @foreach($bien->affectations as $affectation)
-                                <li>{{$affectation->employe->name}} {{$affectation->employe->firstname}}</li>
+                                <li><a href="{{route('employes.show', ['employe' => $affectation->employe->id])}}"> {{$affectation->employe->name}} {{$affectation->employe->firstname}}</a></li>
                               @endforeach 
                             </ol>
                                @else
                                  <span>Pas encors affecteté</span><br>
                               @endif
                   <span class="fw-bold">Code :</span> {{$bien->code ?? 'non-defini'}}<br>
-                  <span class="fw-bold">Categorie :</span> {{$bien->categorie->name}}<br>
-                  <span class="fw-bold">Sous Categorie :</span> {{$bien->scategorie->name}}<br>
-                  <span class="fw-bold">Sous sous categorie :</span> {{$bien->sscategorie->name ?? 'non defini'}}<br>
+                  <span class="fw-bold">Categorie :</span> 
+                    <a href="{{route('categories.show',['categorie'=>$bien->categorie->id])}}">
+                        {{$bien->categorie->name}}</a><br>
+                  <span class="fw-bold">Sous Categorie :</span>
+                     <a href="{{route('scategories.show',['scategorie'=>$bien->scategorie->id])}}">
+                     {{$bien->scategorie->name}}</a><br>
+                  <span class="fw-bold">Sous sous categorie :</span> 
+                     @if($bien->sscategorie->name)
+                        <a href="{{route('sscategories.show',['sscategorie'=>$bien->sscategorie->id])}}">{{$bien->sscategorie->name}}</a><br>
+                      @endif
                   <span class="fw-bold">disque_dur :</span> {{$bien->disque_dur ?? 'non-defini'}}<br>
                   <span class="fw-bold">processeur :</span> {{$bien->processeur ?? 'non-defini'}}<br>
                   <span class="fw-bold">Ram :</span> {{$bien->ram ?? 'non-definie'}}<br>
@@ -75,10 +82,31 @@
                   @endif
                   <span class="fw-bold">poids :</span> {{$bien->poids ?? 'non-defini'}}<br>
                   <span class="fw-bold">immatriculation :</span> {{$bien->immatriculation ?? 'non-defini'}}<br>
-                  <span class="fw-bold">Entrepots :</span> {{$bien->entrepot->name ?? 'non-defini'}}<br>
-                  <span class="fw-bold">Emplacement :</span> {{$bien->emplacement->name ?? 'non-defini'}}<br>
-                  <span class="fw-bold">Espace :</span> {{$bien->espace->name ?? 'non-defini'}}<br>
-                  <span class="fw-bold">Entité :</span> {{$bien->entite->name ?? 'non-defini'}}<br>
+                  @if($bien->entrepot->name)
+                    <span class="fw-bold">Entrepots:</span>
+                      <a href="{{route('entrepots.show',['entrepot'=>$bien->entrepot->id])}}">{{$bien->entrepot->name}}</a><br>
+                    @else
+                     <span>non-defini</span><br>
+                  @endif
+                 <span class="fw-bold">Emplacement :</span>
+                    @if($bien->emplacement->name)
+                      <a href="{{route('emplacements.show',['emplacement' => $bien->emplacement->id])}}">{{$bien->emplacement->name}}</a><br>
+                  @else
+                     <span>non-defini</span><br>
+                  @endif
+                  <span class="fw-bold">Espace :</span> 
+                  @if($bien->espace->name)
+                          <a href="{{route('espaces.show',['espace'=>$bien->espace->id])}}">{{$bien->espace->name}}</a><br>
+                   @else
+                    <span>non-defini</span><br>
+                   @endif
+
+                  <span class="fw-bold">Entité :</span> 
+                   @if($bien->espace->name)
+                       <a href="{{route('entites.show',['entite'=>$bien->entite->id])}}">{{$bien->entite->name}}</a><br>
+                   @else
+                     <span>non-defini</span><br>
+                   @endif
                    @if($bien->puissance)
                       <span class="fw-bold">Puissance :</span> {{$bien->puissance}}<br>
                    @endif

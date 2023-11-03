@@ -33,14 +33,19 @@
                      @foreach($entite->biens as $bien)
                       <tr>
                         <th scope="row">{{$bien->id}}</th>
-                        <td>{{$bien->name}}</td>
+                        <td> <a href="{{route('biens.show',['bien'=>$bien->id])}}">{{$bien->name}}</a></td>
                         <td><span class="badge rounded-pill text-bg-<?= $bien->etat== 'bon' ? 'info' : 'danger'?>"> {{$bien->etat}}</span></td>
                         <td> <span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>
                         <td>{{$bien->entrepot->name}}</td>
                       </tr>
                     @endforeach
-                  </tbody>
+                  </tbody>  
           </table> 
+           <h5 class="card-title">Informations de l'entité {{$entite->name}}</h5>
+                <div>
+                    <p><span class="fw-bold">Pays :</span> Cote d'Ivoire</p>
+                    <p><span class="fw-bold">Ville :</span> Abidjan</p>
+              </div>
     </section>
 
 </main><!-- End #main -->

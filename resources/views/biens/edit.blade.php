@@ -76,7 +76,7 @@
                 <div class="col-6">
                     <label for="inputName" class="form-label">Désignation</label>
                     <input type="text" name="name" class="form-control" id="inputName" placeholder="Entrer le nom" value="{{$bien->name}}" required>
-                </div>  <!--End nom -->
+                </div> <!--End nom -->
                 <div class="col-6">
                     <label for="inputColor" class="form-label">Couleur</label>
                     <input type="text" name="couleur" class="form-control" id="inputColor" value="{{$bien->couleur}}" placeholder="Entrer la couleur" >
@@ -234,8 +234,19 @@
                          libre
                         </label>
                      </div>
-                </div><!--End disponibilite -->
-               
+                    </div><!--End disponibilite -->
+                     <span class="text-center fs-3">Ajouter une image</span>
+                     <div class="col-6 input-group mb-3">
+                      <input
+                             class="form-control" 
+                             name="image" 
+                             type="file" 
+                             id="formFile"
+                             accept="image/*"
+                             >
+                         <label class="input-group-text" for="formFile">Image</label>
+                    </div><!--End image-->
+
                 <span class="text-center fs-3">Localisation</span>
                 <div class="col-6">
                   <label for="inputEntrepot" class="form-label">Entrepôt</label>
