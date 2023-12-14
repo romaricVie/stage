@@ -20,6 +20,7 @@ class Employe extends Model
         'fixe',
         'statut',
         'contrat',
+        'sexe',
         'autres',
         'entite_id',
     ];

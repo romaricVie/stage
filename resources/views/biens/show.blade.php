@@ -36,7 +36,7 @@
              <!-- Bien table -->
              @if($bien->image)
               <h5 class="card-title">image du bien</h5>
-                 <img src="{{asset('storage/'.$bien->image)}}" alt="img" title="image" class="img-fluid">
+                 <img src="{{asset('storage/'.$bien->image)}}" alt="img" title="image" class="img-fluid" style="width:450px; height:450px"  >
               @endif
               <h5 class="card-title">Informations sur le bien</h5>
               <div>
@@ -82,27 +82,27 @@
                   @endif
                   <span class="fw-bold">poids :</span> {{$bien->poids ?? 'non-defini'}}<br>
                   <span class="fw-bold">immatriculation :</span> {{$bien->immatriculation ?? 'non-defini'}}<br>
-                  @if($bien->entrepot->name)
+                  @if($bien->entrepot)
                     <span class="fw-bold">Entrepots:</span>
                       <a href="{{route('entrepots.show',['entrepot'=>$bien->entrepot->id])}}">{{$bien->entrepot->name}}</a><br>
                     @else
                      <span>non-defini</span><br>
                   @endif
                  <span class="fw-bold">Emplacement :</span>
-                    @if($bien->emplacement->name)
+                    @if($bien->emplacement)
                       <a href="{{route('emplacements.show',['emplacement' => $bien->emplacement->id])}}">{{$bien->emplacement->name}}</a><br>
                   @else
                      <span>non-defini</span><br>
                   @endif
                   <span class="fw-bold">Espace :</span> 
-                  @if($bien->espace->name)
+                  @if($bien->espace)
                           <a href="{{route('espaces.show',['espace'=>$bien->espace->id])}}">{{$bien->espace->name}}</a><br>
                    @else
                     <span>non-defini</span><br>
                    @endif
 
                   <span class="fw-bold">Entité :</span> 
-                   @if($bien->espace->name)
+                   @if($bien->entite)
                        <a href="{{route('entites.show',['entite'=>$bien->entite->id])}}">{{$bien->entite->name}}</a><br>
                    @else
                      <span>non-defini</span><br>

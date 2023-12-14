@@ -32,6 +32,7 @@
         <div class="">
            <livewire:biens/> 
         </div>
+        
     </section>
 
 </main><!-- End #main -->

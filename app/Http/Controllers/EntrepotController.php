@@ -52,6 +52,9 @@ class EntrepotController extends Controller
                         'etage' =>  ['string','nullable'],
                         'piece' =>  ['string','nullable'],
                         'parking' =>  ['string','nullable'],
+                        'pays' =>  ['string','nullable'],
+                        'ville' =>  ['string','nullable'],
+
 
                     ]);
    
@@ -68,6 +71,8 @@ class EntrepotController extends Controller
                      "etage" =>$validated["etage"],
                      "piece" =>$validated["piece"],
                      "parking" =>$validated["parking"],
+                     "pays" =>$validated["pays"],
+                     "ville" =>$validated["ville"],
              ]);
      
           }

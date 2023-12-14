@@ -28,11 +28,9 @@ class BienController extends Controller
     public function index():View
     {
         //
-        $biens = DB::table('biens')->simplePaginate(10);
+      //  $biens = DB::table('biens')->simplePaginate(10);
 
-         return view('biens.index',[
-                             "biens" => $biens
-                   ]);
+         return view('biens.index');
     }
 
     /**
@@ -230,6 +228,8 @@ class BienController extends Controller
     public function edit(Bien $bien):View
     {
         //
+
+      // dd($bien);
         
         $categories = Categorie::all();
         $scategories = Scategorie::all();
@@ -263,8 +263,9 @@ class BienController extends Controller
     public function update(Request $request, Bien $bien)
     {
         //
-   
-        $validated = $request->validate([
+      //dd($bien->image);
+
+     $validated = $request->validate([
                 
                         'name' => 'required',
                         'price' => ['string', 'nullable'],
@@ -310,6 +311,7 @@ class BienController extends Controller
                             "day" => $validated["day"],
                             "month" => $validated["month"],
                             "year" => $validated["year"],
+                            "image" => $this->storeImage() ?? $bien->image,
                             "etat" => $validated["etat"],
                             "disponibilite" => $validated["disponibilite"],
                             "generation" => $validated["generation"],
@@ -387,7 +389,7 @@ class BienController extends Controller
               return request()->file('image')->store('biens','public');
           }
 
-          return null;
+          //return null;
        
     }
 

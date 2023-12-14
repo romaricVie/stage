@@ -23,6 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col">#Identifiant</th>
+                      <th scope="col">Code</th>
                       <th scope="col">Désignation</th>
                       <th scope="col">Etat</th>
                       <th scope="col">Disponibilité</th>
@@ -33,6 +34,7 @@
                      @foreach($espace->biens as $bien)
                       <tr>
                         <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
+                        <td>{{$bien->code}}</td>
                         <td><a href="{{route('biens.show',['bien'=>$bien->id])}}">{{$bien->name}}</a></td>
                         <td>{{$bien->etat}}</td>
                         <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>

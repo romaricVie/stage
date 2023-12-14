@@ -19,6 +19,8 @@ class Entrepot extends Model
         'etage',
         'piece',
         'parking',
+        'pays',
+        'ville'
 
     ];
 

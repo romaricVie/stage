@@ -12,6 +12,8 @@ class Entite extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'ville',
+        'pays'
     ];
 
 

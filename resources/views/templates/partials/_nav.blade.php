@@ -74,13 +74,18 @@
 
        <li class="nav-item">
             <a class="nav-link collapsed"  href="{{route('affectations.index')}}">
-              <i class="bi bi-arrows-move"></i><span>Mouvements</span>
+              <i class="bi bi-gift"></i><span>Affectations</span>
             </a>
        </li><!-- End mouvement Nav -->
 
        <li class="nav-item">
         <a class="nav-link collapsed"  href="{{route('reparations.index')}}">
           <i class="bi bi-check2-square"></i><span>Reparations</span>
+        </a>
+       </li><!-- End Reparation Nav -->
+        <li class="nav-item">
+        <a class="nav-link collapsed"  href="{{route('deplacements.index')}}">
+          <i class="bi bi-arrows-move"></i> <span>Mouvements</span>
         </a>
        </li><!-- End Reparation Nav -->
 

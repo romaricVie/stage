@@ -48,6 +48,35 @@
                 </div>
 
                 <div class="col-6">
+                    <label for="inputNanme04" class="form-label">Pays<span class="text-danger"> *</span></label>
+                    <input 
+                         type="text" 
+                         name="pays" 
+                         class="form-control @error('pays') is-invalid @enderror" 
+                         id="inputNanme04" 
+                         placeholder="Entrer Pays" required>
+
+                  @error('name')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror   
+                </div>
+
+                 <div class="col-6">
+                    <label for="inputNanme004" class="form-label">Ville<span class="text-danger"> *</span></label>
+                    <input 
+                         type="text" 
+                         name="ville" 
+                         class="form-control @error('ville') is-invalid @enderror" 
+                         id="inputNanme004" 
+                         placeholder="Entrer Ville" required>
+
+                  @error('name')
+                          <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror   
+                </div>
+
+
+                <div class="col-6">
                     <label for="inputNanme5" class="form-label">Adresse géographique <span class="text-danger"> *</span></label>
                     <input 
                           type="text" 

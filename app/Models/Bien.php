@@ -116,6 +116,12 @@ class Bien extends Model
     {
         return $this->hasMany(Affectation::class);
     }
+
+     // Un bien peut etre deplacer un ou plusieur fois
+    public function deplacements(): HasMany
+    {
+        return $this->hasMany(Deplacement::class);
+    }
   
 
 }

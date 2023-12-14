@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Bien;
+use App\Models\Employe;
+use App\Models\Entrepot;
+use App\Models\Emplacement;
+use App\Models\Espace;
+use App\Models\Deplacement;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -19,8 +25,44 @@ class UserController extends Controller
 
     public function dashboard():View
     {
-        //
-        return view('welcome');
+        //query
+
+        $biens = Bien::all();
+        $employes = Employe::all();
+        $entrepots = Entrepot::count();
+        $emplacements = Emplacement::count();
+        $espaces = Espace::count();
+        $deplacements = Deplacement::count();
+        //hors_service
+        $etat = Bien::where('etat',"hors_service")->count();
+        $informatiques = Bien::where('categorie_id',1)->count();
+        $mobiliers = Bien::where('categorie_id',2)->count();
+        $vehicules = Bien::where('categorie_id',3)->count();
+        $electromenagers = Bien::where('categorie_id',4)->count();
+        $goodies = Bien::where('categorie_id',5)->count();
+        $males = Employe::where('sexe','male')->count();
+        $females = Employe::where('sexe','female')->count();
+        $disponibilites = Bien::where('disponibilite','libre')->count();
+        
+        return view('welcome',[
+                  
+                  "biens" => $biens,
+                  "informatiques" => $informatiques,
+                  "mobiliers" => $mobiliers,
+                  "vehicules" => $vehicules,
+                  "electromenagers" =>$electromenagers,
+                  "goodies" => $goodies,
+                  "employes" => $employes,
+                  "males" => $males,
+                  "females" => $females,
+                  "entrepots" => $entrepots,
+                  "emplacements" => $emplacements,
+                  "espaces" => $espaces,
+                  "etat" => $etat,
+                  "disponibilites" =>$disponibilites,
+                  "deplacements" => $deplacements
+
+        ]);
     }
 
     public function create():View

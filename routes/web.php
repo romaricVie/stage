@@ -11,6 +11,7 @@ use App\Http\Controllers\EspaceController;
 use App\Http\Controllers\EntiteController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ReparationController;
+use App\Http\Controllers\DeplacementController;
 use App\Http\Controllers\AffectationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
@@ -123,14 +124,23 @@ Route::middleware('auth')->group(function () {
         Route::get('/affectations/create', [AffectationController::class, 'create'])->name('affectations.create');
         Route::post('/affectations', [AffectationController::class, 'store'])->name('affectations.store');
         Route::get('/affectations/{affectation}', [AffectationController::class, 'show'])->name('affectations.show');
-        Route::delete('/affectations/{affectation}', [AffectationController::class, 'destroy'])->name('affectations.destroy')->middleware('can:edit-user');;
+        Route::delete('/affectations/{affectation}', [AffectationController::class, 'destroy'])->name('affectations.destroy')->middleware('can:edit-user');
+
+        /* Deplacement new */
+        
+        Route::get('/deplacements', [DeplacementController::class, 'index'])->name('deplacements.index');
+        Route::get('/deplacements/create', [DeplacementController::class, 'create'])->name('deplacements.create');
+        Route::post('/deplacements', [DeplacementController::class, 'store'])->name('deplacements.store');
+        Route::get('/deplacements/{deplacement}', [DeplacementController::class, 'show'])->name('deplacements.show');
+        Route::delete('/deplacements/{deplacement}', [DeplacementController::class, 'destroy'])->name('deplacements.destroy');
+        //->middleware('can:edit-user');
 
         /* Reparations ReparationController */
         Route::get('/reparations', [ReparationController::class, 'index'])->name('reparations.index');
         Route::get('/reparations/create', [ReparationController::class, 'create'])->name('reparations.create');
         Route::post('/reparations', [ReparationController::class, 'store'])->name('reparations.store');
         Route::get('/reparations/{reparation}', [ReparationController::class, 'show'])->name('reparations.show');
-        Route::delete('/reparations/{reparation}', [ReparationController::class, 'destroy'])->name('reparations.destroy')->middleware('can:edit-user');;
+        Route::delete('/reparations/{reparation}', [ReparationController::class, 'destroy'])->name('reparations.destroy')->middleware('can:edit-user');
 
         /* Biens */
         Route::get('/biens', [BienController::class, 'index'])->name('biens.index');

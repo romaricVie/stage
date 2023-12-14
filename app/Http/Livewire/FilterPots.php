@@ -22,6 +22,6 @@ class FilterPots extends Component
 
     public function filter()
     {
-        $this->emitTo('biens','reloadBiens', $this->categorie_id,$this->query);
+        $this->emitTo('biens','reloadBiens',$this->categorie_id,$this->query);
     }
 }

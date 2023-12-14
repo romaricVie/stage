@@ -37,12 +37,12 @@
                       <input type="text" name="pays" class="form-control" id="inputNanme4" placeholder="Entrer entité" required>
                   </div>  
                    <div class="col-6">
-                      <label for="inputNanme4" class="form-label">Ville</label>
-                      <input type="text" name="ville" class="form-control" id="inputNanme4" placeholder="Entrer entité" required>
+                      <label for="inputNanme04" class="form-label">Ville</label>
+                      <input type="text" name="ville" class="form-control" id="inputNanme04" placeholder="Entrer entité" required>
                   </div>  
                    <div class="col-6">
-                      <label for="inputNanme4" class="form-label">Nom entité(société)</label>
-                      <input type="text" name="name" class="form-control" id="inputNanme4" placeholder="Entrer entité" required>
+                      <label for="inputNanme004" class="form-label">Nom entité(société)</label>
+                      <input type="text" name="name" class="form-control" id="inputNanme004" placeholder="Entrer entité" required>
                   </div> 
                 
                 <div class="">

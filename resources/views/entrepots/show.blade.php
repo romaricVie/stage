@@ -49,6 +49,8 @@
            <h5 class="card-title">Informations de l'entrepot {{$entrepot->name}}</h5>
            <!-- Bien table -->
               <div>
+                  <p><span class="fw-bold">Pays :</span> {{$entrepot->pays ?? 'Non defini'}}</p>
+                   <p><span class="fw-bold">Pays :</span> {{$entrepot->ville ?? 'Non defini'}}</p>
                   <p><span class="fw-bold">Adresse geographique :</span> {{$entrepot->adresse_geographique}}</p>
                   <p><span class="fw-bold">batiment :</span> {{$entrepot->batiment ?? 'Non defini'}}</p>
                   <p><span class="fw-bold">Nom étage :</span> {{$entrepot->etage ?? 'Non defini'}}</p>

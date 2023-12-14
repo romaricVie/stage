@@ -44,12 +44,16 @@ class EntiteController extends Controller
 
              $validated = $request->validate([
                         'name' => 'required',
+                        'ville' => 'required',
+                        'pays' => 'required'
                     ]);
 
           if($validated){
 
             $entite = Entite::create([
                      "name" =>$validated["name"],
+                     "ville" =>$validated["ville"],
+                     "pays" => $validated["pays"],
              ]);
 
          

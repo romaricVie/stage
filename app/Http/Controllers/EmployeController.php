@@ -92,6 +92,7 @@ class EmployeController extends Controller
                         'fixe' => ['string', 'nullable'],
                         'statut' =>'required',
                         'contrat' =>'required',
+                        'sexe' => 'required',
                         'autres' =>['string', 'nullable'],
                         'entite_id' =>'required',
 
@@ -111,6 +112,7 @@ class EmployeController extends Controller
                             "statut" => $validated["statut"],
                             "contrat" => $validated["contrat"],
                             "autres" => $validated["autres"],
+                            "sexe" => $validated["sexe"],
                             "entite_id" => $validated["entite_id"],
 
 

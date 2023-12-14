@@ -16,9 +16,10 @@ class Biens extends Component
       public $biens;
       protected $listeners =["reloadBiens"];
 
+      //Lors du chargement de la page 
       public function mount()
       {
-        $this->biens = Bien::get();
+        $this->biens = Bien::orderBy('id','DESC')->get();
       } 
 
     public function render()
@@ -42,6 +43,7 @@ class Biens extends Component
             $this->biens = $this->biens->where('etiquette','like','%'.$query.'%')
                                         ->orWhere('code','like','%'.$query.'%')
                                         ->orWhere('name','like','%'.$query.'%');
+
          }
 
          $this->biens = $this->biens->get();

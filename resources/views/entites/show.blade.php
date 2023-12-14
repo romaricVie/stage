@@ -43,8 +43,8 @@
           </table> 
            <h5 class="card-title">Informations de l'entité {{$entite->name}}</h5>
                 <div>
-                    <p><span class="fw-bold">Pays :</span> Cote d'Ivoire</p>
-                    <p><span class="fw-bold">Ville :</span> Abidjan</p>
+                    <p><span class="fw-bold">Pays :</span> {{$entite->pays}}</p>
+                    <p><span class="fw-bold">Ville :</span> {{$entite->ville}}</p>
               </div>
     </section>
 

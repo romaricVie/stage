@@ -99,7 +99,7 @@
                 </div>  <!--End nom -->
                 <div class="col-6">
                     <label for="inputCode" class="form-label">Code</label>
-                    <input type="text" name="code" class="form-control" id="inputCode" placeholder="Entrer le code" :value="old('code')" >
+                    <input type="text" name="code" class="form-control" id="inputCode" placeholder="Entrer le code" :value="old('code')" required>
                 </div>  <!--End code -->
 
                  <div class="col-6">
@@ -169,7 +169,7 @@
                 </div> 
                </span><!--End pc-->
                
-                 <span class="text-center fs-3">Caractéristique Vehicule</span>
+                 <span class="text-center fs-3">Caractéristique Véhicule</span>
                 <div class="col-6">
                     <label for="inputImmatriculation" class="form-label">Immatriculation</label>
                     <input type="text" name="immatriculation" class="form-control" id="inputImmatriculation" placeholder="Entrer l'immatriculation">
