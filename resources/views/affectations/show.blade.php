@@ -38,6 +38,7 @@
               <p><span class="fw-bold">Désignation:</span> <a href="{{route('biens.show',['bien' => $affectation->bien->id])}}">{{$affectation->bien->name}}</a></p>
               <p><span class="fw-bold">Motif affectation:</span> {{$affectation->motif_affection}}</p>
               <p><span class="fw-bold">Description:</span> {{$affectation->description ?? 'Non-definie'}}</p>
+               <p><span class="fw-bold">Affecter le :</span> {{$affectation->created_at}}</p>
          </div>
       </div>
     </section>

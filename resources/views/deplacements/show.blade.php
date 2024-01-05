@@ -58,8 +58,11 @@
               </p>
               <p><span class="fw-bold">Motif deplacement:</span> {{$deplacement->motif_deplacement}}</p>
               <p><span class="fw-bold">Description:</span> {{$deplacement->description}}</p>
+              <p><span class="fw-bold">Deplacer le :</span> {{$deplacement->created_at}}</p>
+
          </div>
       </div>
     </section>
 </main><!-- End #main -->
 @endsection
+

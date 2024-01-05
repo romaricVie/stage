@@ -130,6 +130,17 @@
                    @if($bien->autres)
                      <span class="fw-bold">autres :</span> {{$bien->autres ?? 'non-defini'}}<br>
                   @endif
+                  <span class="fw-bold">Mouvements :</span>
+                        @if($bien->deplacements->count()>0)
+                            <ol>
+                             @foreach($bien->deplacements as $deplacement)
+                                <li><a href="{{route('entrepots.show',['entrepot'=>$deplacement->entrepot->id])}}"> {{$deplacement->entrepot->name}} </a></li>
+                              @endforeach 
+                            </ol>
+                               @else
+                                 <span>Pas encors en mouvement</span><br>
+                              @endif
+
                   <span class="fw-bold">Enregistré le :</span> {{$bien->created_at}}<br>
               </div>  
          </div>

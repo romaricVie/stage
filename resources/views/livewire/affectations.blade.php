@@ -36,7 +36,7 @@
                       <tr>
                         <th scope="row">{{$affectation->bien->etiquette}}</th>
                         <td>{{$affectation->bien->code}}</td>
-                        <td>{{$affectation->employe->name.' '.$affectation->employe->firstname}}</td>
+                        <td><a href="{{route('employes.show', ['employe' => $affectation->employe->id])}}">{{$affectation->employe->name.' '.$affectation->employe->firstname}}</a></td>
                         <td><a href="{{route('biens.show',['bien'=>$affectation->bien->id])}}">{{$affectation->bien->name}}</a></td>
                         <td><a href="{{route('affectations.show', ['affectation' => $affectation->id])}}"><button type="button" class="btn btn-outline-success btn-sm"><i class="bi bi-eye"></i> Voir details</button></a></td>
                       </tr>

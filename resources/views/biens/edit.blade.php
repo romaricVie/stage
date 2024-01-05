@@ -308,7 +308,7 @@
                       >
                          <option value="">Choisir une entité...</option>
                          @foreach($entites as $entite)
-                            <option value="{{$entite->id }}" @if($entite->id  === $bien->entite->id) selected @endif >{{$entite->name}}</option>
+                            <option value="{{$entite->id}}" @if($entite->id  === $bien->entite->id) selected  @endif >{{$entite->name}}</option>
                          @endforeach
                   </select>
                 </div><!--End entite-->
