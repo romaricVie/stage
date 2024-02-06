@@ -30,7 +30,7 @@
                     @foreach($biens as $bien)
                       <tr>
                         <th scope="row"><span class="badge rounded-pill text-bg-primary">{{$bien->etiquette}}</span></th>
-                        <td>{{$bien->name}}</td>
+                        <td><a href="{{route('biens.show', ['bien' => $bien->id])}}">{{$bien->name}}</a></td>
                         <td><span class="badge rounded-pill text-bg-<?= $bien->disponibilite== 'occupe' ? 'warning' : 'success'?>">{{$bien->disponibilite}}</span></td>
                       </tr>
                      @endforeach

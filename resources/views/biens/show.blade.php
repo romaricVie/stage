@@ -57,7 +57,7 @@
                               @endforeach 
                             </ol>
                                @else
-                                 <span>Pas encors affecteté</span><br>
+                                 <span>Pas encors affecté</span><br>
                               @endif
                   <span class="fw-bold">Code :</span> {{$bien->code ?? 'non-defini'}}<br>
                   <span class="fw-bold">Categorie :</span> 

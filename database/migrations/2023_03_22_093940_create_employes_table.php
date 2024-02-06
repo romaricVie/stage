@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('fonction');
             $table->string('contact',30);
-            $table->string('flotte',30);
-            $table->string('fixe',30);
+            $table->string('flotte',30)->nullable();
+            $table->string('fixe',30)->nullable();
             $table->enum('statut', ['actif','inactif']);
             $table->enum('contrat', ['cdi','cdd']);
             $table->text('autres')->nullable();
