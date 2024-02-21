@@ -16,7 +16,7 @@
     <section class="section dashboard">
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Liste des biens affecté à {{$employe->name." ".$employe->firstname}}</h5>
+            <h5 class="card-title">Liste des biens affecté à {{$employe->name." ".$employe->firstname}} ({{$employe->affectations->count()}})</h5>
              <!-- Bien table -->
               <table class="table table-hover ">
                   <thead>

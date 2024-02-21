@@ -94,7 +94,7 @@ class BienController extends Controller
                         'autres' =>['string', 'nullable'],
                         'type_qty' =>['string', 'nullable'],
                         'quantite' =>['string', 'nullable'],
-                        'code' =>['string', 'nullable'],
+                        'code' =>['string', 'unique:biens'],
                         'place' =>['string', 'nullable'],
                         'energie' =>['string', 'nullable'],
                         'fournisseur_name' =>['string', 'nullable'],
@@ -187,6 +187,8 @@ class BienController extends Controller
                                                   ]);
 
                  }
+    //Mouvement
+    
 
 
           session()->flash('success', 'Bien enregistré avec succès!');

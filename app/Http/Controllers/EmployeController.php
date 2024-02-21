@@ -92,7 +92,7 @@ class EmployeController extends Controller
                         'fixe' => ['string', 'nullable'],
                         'statut' =>'required',
                         'contrat' =>'required',
-                        'sexe' => 'required',
+                        'sexe' => ['string', 'nullable'],
                         'autres' =>['string', 'nullable'],
                         'entite_id' =>'required',
 

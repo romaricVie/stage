@@ -17,7 +17,7 @@
        
       <div class="card">
          <div class="card-body">
-            <h1 class="card-title">Liste des biens de l'espace {{$espace->name}}</h1>
+            <h1 class="card-title">Liste des biens de l'espace {{$espace->name}} ({{$espace->biens->count()}})</h1>
              <!-- Bien table -->
               <table class="table table-hover ">
                   <thead>

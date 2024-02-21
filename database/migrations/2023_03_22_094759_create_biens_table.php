@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('matiere')->nullable();
             $table->string('poids')->nullable();//poids
             $table->string('autres')->nullable();
-            $table->string('code')->nullable();
+            $table->string('code')->unique();
             $table->string('place')->nullable();
             $table->string('energie')->nullable();
             $table->string('fournisseur_name')->nullable();

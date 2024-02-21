@@ -17,7 +17,7 @@
        
       <div class="card">
          <div class="card-body">
-            <h5 class="card-title">Liste des biens de la sous categorie {{$scategorie->name}}</h5>
+            <h5 class="card-title">Liste des biens de la sous categorie {{$scategorie->name}} ({{$scategorie->biens->count()}})</h5>
              <!-- Bien table -->
               <table class="table table-hover ">
                   <thead>

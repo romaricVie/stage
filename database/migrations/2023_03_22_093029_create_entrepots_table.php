@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('etage')->nullable();
             $table->string('piece')->nullable();
             $table->string('parking')->nullable();
+            $table->string('ville')->nullable(); 
+            $table->string('pays')->nullable();
             $table->timestamps();
         });
     }

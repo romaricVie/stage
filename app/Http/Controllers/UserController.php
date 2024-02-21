@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Bien;
+use App\Models\Categorie;
 use App\Models\Employe;
 use App\Models\Entrepot;
 use App\Models\Emplacement;
@@ -28,6 +29,7 @@ class UserController extends Controller
         //query
 
         $biens = Bien::all();
+        $categories = Categorie::count();
         $employes = Employe::all();
         $entrepots = Entrepot::count();
         $emplacements = Emplacement::count();
@@ -47,6 +49,7 @@ class UserController extends Controller
         return view('welcome',[
                   
                   "biens" => $biens,
+                  "categories" =>$categories,
                   "informatiques" => $informatiques,
                   "mobiliers" => $mobiliers,
                   "vehicules" => $vehicules,

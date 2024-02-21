@@ -42,7 +42,9 @@ class Biens extends Component
          {
             $this->biens = $this->biens->where('etiquette','like','%'.$query.'%')
                                         ->orWhere('code','like','%'.$query.'%')
-                                        ->orWhere('name','like','%'.$query.'%');
+                                        ->orWhere('name','like','%'.$query.'%')
+                                        ->orWhere('etat','like','%'.$query.'%')
+                                        ->orWhere('disponibilite','like','%'.$query.'%');
 
          }
 
