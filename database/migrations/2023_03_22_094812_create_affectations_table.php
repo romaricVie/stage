@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('motif_affection')->nullable();
             $table->string('etiquette');
+            $table->string('code');
+            $table->string('name');
             $table->foreignId('employe_id') // employe
                    ->constrained()
                    ->onUpdate('cascade')
